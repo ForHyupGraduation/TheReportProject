@@ -12,10 +12,12 @@ const NewsList = () => {
     const fechData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          "https://newsapi.org/v2/top-headlines?country=kr&apiKey=c1ba871aa1f54493818c4c76cb906552"
-        );
-        setArticles(response.data.articles);
+        const response = await axios
+          .get("http://localhost:8080/news?companyName=삼성전자")
+          .then((response) => {
+            console.log(response);
+            setArticles(response.data);
+          });
       } catch (e) {
         console.log(e);
       }
@@ -35,6 +37,7 @@ const NewsList = () => {
   }
 
   //articles 값이 유효 할 때
+
   return (
     <NewsListBlock>
       {articles.map((article) => (

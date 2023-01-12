@@ -15,7 +15,7 @@ public class BackApplication implements WebMvcConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/*")
+		registry.addMapping("/**")
 				.allowedMethods("GET", "POST")
 				.allowedOrigins("http://localhost:3000")
 				.allowedHeaders("*");

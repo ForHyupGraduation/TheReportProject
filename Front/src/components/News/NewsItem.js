@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const NewsItem = ({ article }) => {
-  const { title, description, url, urlTOImage } = article;
+  const { content, image_url, link_url, title } = article;
   return (
     <NewsItemBlock>
       <div className="contents">
         <h2>
-          <a href={url} target="_blank" rel="noopener noreferrer">
+          <a href={link_url} target="_blank" rel="noopener noreferrer">
             {title}
           </a>
         </h2>
-        <p>{description}</p>
+        <p>{content}</p>
       </div>
     </NewsItemBlock>
   );
