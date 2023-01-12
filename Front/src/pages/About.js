@@ -76,14 +76,14 @@ const MainContents = styled.div`
 
 const MainContent = styled.div`
   margin: 50px;
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: #555555;
   color: black;
   height: 500px;
 `;
 
 const SubContent = styled.div`
   margin-bottom: 20px;
-  background-color: rgba(255, 0, 0, 0.8);
+  background-color: #555555;
   height: 200px;
 `;
 
@@ -91,7 +91,7 @@ const SubContents = styled.div`
   margin: 20px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: #1a1a1a;
   width: 30%;
 `;
 

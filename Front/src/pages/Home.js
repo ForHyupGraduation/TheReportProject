@@ -16,8 +16,11 @@ function Home() {
   };
   return (
     <>
+      {/*전체를 감싸고 있는 container*/}
       <Container>
+        {/* 아코디언 container*/}
         <Accordion defaultActiveKey="0" bg="black">
+          {/* 아코이언 아이템 key = 0 */}
           <Accordion.Item eventKey="0">
             <Accordion.Header>
               companyInfo
@@ -30,17 +33,22 @@ function Home() {
               }}
             >
               <Content>
+                {/* 도넛 차트 대중성, 성장성 */}
                 <Doughnut>
                   <DoughnutChart />
+                  <ChartName>대중성</ChartName>
                 </Doughnut>
                 <Doughnut>
                   <DoughnutChart />
+                  <ChartName>대중성</ChartName>
                 </Doughnut>
               </Content>
+              {/* 라인차트! */}
               <Line>
                 <LineChart />
               </Line>
               <CompanyInfo>
+                {/* 버튼 */}
                 <Button id="companyInfo" size="large" onClick={navigateToAbout}>
                   자세히 보기
                 </Button>
@@ -109,7 +117,11 @@ const Doughnut = styled.div`
   display: flex;
   background-color: yellow;
   width: 50%;
-  height: 300px;
+
+  height: 400px;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Content = styled.div`
@@ -126,4 +138,9 @@ const Line = styled.div`
   width: 100%;
   height: 300px;
   background-color: gray;
+`;
+
+const ChartName = styled.div`
+  display: flex;
+  justify-content: center;
 `;
