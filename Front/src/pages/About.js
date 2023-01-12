@@ -3,6 +3,7 @@ import styled from "styled-components";
 import DoughnutChart from "../components/Graphs/DoughnutChart";
 import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
 import LineChart from "../components/Graphs/LineChart";
+import NewsList from "../components/News/NewsList";
 
 function About() {
   return (
@@ -25,16 +26,7 @@ function About() {
           </MainContent>
           <MainContent>
             <MainNews>
-              <News>News</News>
-              <News>News</News>
-              <News>News</News>
-              <News>News</News>
-            </MainNews>
-            <MainNews>
-              <News>News</News>
-              <News>News</News>
-              <News>News</News>
-              <News>News</News>
+              <NewsList />
             </MainNews>
           </MainContent>
         </MainContents>
