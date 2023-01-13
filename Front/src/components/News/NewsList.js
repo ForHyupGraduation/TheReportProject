@@ -12,7 +12,7 @@ const NewsList = () => {
     const fechData = async () => {
       setLoading(true);
       try {
-        const response = await axios
+        await axios
           .get("http://localhost:8080/news?companyName=삼성전자")
           .then((response) => {
             console.log(response);

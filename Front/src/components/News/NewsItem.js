@@ -7,6 +7,7 @@ const NewsItem = ({ article }) => {
     <NewsItemBlock>
       <div className="contents">
         <h2>
+          <img src={image_url} alt=""></img>
           <a href={link_url} target="_blank" rel="noopener noreferrer">
             {title}
           </a>
@@ -19,7 +20,6 @@ const NewsItem = ({ article }) => {
 
 const NewsItemBlock = styled.div`
   display: flex;
-  width: 33%;
   background-color: white;
   margin: 20px;
   .contents {
