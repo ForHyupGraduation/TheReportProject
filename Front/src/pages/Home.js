@@ -16,7 +16,7 @@ function Home() {
   };
   return (
     <>
-      {/*전체를 감싸고 있는 container*/}
+      {/***************전체를 감싸고 있는 container**************/}
       <Container>
         {/* 아코디언 container*/}
         <Accordion defaultActiveKey="0" bg="black">
@@ -43,18 +43,19 @@ function Home() {
                   <ChartName>대중성</ChartName>
                 </Doughnut>
               </Content>
-              {/* 라인차트! */}
+              {/**************** 라인차트! *******************/}
               <Line>
                 <LineChart />
               </Line>
               <CompanyInfo>
-                {/* 버튼 */}
+                {/*******************자세히 보기 버튼 *******************/}
                 <Button id="companyInfo" size="large" onClick={navigateToAbout}>
                   자세히 보기
                 </Button>
               </CompanyInfo>
             </Accordion.Body>
           </Accordion.Item>
+          {/* ******************아코디언 key 1*********************** */}
           <Accordion.Item eventKey="1">
             <Accordion.Header>
               companyInfo
@@ -115,7 +116,7 @@ export default Home;
 
 const Doughnut = styled.div`
   display: flex;
-  background-color: yellow;
+  background-color: gray;
   width: 50%;
 
   height: 400px;
