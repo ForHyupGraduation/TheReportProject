@@ -9,7 +9,6 @@ import NewsList from "../components/News/NewsList";
 function About() {
   return (
     <>
-        <MainContents>
       <div className="Container row">
         <div className="col-md-9">
           <MainContents>
