@@ -50,7 +50,7 @@ public class NewsCrawler {
                 } catch (IndexOutOfBoundsException e) {
                     imageUrl = null;
                 }
-                newsList.add(new News(title, content, newsLinkUrl, imageUrl));
+                newsList.add(new News(title, content, imageUrl, newsLinkUrl));
             }
         }
         return newsList;
