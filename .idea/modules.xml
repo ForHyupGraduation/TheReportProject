@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/TheReportProject.iml" filepath="$PROJECT_DIR$/.idea/TheReportProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TheReportProject.back.main.iml" filepath="$PROJECT_DIR$/.idea/modules/TheReportProject.back.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/back.main.iml" filepath="$PROJECT_DIR$/.idea/modules/back.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gitdesk.TheReportProject.back.main.iml" filepath="$PROJECT_DIR$/.idea/modules/gitdesk.TheReportProject.back.main.iml" />
     </modules>
   </component>
 </project>
