@@ -2,6 +2,7 @@ package back.back.crawler;
 
 
 
+import back.back.domain.News;
 import back.back.form.NewsForm;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -31,8 +32,8 @@ public class NewsCrawler {
         stringBuffer.replace(url.lastIndexOf("=") + 1, url.length(), String.valueOf(page));
     }
 
-    public List<NewsForm> titleParsing() throws IOException {
-        List<NewsForm> newsList = new ArrayList<>();
+    public List<News> titleParsing() throws IOException {
+        List<News> newsList = new ArrayList<>();
         for (int i=0; i < 1; i++) {
             setUrl(i);
             Connection connect = Jsoup.connect(url);
@@ -50,7 +51,7 @@ public class NewsCrawler {
                 } catch (IndexOutOfBoundsException e) {
                     imageUrl = null;
                 }
-                newsList.add(new NewsForm(title, content, newsLinkUrl, imageUrl));
+                newsList.add(new News(title, content, newsLinkUrl, imageUrl));
             }
         }
         return newsList;
@@ -58,8 +59,8 @@ public class NewsCrawler {
 
     public static void main(String[] args) throws IOException {
         NewsCrawler crawler = new NewsCrawler("lg생활");
-        List<NewsForm> newsForms = crawler.titleParsing();
-        for (NewsForm newsForm : newsForms) {
+        List<News> newsForms = crawler.titleParsing();
+        for (News newsForm : newsForms) {
             System.out.println(newsForm);
         }
         System.out.println("main");

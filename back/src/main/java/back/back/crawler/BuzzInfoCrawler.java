@@ -1,7 +1,8 @@
 package back.back.crawler;
 
 
-import back.back.domain.BuzzIndex;
+import back.back.domain.financialratio.FinancialRatio;
+import back.back.web.BuzzIndex;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,27 +16,70 @@ public class BuzzInfoCrawler{
     private WebDriver webDriver;
     private ChromeDriver chromeDriver = new ChromeDriver();
 
-    public BuzzIndex findBuzzInfo(String buzz) throws InterruptedException {
+    public BuzzIndex findBuzzInfo(String buzz) {
         Map<String, List<String>> map = new HashMap<>();
         chromeDriver.get("https://finance.naver.com");
         WebElement searchInput = chromeDriver.findElement(By.id("stock_items"));
         searchInput.sendKeys(buzz);
-        Thread.sleep(500);
+
+        sleep();
+
         chromeDriver.findElement(By.cssSelector("#atcmp > div > div > ul > li:nth-child(1) > a")).click();
         WebElement buzzInfoTable = chromeDriver.findElement(By.cssSelector("#content > div.section.cop_analysis > div.sub_section > table")).findElement(By.tagName("tbody"));
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 4; i++) { // 9, roe;
             String information = buzzInfoTable.findElement(By.cssSelector("tr:nth-child(" + (i + 1) + ") > th")).getText();
+
             List<String> financialInfo = new ArrayList<>();
-            for (int j = 6; j < 12; j++) {
+            for (int j = 8; j < 12; j++) { //
                 WebElement element = buzzInfoTable.findElement(By.cssSelector("tr:nth-child(" + (i + 1) + ") > td:nth-child(" + (j) + ")"));
                 financialInfo.add(element.getText());
             }
             map.put(information, financialInfo);
         }
-        Map<String, String> empNumberInfo = empNumberExtract(buzz);
+
+        Map<String, String> empNumberInfo = null;
+        try {
+            empNumberInfo = empNumberExtract(buzz);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         closeDriver();
         return new BuzzIndex(map, empNumberInfo);
     }
+
+    private void sleep() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Map<String, FinancialRatio> findBuzzInfo2(String buzz) {
+        Map<String, FinancialRatio> ratioMap = CrawlerUtils.crawlerTarget();
+        chromeDriver.get("https://finance.naver.com");
+        WebElement searchInput = chromeDriver.findElement(By.id("stock_items"));
+        searchInput.sendKeys(buzz);
+        sleep();
+
+        chromeDriver.findElement(By.cssSelector("#atcmp > div > div > ul > li:nth-child(1) > a")).click();
+        WebElement buzzInfoTable = chromeDriver.findElement(By.cssSelector("#content > div.section.cop_analysis > div.sub_section > table")).findElement(By.tagName("tbody"));
+        for (int i = 0; i < 4; i++) { // 9, roe;
+            String information = buzzInfoTable.findElement(By.cssSelector("tr:nth-child(" + (i + 1) + ") > th")).getText();
+            System.out.println(information);
+            FinancialRatio financialRatio = ratioMap.get(information);
+            List<String> financialInfo = new ArrayList<>();
+            for (int j = 8; j < 12; j++) { //
+                WebElement element = buzzInfoTable.findElement(By.cssSelector("tr:nth-child(" + (i + 1) + ") > td:nth-child(" + (j) + ")"));
+                financialInfo.add(element.getText());
+            }
+            financialRatio.setAllValue(financialInfo);
+        }
+        closeDriver();
+        return ratioMap;
+    }
+
+
 
     private Map<String, String> empNumberExtract(String buzz) throws InterruptedException {
         // 사람인 크롤링
@@ -62,8 +106,8 @@ public class BuzzInfoCrawler{
         return map;
     }
     private void closeDriver() {
-        chromeDriver.quit();
         chromeDriver.close();
+        chromeDriver.quit();
         chromeDriver = null;
     }
 }

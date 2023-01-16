@@ -1,9 +1,18 @@
 package back.back;
 
+import back.back.domain.Company;
+import back.back.domain.News;
+import back.back.domain.financialratio.NetProfit;
+import back.back.domain.financialratio.OperatingProfit;
+import back.back.domain.financialratio.OperatingProfitMargin;
+import back.back.domain.financialratio.Revenue;
 import jakarta.persistence.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 @Transactional
@@ -13,9 +22,28 @@ public class JpaTest {
     EntityManager em;
     @Test
     void jpaTest() {
-        Member member = new Member();
-        member.setName("memberA");
-        em.persist(member);
+        NetProfit netProfit = new NetProfit();
+        em.persist(netProfit);
+
+        OperatingProfit operatingProfit = new OperatingProfit();
+        em.persist(operatingProfit);
+
+        Revenue revenue = new Revenue();
+        em.persist(revenue);
+
+        OperatingProfitMargin operatingProfitMargin = new OperatingProfitMargin();
+        em.persist(operatingProfitMargin);
+
+        List<News> news = new ArrayList<>();
+        news.add(new News());
+
+
+        Company company = new Company();
+        company.setNetProfit(netProfit);
+        company.setOperatingProfit(operatingProfit);
+        company.setOperatingProfitMargin(operatingProfitMargin);
+        company.setNews(news);
+        em.persist(company);
     }
 
     @Entity

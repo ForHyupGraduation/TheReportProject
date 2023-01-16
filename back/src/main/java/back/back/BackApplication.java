@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class BackApplication implements WebMvcConfigurer {
 
 	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\driver\\chromedriver.exe");
 		SpringApplication.run(BackApplication.class, args);
 	}
 

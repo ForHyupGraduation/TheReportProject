@@ -1,4 +1,4 @@
-package back.back.domain;
+package back.back.web;
 
 import lombok.Data;
 
