@@ -38,7 +38,7 @@ const NewsList = () => {
   //articles 값이 유효 할 때
 
   return (
-    <NewsListBlock>
+    <NewsListBlock className="how">
       {articles.map((article) => (
         <NewsItem key={article.id} article={article} />
       ))}
@@ -49,5 +49,8 @@ const NewsList = () => {
 export default NewsList;
 
 const NewsListBlock = styled.div`
+  display: flex;
   box-sizing: border-box;
+  flex-wrap: wrap;
+  //행 간격
 `;

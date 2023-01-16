@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const NewsItem = ({ article }) => {
-  const { content, image_url, linkUrl, title } = article;
+  const { content, imageUrl, linkUrl, title } = article;
   return (
     <NewsItemBlock>
       <div className="contents">
+        <img src={imageUrl} alt="NewsImage" />
         <a href={linkUrl} target="_blank" rel="noopener noreferrer">
           <div className="display-1">{title}</div>
           <p>{content}</p>
@@ -17,10 +18,10 @@ const NewsItem = ({ article }) => {
 
 const NewsItemBlock = styled.div`
   display: flex;
-  width: 25%;
   background-color: white;
-  flex-direction: row;
   margin: 20px;
+  width: 20%;
+  box-shadow: 5px 5px;
 
   .display-1 {
     font-size: 20px;
@@ -29,6 +30,9 @@ const NewsItemBlock = styled.div`
   .contents {
     h2 {
       margin: 0;
+    }
+    img {
+      width: 100%;
     }
   }
 `;

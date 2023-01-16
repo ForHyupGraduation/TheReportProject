@@ -21,6 +21,7 @@ const SubinfoList = () => {
           .get("http://localhost:8080/test?companyName=삼성전자")
           .then((response) => {
             setRevenue(response.data);
+
             // console.log(response.data.revenue);
           });
       } catch (e) {
@@ -44,12 +45,12 @@ const SubinfoList = () => {
   //revenue 값이 유효 할 때
 
   return (
-    <SubinfoBlock>
+    <>
       <SubInfoItem1 revenue={revenue.revenue} />
       <SubInfoItem2 revenue={revenue.netProfit} />
       <SubInfoItem3 revenue={revenue.operatingProfit} />
       <SubInfoItem4 revenue={revenue.margin} />
-    </SubinfoBlock>
+    </>
   );
 };
 

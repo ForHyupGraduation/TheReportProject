@@ -117,7 +117,6 @@ const Doughnut = styled.div`
   display: flex;
   background-color: gray;
   width: 50%;
-
   height: 400px;
   justify-content: space-around;
   flex-direction: column;

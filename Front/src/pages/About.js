@@ -28,7 +28,7 @@ function About() {
               <DeScribe>설명란</DeScribe>
             </MainContent>
             <MainContent>
-              <MainNews>
+              <MainNews className="List">
                 <NewsList />
               </MainNews>
             </MainContent>
@@ -89,6 +89,5 @@ const DeScribe = styled.div`
 `;
 
 const MainNews = styled.div`
-  display: flex;
-  flex-direction: row;
+  width: 100%;
 `;

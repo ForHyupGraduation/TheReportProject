@@ -9,8 +9,6 @@ const SubInfoItem4 = ({ revenue }) => {
     previousQuarter,
   } = revenue;
 
-  console.log(revenue);
-
   return (
     <SubInfoItemBlock>
       <h2>Hello</h2>
