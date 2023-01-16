@@ -3,7 +3,6 @@ package back.back.crawler;
 
 
 import back.back.domain.News;
-import back.back.form.NewsForm;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

@@ -2,9 +2,8 @@ package back.back.controller;
 
 import back.back.crawler.BuzzInfoCrawler;
 import back.back.crawler.NewsCrawler;
-import back.back.domain.News;
 import back.back.domain.financialratio.FinancialRatio;
-import back.back.form.NewsForm;
+import back.back.domain.News;
 import back.back.service.CompanyService;
 import back.back.service.NewsFormService;
 import back.back.web.CompanyDto;
@@ -27,19 +26,19 @@ public class NewsFormController {
     private final CompanyService service2;
     private final ObjectMapper mapper;
     @GetMapping("/news")
-    public List<NewsForm> newsForm(@RequestParam String companyName) {
+    public List<News> newsForm(@RequestParam String companyName) {
         NewsCrawler newsCrawler = new NewsCrawler(companyName);
-        List<NewsForm> newsForms = service.findAll();
+        List<News> news = service.findAll();
 
-        return newsForms;
+        return news;
     }
 
     @GetMapping("/news/add")
     public String addData(@RequestParam String companyName) {
         NewsCrawler newsCrawler = new NewsCrawler(companyName);
-        List<News> newsForms = null;
+        List<back.back.domain.News> news = null;
         try {
-            newsForms = newsCrawler.titleParsing();
+            news = newsCrawler.titleParsing();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -63,8 +62,8 @@ public class NewsFormController {
         Map<String, FinancialRatio> ratio = crawler.findBuzzInfo2(companyName);
 
         NewsCrawler crawler2 = new NewsCrawler(companyName);
-        List<News> newsForms = crawler2.titleParsing();
-        MainPage save = service2.save(ratio, newsForms, companyName);
+        List<back.back.domain.News> news = crawler2.titleParsing();
+        MainPage save = service2.save(ratio, news, companyName);
 
         return "ok";
     }
