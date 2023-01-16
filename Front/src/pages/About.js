@@ -5,6 +5,7 @@ import DoughnutChart from "../components/Graphs/DoughnutChart";
 import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
 import LineChart from "../components/Graphs/LineChart";
 import NewsList from "../components/News/NewsList";
+import SubinfoList from "../components/SubInfo/SubInfoList";
 
 function About() {
   return (
@@ -35,19 +36,9 @@ function About() {
         </div>
         <div className="col-md-3">
           <SubContents>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
-            <SubContent>SubContent</SubContent>
+            <SubContent>
+              <SubinfoList />
+            </SubContent>
           </SubContents>
         </div>
       </div>
@@ -70,8 +61,7 @@ const MainContent = styled.div`
 
 const SubContent = styled.div`
   margin: 0 0 20px 0;
-  background-color: #555555;
-  height: 200px;
+  background-color: white;
 `;
 
 const SubContents = styled.div`

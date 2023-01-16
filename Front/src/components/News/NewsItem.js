@@ -17,8 +17,15 @@ const NewsItem = ({ article }) => {
 
 const NewsItemBlock = styled.div`
   display: flex;
+  width: 25%;
   background-color: white;
+  flex-direction: row;
   margin: 20px;
+
+  .display-1 {
+    font-size: 20px;
+  }
+
   .contents {
     h2 {
       margin: 0;

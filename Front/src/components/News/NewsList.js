@@ -15,7 +15,6 @@ const NewsList = () => {
         await axios
           .get("http://localhost:8080/news?companyName=삼성전자")
           .then((response) => {
-            console.log(response);
             setArticles(response.data);
           });
       } catch (e) {

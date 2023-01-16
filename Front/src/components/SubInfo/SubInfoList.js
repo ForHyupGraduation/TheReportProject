@@ -1,11 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import NewsItem from "./NewsItem";
+
 import styled from "styled-components";
 import axios from "axios";
 
-const NewsList = () => {
-  const [articles, setArticles] = useState(null);
+import SubInfoItem2 from "./SubInfoItem2";
+import SubInfoItem3 from "./SubInfoItem3";
+import SubInfoItem4 from "./SubInfoItem4";
+import SubInfoItem1 from "./SubInfoItem1";
+
+const SubinfoList = () => {
+  const [revenue, setRevenue] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -13,10 +18,10 @@ const NewsList = () => {
       setLoading(true);
       try {
         await axios
-          .get("http://localhost:8080/news?companyName=삼성전자")
+          .get("http://localhost:8080/test?companyName=삼성전자")
           .then((response) => {
-            console.log(response);
-            setArticles(response.data);
+            setRevenue(response.data);
+            // console.log(response.data.revenue);
           });
       } catch (e) {
         console.log(e);
@@ -28,27 +33,28 @@ const NewsList = () => {
 
   // 아직 대기중임
   if (loading) {
-    return <NewsListBlock>대기 중...</NewsListBlock>;
+    return <SubinfoBlock>대기 중...</SubinfoBlock>;
   }
-  //아직 articles 값이 설정되지 않았을 때
+  //아직 revenue 값이 설정되지 않았을 때
 
-  if (!articles) {
+  if (!revenue) {
     return null;
   }
 
-  //articles 값이 유효 할 때
+  //revenue 값이 유효 할 때
 
   return (
-    <NewsListBlock>
-      {articles.map((article) => (
-        <NewsItem key={article.id} article={article} />
-      ))}
-    </NewsListBlock>
+    <SubinfoBlock>
+      <SubInfoItem1 revenue={revenue.revenue} />
+      <SubInfoItem2 revenue={revenue.netProfit} />
+      <SubInfoItem3 revenue={revenue.operatingProfit} />
+      <SubInfoItem4 revenue={revenue.margin} />
+    </SubinfoBlock>
   );
 };
 
-export default NewsList;
+export default SubinfoList;
 
-const NewsListBlock = styled.div`
+const SubinfoBlock = styled.div`
   box-sizing: border-box;
 `;
