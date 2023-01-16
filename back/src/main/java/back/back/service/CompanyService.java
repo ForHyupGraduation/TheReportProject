@@ -3,13 +3,11 @@ package back.back.service;
 import back.back.domain.Company;
 import back.back.domain.News;
 import back.back.domain.financialratio.*;
-import back.back.form.NewsForm;
 import back.back.repository.CompanyRepository;
 import back.back.repository.FinancialRepository;
+import back.back.repository.NewsRepository;
 import back.back.web.CompanyDto;
-import back.back.web.HomePage;
 import back.back.web.MainPage;
-import com.sun.tools.javac.Main;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,19 +21,20 @@ import java.util.Map;
 public class CompanyService {
     private final CompanyRepository companyRepository;
     private final FinancialRepository financialRepository;
-
+    private final NewsRepository newsRepository;
     public MainPage save(Map<String, FinancialRatio> ratio, List<News> newsForms, String companyName) {
         OperatingProfitMargin margin = (OperatingProfitMargin) ratio.get("영업이익률");
         OperatingProfit profit = (OperatingProfit) ratio.get("영업이익");
         Revenue revenue = (Revenue) ratio.get("매출액");
         NetProfit netProfit = (NetProfit) ratio.get("당기순이익");
         financialRepository.save(margin, profit, revenue, netProfit);
-
         Company company = new Company();
         company.setCompanyName(companyName);
+
         for (News news : newsForms) {
             company.addNews(news);
         }
+
         company.setRevenue(revenue);
         company.setOperatingProfit(profit);
         company.setNetProfit(netProfit);

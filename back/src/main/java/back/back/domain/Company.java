@@ -21,7 +21,7 @@ public class Company {
     @Column(name = "company_name")
     private String companyName;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<News> news = new ArrayList<>();
 

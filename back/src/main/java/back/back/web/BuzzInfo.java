@@ -1,7 +1,6 @@
 package back.back.web;
 
 import back.back.domain.News;
-import back.back.form.NewsForm;
 import lombok.Data;
 
 import java.util.List;
