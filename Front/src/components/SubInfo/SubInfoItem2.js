@@ -1,22 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import LineChart2 from "../Graphs/LineChart2";
 
-const SubInfoItem2 = ({ revenue }) => {
-  const {
-    previousFourthQuarter,
-    previousThirdQuarter,
-    previousSecondQuarter,
-    previousQuarter,
-  } = revenue;
-
+const SubInfoItem1 = ({ revenue }) => {
   return (
     <SubInfoItemBlock>
-      <h2>Hello</h2>
       <div className="contents">
-        <p>{previousFourthQuarter}</p>
-        <p>{previousThirdQuarter}</p>
-        <p>{previousSecondQuarter}</p>
-        <p>{previousQuarter}</p>
+        <div>순이익</div>
+        <LineChart2 revenue={revenue} />
       </div>
     </SubInfoItemBlock>
   );
@@ -33,4 +24,4 @@ const SubInfoItemBlock = styled.div`
   }
 `;
 
-export default SubInfoItem2;
+export default SubInfoItem1;

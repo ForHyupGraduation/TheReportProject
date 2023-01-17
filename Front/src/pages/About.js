@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import DoughnutChart from "../components/Graphs/DoughnutChart";
 import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
-import LineChart from "../components/Graphs/LineChart";
+import MultiAxisLineChart from "../components/Graphs/MultiAxisLineChart";
 import NewsList from "../components/News/NewsList";
 import SubinfoList from "../components/SubInfo/SubInfoList";
 
@@ -14,7 +14,7 @@ function About() {
         <div className="col-md-9">
           <MainContents>
             <MainContent>
-              <LineChart />
+              <MultiAxisLineChart />
             </MainContent>
             <MainContent>
               <Content>
