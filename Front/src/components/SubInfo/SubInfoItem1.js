@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styled from "styled-components";
 import LineChart1 from "../Graphs/LineChart1";
 
