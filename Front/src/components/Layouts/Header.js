@@ -6,23 +6,23 @@ import styled from "styled-components";
 const Header = () => {
   return (
     <Title>
-      <a href="/" style={{ textDecoration: "none" }}>
-        <header
-          style={{
-            background: "black",
-            padding: 20,
-            fontSize: 90,
-            fontWeight: 900,
-            color: "#44D52C",
-            borderBottom: "3px solid #44D52C",
-            marginBottom: 30,
-            textAlign: "center",
-            textShadow: "2px 2px 2px #44D52C",
-          }}
-        >
+      <header
+        style={{
+          background: "black",
+          padding: 20,
+          fontSize: 90,
+          fontWeight: 900,
+
+          borderBottom: "3px solid #44D52C",
+          marginBottom: 30,
+          textAlign: "center",
+          textShadow: "2px 2px 2px #44D52C",
+        }}
+      >
+        <a href="/" style={{ color: "#44D52C", textDecoration: "none" }}>
           The Reporter
-        </header>
-      </a>
+        </a>
+      </header>
       <main>
         <Outlet />
       </main>

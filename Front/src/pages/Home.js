@@ -7,12 +7,39 @@ import styled from "styled-components";
 import DoughnutChart from "../components/Graphs/DoughnutChart";
 import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
 import LineChart from "../components/Graphs/LineChart";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Home() {
+  const [company, setCompany] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fechData = async () => {
+      setLoading(true);
+      try {
+        await axios.get("http://localhost:8080/").then((response) => {
+          setCompany(response.data);
+        });
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fechData();
+  }, []);
+
   const navigate = useNavigate();
   const navigateToAbout = () => {
     navigate("/about");
   };
+  if (loading) {
+    return <div>대기중</div>;
+  }
+  if (!company) {
+    return null;
+  }
+  console.log(company.simpleInfos);
   return (
     <>
       {/*전체를 감싸고 있는 container*/}
@@ -22,7 +49,7 @@ function Home() {
           {/* 아코이언 아이템 key = 0 */}
           <Accordion.Item eventKey="0">
             <Accordion.Header>
-              companyInfo
+              {company.simpleInfos[0].companyName}
               <Badge bg="secondary">New</Badge>
               <Badge bg="secondary">New</Badge>
             </Accordion.Header>
@@ -56,7 +83,7 @@ function Home() {
           </Accordion.Item>
           <Accordion.Item eventKey="1">
             <Accordion.Header>
-              companyInfo
+              {company.simpleInfos[1].companyName}
               <Badge bg="secondary">New</Badge>
               <Badge bg="secondary">New</Badge>
             </Accordion.Header>
@@ -81,7 +108,7 @@ function Home() {
           </Accordion.Item>
           <Accordion.Item eventKey="2">
             <Accordion.Header>
-              companyInfo
+              {company.simpleInfos[2].companyName}
               <Badge bg="secondary">New</Badge>
               <Badge bg="secondary">New</Badge>
             </Accordion.Header>
