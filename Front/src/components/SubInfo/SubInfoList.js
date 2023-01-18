@@ -18,10 +18,9 @@ const SubinfoList = () => {
       setLoading(true);
       try {
         await axios
-          .get("http://localhost:8080/news/add?companyName=삼성전자")
+          .get("http://localhost:8080/test?companyName=삼성전자")
           .then((response) => {
             setRevenue(response.data);
-            console.log(response.data.revenue);
           });
       } catch (e) {
         console.log(e);
