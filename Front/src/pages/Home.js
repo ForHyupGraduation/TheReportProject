@@ -6,31 +6,10 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import DoughnutChart from "../components/Graphs/DoughnutChart";
 import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
-<<<<<<< HEAD
-import MultiAxisLineChart from "../components/Graphs/MultiAxisLineChart";
-// import { useState, useEffect } from "react";
-// import axios from "axios";
-
-function Home() {
-  const navigate = useNavigate();
-  // const [company, setCompany] = useState(null);
-
-  // useEffect(() => {
-  //   const fechData = async () => {
-  //     await axios
-  //       .get("http://localhost:8080/news/add?companyName=삼성전자")
-  //       .then((response) => {
-  //         setCompany(response);
-  //       });
-  //   };
-  //   fechData();
-  // }, []);
-=======
 import LineChart from "../components/Graphs/LineChart";
 
 function Home() {
   const navigate = useNavigate();
->>>>>>> parent of 9945a47 (add graph >> SubInfo)
 
   const navigateToAbout = () => {
     navigate("/about");

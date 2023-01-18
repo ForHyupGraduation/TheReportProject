@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import React from "react";
->>>>>>> parent of 9945a47 (add graph >> SubInfo)
 import styled from "styled-components";
 
 const SubInfoItem1 = ({ revenue }) => {
