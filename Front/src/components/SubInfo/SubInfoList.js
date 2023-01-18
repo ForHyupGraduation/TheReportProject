@@ -4,9 +4,6 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-import SubInfoItem2 from "./SubInfoItem2";
-import SubInfoItem3 from "./SubInfoItem3";
-import SubInfoItem4 from "./SubInfoItem4";
 import SubInfoItem1 from "./SubInfoItem1";
 
 const SubinfoList = () => {
@@ -44,10 +41,18 @@ const SubinfoList = () => {
 
   return (
     <>
-      <SubInfoItem1 revenue={revenue.revenue} />
-      <SubInfoItem2 revenue={revenue.netProfit} />
-      <SubInfoItem3 revenue={revenue.operatingProfit} />
-      <SubInfoItem4 revenue={revenue.margin} />
+      <Block>
+        <SubInfoItem1 revenue={revenue.revenue} />
+      </Block>
+      <Block>
+        <SubInfoItem1 revenue={revenue.netProfit} />
+      </Block>
+      <Block>
+        <SubInfoItem1 revenue={revenue.operatingProfit} />
+      </Block>
+      <Block>
+        <SubInfoItem1 revenue={revenue.margin} />
+      </Block>
     </>
   );
 };
@@ -56,4 +61,8 @@ export default SubinfoList;
 
 const SubinfoBlock = styled.div`
   box-sizing: border-box;
+`;
+
+const Block = styled.div`
+  margin-bottom: 20px;
 `;
