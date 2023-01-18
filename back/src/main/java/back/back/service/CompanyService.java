@@ -7,6 +7,8 @@ import back.back.repository.CompanyRepository;
 import back.back.repository.FinancialRepository;
 import back.back.repository.NewsRepository;
 import back.back.web.CompanyDto;
+import back.back.web.CompanySimpleInfo;
+import back.back.web.HomeDto;
 import back.back.web.MainPage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -50,7 +52,15 @@ public class CompanyService {
 
         return mainPage;
     }
-
+    public HomeDto home() {
+        List<Company> company = companyRepository.findAll();
+        HomeDto homeDto = new HomeDto();
+        for (Company company1 : company) {
+            homeDto.getSimpleInfos().add(new CompanySimpleInfo(company1.getCompanyName(),
+                    company1.getGrowthPoint(), company1.getInterestPoint()));
+        }
+        return homeDto;
+    }
     public CompanyDto mainPage(String companyName) {
         CompanyDto companyDto = companyRepository.findByCompanyName(companyName);
         return companyDto;

@@ -3,8 +3,6 @@ package back.back.domain.financialratio;
 import jakarta.persistence.*;
 
 import java.util.List;
-
-// 영업 이익
 @Entity
 public class Revenue implements FinancialRatio{
     @Id
