@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import DoughnutChart from "../components/Graphs/DoughnutChart";
 import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
+<<<<<<< HEAD
 import MultiAxisLineChart from "../components/Graphs/MultiAxisLineChart";
 // import { useState, useEffect } from "react";
 // import axios from "axios";
@@ -24,6 +25,12 @@ function Home() {
   //   };
   //   fechData();
   // }, []);
+=======
+import LineChart from "../components/Graphs/LineChart";
+
+function Home() {
+  const navigate = useNavigate();
+>>>>>>> parent of 9945a47 (add graph >> SubInfo)
 
   const navigateToAbout = () => {
     navigate("/about");
@@ -37,6 +44,7 @@ function Home() {
           {/* 아코이언 아이템 key = 0 */}
           <Accordion.Item eventKey="0">
             <Accordion.Header>
+              companyInfo
               <Badge bg="secondary">New</Badge>
               <Badge bg="secondary">New</Badge>
             </Accordion.Header>
@@ -58,7 +66,7 @@ function Home() {
               </Content>
               {/* 라인차트! */}
               <Line>
-                <MultiAxisLineChart />
+                <LineChart />
               </Line>
               <CompanyInfo>
                 {/* 버튼 */}
@@ -84,7 +92,7 @@ function Home() {
                 </Doughnut>
               </Content>
               <Line>
-                <MultiAxisLineChart />
+                <LineChart />
               </Line>
               <CompanyInfo>
                 <Button id="companyInfo" size="large" onClick={navigateToAbout}>
@@ -109,7 +117,7 @@ function Home() {
                 </Doughnut>
               </Content>
               <Line>
-                <MultiAxisLineChart />
+                <LineChart />
               </Line>
               <CompanyInfo>
                 <Button id="companyInfo" size="large" onClick={navigateToAbout}>

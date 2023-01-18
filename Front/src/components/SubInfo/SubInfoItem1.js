@@ -1,12 +1,25 @@
+<<<<<<< HEAD
+=======
+import React from "react";
+>>>>>>> parent of 9945a47 (add graph >> SubInfo)
 import styled from "styled-components";
-import LineChart1 from "../Graphs/LineChart1";
 
 const SubInfoItem1 = ({ revenue }) => {
+  const {
+    previousFourthQuarter,
+    previousThirdQuarter,
+    previousSecondQuarter,
+    previousQuarter,
+  } = revenue;
+
   return (
     <SubInfoItemBlock>
+      <h2>Hello</h2>
       <div className="contents">
-        <div>매출액</div>
-        <LineChart1 revenue={revenue} />
+        <p>{previousFourthQuarter}</p>
+        <p>{previousThirdQuarter}</p>
+        <p>{previousSecondQuarter}</p>
+        <p>{previousQuarter}</p>
       </div>
     </SubInfoItemBlock>
   );

@@ -15,7 +15,7 @@ ChartJS.register(
   PointElement
 );
 
-const MultiAxisLineChart = () => {
+const LineChart = () => {
   const data = {
     labels: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
     datasets: [
@@ -55,4 +55,4 @@ const MultiAxisLineChart = () => {
   return <Line data={data} options={options} style={{ width: "100%" }} />;
 };
 
-export default MultiAxisLineChart;
+export default LineChart;
