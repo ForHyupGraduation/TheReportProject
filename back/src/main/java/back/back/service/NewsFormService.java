@@ -10,12 +10,14 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+
 public class NewsFormService {
     private final NewsRepository repository;
 
     @Transactional
     public void saveAll(List<News> news) {
-        news.forEach((newsForm) -> repository.save(newsForm));
+        news.forEach((newsForm)
+                -> repository.save(newsForm));
     }
 
     @Transactional

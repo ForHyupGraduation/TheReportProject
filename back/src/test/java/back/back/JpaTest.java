@@ -42,7 +42,7 @@ public class JpaTest {
         company.setNetProfit(netProfit);
         company.setOperatingProfit(operatingProfit);
         company.setOperatingProfitMargin(operatingProfitMargin);
-        company.setNews(news);
+
         em.persist(company);
     }
 

@@ -6,11 +6,11 @@ import java.util.List;
 
 @Entity
 public class NetProfit implements FinancialRatio{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "net_profit_id")
     private Long id;
-
     private String previousFourthQuarter;
     private String previousThirdQuarter;
     private String previousSecondQuarter;

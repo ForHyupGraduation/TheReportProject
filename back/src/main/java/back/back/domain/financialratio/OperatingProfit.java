@@ -10,7 +10,6 @@ public class OperatingProfit implements FinancialRatio{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "operating_profit_id")
     private Long id;
-
     private String previousFourthQuarter;
     private String previousThirdQuarter;
     private String previousSecondQuarter;

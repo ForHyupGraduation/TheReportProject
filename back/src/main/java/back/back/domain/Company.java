@@ -18,6 +18,7 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "company_id")
     private Long id;
+
     @Column(name = "company_name")
     private String companyName;
 
@@ -44,7 +45,6 @@ public class Company {
     private Integer growthPoint;
 
     private Integer interestPoint;
-
 
     public Long getId() {
         return id;

@@ -21,14 +21,12 @@ public class BuzzInfoCrawler{
         chromeDriver.get("https://finance.naver.com");
         WebElement searchInput = chromeDriver.findElement(By.id("stock_items"));
         searchInput.sendKeys(buzz);
-
         sleep();
 
         chromeDriver.findElement(By.cssSelector("#atcmp > div > div > ul > li:nth-child(1) > a")).click();
         WebElement buzzInfoTable = chromeDriver.findElement(By.cssSelector("#content > div.section.cop_analysis > div.sub_section > table")).findElement(By.tagName("tbody"));
         for (int i = 0; i < 4; i++) { // 9, roe;
             String information = buzzInfoTable.findElement(By.cssSelector("tr:nth-child(" + (i + 1) + ") > th")).getText();
-
             List<String> financialInfo = new ArrayList<>();
             for (int j = 8; j < 12; j++) { //
                 WebElement element = buzzInfoTable.findElement(By.cssSelector("tr:nth-child(" + (i + 1) + ") > td:nth-child(" + (j) + ")"));
