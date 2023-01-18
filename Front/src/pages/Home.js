@@ -10,7 +10,6 @@ import LineChart from "../components/Graphs/LineChart";
 
 function Home() {
   const navigate = useNavigate();
-
   const navigateToAbout = () => {
     navigate("/about");
   };
