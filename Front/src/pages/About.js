@@ -8,6 +8,7 @@ import NewsList from "../components/News/NewsList";
 import SubinfoList from "../components/SubInfo/SubInfoList";
 
 function About() {
+  console.log("재광님은 너무 잘생겼어요~")
   return (
     <>
       <div className="Container row">
