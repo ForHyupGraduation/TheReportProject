@@ -2,27 +2,30 @@ import React from "react";
 import { useState, useEffect } from "react";
 import NewsItem from "./NewsItem";
 import styled from "styled-components";
-import axios from "axios";
+//import axios from "axios";
+import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
 
 const NewsList = () => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fechData = async () => {
-      setLoading(true);
-      try {
-        await axios
-          .get("http://localhost:8080/news?companyName=삼성전자")
-          .then((response) => {
-            setArticles(response.data);
-          });
-      } catch (e) {
-        console.log(e);
-      }
-      setLoading(false);
-    };
-    fechData();
+    // const fechData = async () => {
+    //   setLoading(true);
+    //   try {
+    //     await axios
+    //       .get("http://localhost:8080/test?companyName=카카오 ")
+    //       .then((response) => {
+    //         setArticles(response.data);
+    //       });
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    //   setLoading(false);
+    // };
+    // fechData();
+    setArticles(KakaoCompanyInfos.news);
+    setLoading(false);
   }, []);
 
   // 아직 대기중임

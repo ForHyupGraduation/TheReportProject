@@ -1,0 +1,99 @@
+{
+  "companyName": "카카오 ",
+  "news": [
+    {
+      "id": 1,
+      "title": "카카오-다음 합병서 8000억원 탈세?…경찰, 무혐의 결론",
+      "content": "경찰이 카카오와 다음이 합병하는 과정에서 8000억원 탈세를 했다는 의혹에 대해 사건을 무혐의로 결론지었습니다. 카카오 김범수 창업자와 그가 소유한 케이큐브홀딩스가 탈세했다는 의혹이 제기됐는데, 세금이 정상...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F374%2F2023%2F01%2F20%2F319584.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "https://biz.sbs.co.kr/article_hub/20000099581?division=NAVER"
+    },
+    {
+      "id": 2,
+      "title": "[fn마켓워치] 카카오, '제주 스타트업' 지원 나선다",
+      "content": "카카오와 제주은행 등이 주요 출자자로 나서 제주도의 벤처 스타트업 생태계 지원에 나선다. 19일... 이번 벤처투자조합 1호에는 제주센터 전담기업인 카카오를 비롯해서 은행권청년창업재단(D.CAMP)과 제주은행...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F014%2F2023%2F01%2F19%2F4957875.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "http://www.fnnews.com/news/202301191052597500"
+    },
+    {
+      "id": 3,
+      "title": "카카오페이지·웹툰서 '나 혼자만 레벨업' 외전 웹툰 연재",
+      "content": "카카오엔터테인먼트 대표 지식재산권(IP) '나 혼자만 레벨업'의 외전 웹툰이 론칭된다. 21일 카카오엔터에 따르면 이날부터 카카오페이지와 카카오웹툰에서 '나 혼자만 레벨업' 외전 웹툰이 연재된다. 카카오엔터...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F417%2F2023%2F01%2F21%2F888802.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "http://moneys.mt.co.kr/news/mwView.php?no=2023012017295219620"
+    },
+    {
+      "id": 4,
+      "title": "티맵·카카오·아틀란·네이버, 설연휴 '빠른 길' 찾을 똑똑한 내비는?",
+      "content": "카카오내비는 빅데이터를 바탕으로 최적의 경로를 찾아낸다. 시원한 지도 뷰와 다양한 추천, 탐색 기능으로... 운전을 방해하지 않도록 카카오아이와 멜론 등을 연동해 음성으로 직접 음악 검색이 가능하다. 맵퍼스가...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F030%2F2023%2F01%2F21%2F3074004.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "https://www.etnews.com/20230121000010"
+    },
+    {
+      "id": 5,
+      "title": "네이버 vs 카카오 웹툰 북미 시장 격돌",
+      "content": "경쟁 카카오엔터, 1.2조 투자 유치로 '타파스' 확장 속도 미국, 세계 최대 엔터테인먼트 시장…성장성... 후발주자인 카카오엔터테인먼트는 1조2000억원 대규모 투자 유치에 발판 삼아 타파스엔터테인먼트를 중심으로...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F003%2F2023%2F01%2F20%2F11652932.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "http://www.newsis.com/view/?id=NISX20230119_0002165537&cID=13006&pID=13100"
+    },
+    {
+      "id": 6,
+      "title": "카카오엔터프라이즈, 대학교 모바일 플랫폼 구축 사업 추진",
+      "content": "카카오엔터프라이즈는 19일 가천대, 인천대 등을 비롯한 다수의 대학이 스마트 교육 디지털 플랫폼 구축을 위해 카카오워크를 도입했다고 밝혔다. 카카오엔터프라이즈는 이날 교육 환경 혁신의 일환으로 교육 IT 서비스...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F092%2F2023%2F01%2F19%2F2280243.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "https://zdnet.co.kr/view/?no=20230119161908"
+    },
+    {
+      "id": 7,
+      "title": "카카오뱅크, 내 문서함 서비스 출시",
+      "content": "카카오뱅크는 ‘내 문서함’ 서비스를 출시했다고 19일 밝혔다. ‘내 문서함’ 서비스는 예금잔액조회서, 지급정지사실통지서 등 카카오뱅크 안내 문서와 행정안전부 국민비서 문서 등 등기우편으로 받아보던 문서를...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F241%2F2023%2F01%2F19%2F3252673.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "https://isplus.com/article/view/isp202301190026"
+    },
+    {
+      "id": 8,
+      "title": "(영상)카카오손보 2호 상품도 '미니보험'",
+      "content": "뉴스토마토 = 허지은 기자 | '보험업계 메기'로 불렸던 카카오페이손해보험이 새로운 소액단기보험... 24일 보험업계에 따르면 카카오페이손보는 현재 신상품 출시를 검토 중입니다. 카카오페이손보는 지난해...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5119%2F2023%2F01%2F21%2F876384.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "http://www.newstomato.com/ReadNews.aspx?no=1173291&inflow=N"
+    },
+    {
+      "id": 9,
+      "title": "글로벌 확장 노리는 카카오게임즈..핵심 전략은? [1일IT템]",
+      "content": "올해 경영 슬로건을 '비욘드 코리아'로 설정한 카카오게임즈가 글로벌 시장 확장에 박차를 가한다. 신작... 현지 성우 초빙, 고도의 현지화 전략 예고 20일 관련 업계에 따르면, 카카오게임즈는 신작 수집형 역할수행게임...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F014%2F2023%2F01%2F21%2F4958722.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "http://www.fnnews.com/news/202301201358141865"
+    },
+    {
+      "id": 10,
+      "title": "카카오뱅크, 적금 금리 최대 0.3%p 인상",
+      "content": "카카오뱅크는 자유적금 기본 금리를 최대 0.3%포인트(p) 인상한다고 19일 밝혔다. 이에 따라 오는 20일부터... 카카오뱅크 관계자는 \"목돈을 마련하려는 카카오뱅크 고객들을 위해 적금 금리를 인상했다\"며 \"어려운 시기...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F421%2F2023%2F01%2F19%2F6587222.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "https://www.news1.kr/articles/4930096"
+    }
+  ],
+  "revenue": {
+    "previousFourthQuarter": "16,517",
+    "previousThirdQuarter": "18,223",
+    "previousSecondQuarter": "18,587",
+    "previousQuarter": "19,034"
+  },
+  "netProfit": {
+    "previousFourthQuarter": "13,221",
+    "previousThirdQuarter": "1,012",
+    "previousSecondQuarter": "1,372",
+    "previousQuarter": "408"
+  },
+  "operatingProfit": {
+    "previousFourthQuarter": "1,587",
+    "previousThirdQuarter": "1,710",
+    "previousSecondQuarter": "1,503",
+    "previousQuarter": "1,046"
+  },
+  "margin": {
+    "previousFourthQuarter": "9.61",
+    "previousThirdQuarter": "9.38",
+    "previousSecondQuarter": "8.09",
+    "previousQuarter": "5.50"
+  }
+}

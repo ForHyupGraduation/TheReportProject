@@ -9,33 +9,36 @@ import DoughnutChart from "../components/Graphs/DoughnutChart";
 import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
 import LineChart from "../components/Graphs/LineChart";
 import { useEffect, useState } from "react";
-import axios from "axios";
+//import axios from "axios";
 import LoadingPage from "./LoadingPage";
+import companies from "../components/DB/Companies.json";
 
 function Home() {
   const [company, setCompany] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    //const fechData = async () => {
-    //  setLoading(true);
-    //  try {
-    //    await axios.get("http://localhost:8080/").then((response) => {
-    //      setCompany(response.data);
-    //    });
-    //  } catch (e) {
-    //    console.log(e);
-    //  }
-    //  setLoading(false);
-    //};
-    //fechData();
+    // const fechData = async () => {
+    //   setLoading(true);
+    //   try {
+    //     await axios.get("http://localhost:8080/").then((response) => {
+    //       setCompany(response.data);
+    //     });
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    //   setLoading(false);
+    // };
+    // fechData();
+
+    setCompany(companies);
 
     setLoading(false);
   }, []);
 
   const navigate = useNavigate();
   const navigateToAbout = () => {
-    navigate("/about");
+    navigate("/company/:name");
   };
   if (loading) {
     return <div>대기중</div>;
@@ -43,16 +46,10 @@ function Home() {
   if (!company) {
     return null;
   }
-  console.log(company.simpleInfos);
 
-  if(loading)
-  {
-    return(
-      <LoadingPage />
-    )
-  }
-  else
-  {
+  if (loading) {
+    return <LoadingPage />;
+  } else {
     return (
       <>
         {/*전체를 감싸고 있는 container*/}
@@ -88,7 +85,11 @@ function Home() {
                 </Line>
                 <CompanyInfo>
                   {/* 버튼 */}
-                  <Button id="companyInfo" size="large" onClick={navigateToAbout}>
+                  <Button
+                    id="companyInfo"
+                    size="large"
+                    onClick={navigateToAbout}
+                  >
                     자세히 보기
                   </Button>
                 </CompanyInfo>
@@ -113,7 +114,11 @@ function Home() {
                   <LineChart />
                 </Line>
                 <CompanyInfo>
-                  <Button id="companyInfo" size="large" onClick={navigateToAbout}>
+                  <Button
+                    id="companyInfo"
+                    size="large"
+                    onClick={navigateToAbout}
+                  >
                     자세히 보기
                   </Button>
                 </CompanyInfo>
@@ -138,7 +143,11 @@ function Home() {
                   <LineChart />
                 </Line>
                 <CompanyInfo>
-                  <Button id="companyInfo" size="large" onClick={navigateToAbout}>
+                  <Button
+                    id="companyInfo"
+                    size="large"
+                    onClick={navigateToAbout}
+                  >
                     자세히 보기
                   </Button>
                 </CompanyInfo>
@@ -149,8 +158,6 @@ function Home() {
       </>
     );
   }
-
-
 }
 
 export default Home;

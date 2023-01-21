@@ -12,38 +12,31 @@ flag 3 means margin
 */
 
 const SubInfoItem = ({ revenue, flag }) => {
-  const [ val, setVal ] = useState(null);
-  const [ isLoading, setIsLoading ] = useState(true);
+  const [val, setVal] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if(flag == 1)
-    {
-      setVal(revenue.revenue)
+    if (flag === 1) {
+      setVal(revenue.revenue);
+    } else if (flag === 2) {
+      setVal(revenue.netProfit);
+    } else if (flag === 3) {
+      setVal(revenue.operatingProfit);
+    } else {
+      setVal(revenue.margin);
     }
-    else if(flag == 2)
-    {
-      setVal(revenue.netProfit)
-    }
-    else if(flag == 3)
-    {
-      setVal(revenue.operatingProfit)
-    }
-    else
-    {
-      setVal(revenue.margin)
-    }
-    
+
     setIsLoading(false);
   }, []);
-  
-
-  return (
-    <SubInfoItemBlock>
-      <div className="contents">
-        <LineChart2 revenue={val} />
-      </div>
-    </SubInfoItemBlock>
-  );
+  if (!isLoading) {
+    return (
+      <SubInfoItemBlock>
+        <div className="contents">
+          <LineChart2 revenue={val} />
+        </div>
+      </SubInfoItemBlock>
+    );
+  }
 };
 
 const SubInfoItemBlock = styled.div`
