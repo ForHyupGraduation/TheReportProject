@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
 import styled from "styled-components";
 import DoughnutChart from "../components/Graphs/DoughnutChart";
@@ -7,8 +9,20 @@ import LineChart from "../components/Graphs/LineChart";
 import NewsList from "../components/News/NewsList";
 import SubinfoList from "../components/SubInfo/SubInfoList";
 
-function About() {
-  console.log("재광님은 너무 잘생겼어요~")
+function Company() {
+  
+  const [ company, setCompany ] = useState(null);
+  
+  useEffect(() => {
+
+  }, []);
+
+  const GetCompanyInfo = () => {
+
+  };
+
+  
+
   return (
     <>
       <div className="Container row">
@@ -47,7 +61,7 @@ function About() {
   );
 }
 
-export default About;
+export default Company;
 
 const MainContents = styled.div`
   display: flex;

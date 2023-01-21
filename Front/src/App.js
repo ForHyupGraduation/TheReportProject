@@ -1,16 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import React from "react";
-import About from "./pages/About";
+import Company from "./pages/Company";
 import Header from "./components/Layouts/Header";
+import ErrorPage from "./pages/ErrorPage";
 
 const App = () => {
   return (
-    <div className="App" style={{ background: "black" }}>
+    <div className="App">
       <Routes>
         <Route element={<Header />}>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/company/:name" element={<Company />} />
+          <Route path="/error" element={<ErrorPage />} />
         </Route>
       </Routes>
     </div>

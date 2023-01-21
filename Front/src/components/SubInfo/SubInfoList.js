@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-import SubInfoItem1 from "./SubInfoItem1";
+import SubInfoItem from "./SubInfoItem";
 
 const SubinfoList = () => {
   const [revenue, setRevenue] = useState(null);
@@ -42,16 +42,17 @@ const SubinfoList = () => {
   return (
     <>
       <Block>
-        <SubInfoItem1 revenue={revenue.revenue} />
+        
+        <SubInfoItem revenue={revenue} flag={0} />
       </Block>
       <Block>
-        <SubInfoItem1 revenue={revenue.netProfit} />
+        <SubInfoItem revenue={revenue} flag={1} />
       </Block>
       <Block>
-        <SubInfoItem1 revenue={revenue.operatingProfit} />
+        <SubInfoItem revenue={revenue} flag={2} />
       </Block>
       <Block>
-        <SubInfoItem1 revenue={revenue.margin} />
+        <SubInfoItem revenue={revenue} flag={3} />
       </Block>
     </>
   );
