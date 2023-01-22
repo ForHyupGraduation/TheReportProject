@@ -1,17 +1,16 @@
 import React from "react";
-import Accordion from "react-bootstrap/Accordion";
 import { Button, Container } from "react-bootstrap";
-import Badge from "react-bootstrap/Badge";
 
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import DoughnutChart from "../components/Graphs/DoughnutChart";
-import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
-import LineChart from "../components/Graphs/LineChart";
 import { useEffect, useState } from "react";
+
 //import axios from "axios";
+
 import LoadingPage from "./LoadingPage";
 import companies from "../components/DB/Companies.json";
+import CompanyList from "../components/List/CompanyList/CompanyList";
+import NavBar from "../components/NavBar/NavBar";
 
 function Home() {
   const [company, setCompany] = useState(null);
@@ -52,108 +51,8 @@ function Home() {
   } else {
     return (
       <>
-        {/*전체를 감싸고 있는 container*/}
         <Container>
-          {/* 아코디언 container*/}
-          <Accordion defaultActiveKey="0" bg="black">
-            {/* 아코이언 아이템 key = 0 */}
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>
-                {company.simpleInfos[0].companyName}
-                <Badge bg="secondary">New</Badge>
-                <Badge bg="secondary">New</Badge>
-              </Accordion.Header>
-              <Accordion.Body
-                style={{
-                  backgroundColor: "#555555",
-                }}
-              >
-                <Content>
-                  {/* 도넛 차트 대중성, 성장성 */}
-                  <Doughnut>
-                    <DoughnutChart />
-                    <ChartName>대중성</ChartName>
-                  </Doughnut>
-                  <Doughnut>
-                    <DoughnutChart />
-                    <ChartName>대중성</ChartName>
-                  </Doughnut>
-                </Content>
-                {/* 라인차트! */}
-                <Line>
-                  <LineChart />
-                </Line>
-                <CompanyInfo>
-                  {/* 버튼 */}
-                  <Button
-                    id="companyInfo"
-                    size="large"
-                    onClick={navigateToAbout}
-                  >
-                    자세히 보기
-                  </Button>
-                </CompanyInfo>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>
-                {company.simpleInfos[1].companyName}
-                <Badge bg="secondary">New</Badge>
-                <Badge bg="secondary">New</Badge>
-              </Accordion.Header>
-              <Accordion.Body>
-                <Content>
-                  <Doughnut>
-                    <DoughnutChart2 />
-                  </Doughnut>
-                  <Doughnut>
-                    <DoughnutChart2 />
-                  </Doughnut>
-                </Content>
-                <Line>
-                  <LineChart />
-                </Line>
-                <CompanyInfo>
-                  <Button
-                    id="companyInfo"
-                    size="large"
-                    onClick={navigateToAbout}
-                  >
-                    자세히 보기
-                  </Button>
-                </CompanyInfo>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="2">
-              <Accordion.Header>
-                {company.simpleInfos[2].companyName}
-                <Badge bg="secondary">New</Badge>
-                <Badge bg="secondary">New</Badge>
-              </Accordion.Header>
-              <Accordion.Body>
-                <Content>
-                  <Doughnut>
-                    <DoughnutChart2 />
-                  </Doughnut>
-                  <Doughnut>
-                    <DoughnutChart2 />
-                  </Doughnut>
-                </Content>
-                <Line>
-                  <LineChart />
-                </Line>
-                <CompanyInfo>
-                  <Button
-                    id="companyInfo"
-                    size="large"
-                    onClick={navigateToAbout}
-                  >
-                    자세히 보기
-                  </Button>
-                </CompanyInfo>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
+          <CompanyList simpleInfos={companies.simpleInfos} />
         </Container>
       </>
     );

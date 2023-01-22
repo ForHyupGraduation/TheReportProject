@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Meter.css";
 
-const Meter = () => {
+const Meter = ({ progressEndValue }) => {
     const [ isRunning, setIsRunning ] = useState(true);
     const [ speed, setSpeed ] = useState(10);
     const [ progressValue, setProgressValue ] = useState(0);

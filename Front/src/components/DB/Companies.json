@@ -2,18 +2,18 @@
   "simpleInfos": [
     {
       "companyName": "카카오 ",
-      "growthPoint": null,
-      "interestPoint": null
+      "growthPoint": 30,
+      "interestPoint": 40
     },
     {
       "companyName": "삼성전자 ",
-      "growthPoint": null,
-      "interestPoint": null
+      "growthPoint": 20,
+      "interestPoint": 60
     },
     {
       "companyName": "엔씨소프트 ",
-      "growthPoint": null,
-      "interestPoint": null
+      "growthPoint": 40,
+      "interestPoint": 30
     }
   ]
 }
