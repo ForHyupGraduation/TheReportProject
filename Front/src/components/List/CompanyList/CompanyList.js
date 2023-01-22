@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { Accordion } from "react-bootstrap";
 import CompanyListElement from "./CompanyListElement";
 
-const CompanyList = ({ simpleInfos }) => {
+const CompanyList = ({ companies }) => {
   return(
     <Accordion>
-      {simpleInfos.map((simpleInfo, index) => {
+      {companies.map((company, index) => {
         return (
           <CompanyListElement 
             key={index}
-            interestPoint={simpleInfo.interestPoint}
-            growthPoint={simpleInfo.growthPoint}
-            companyName={simpleInfo.companyName}
+            interestPoint={company.interestPoint}
+            growthPoint={company.growthPoint}
+            companyName={company.companyName}
             eventKey={index}
           />
         )

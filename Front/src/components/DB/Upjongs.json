@@ -2,19 +2,22 @@
     "upjongsInfo": [
         {
             "title": "양방향미디어와서비스",
-            "iconClassName": "fa-solid fa-globe",
+            "upjongNumber": "300",
+            "iconClassName": "fa-solid fa-globe fa-3x",
             "description": "양방향미디어와서비스 산업입니다.",
             "theNumberOfCompanies": 3
         },
         {
             "title": "게임엔터테인먼트",
-            "iconClassName": "fa-solid fa-gamepad",
+            "upjongNumber": "263",
+            "iconClassName": "fa-solid fa-gamepad fa-3x",
             "description": "게임엔터테인먼트 산업입니다.",
             "theNumberOfCompanies": 5
         },
         {
             "title": "IT서비스",
-            "iconClassName": "fa-solid fa-computer",
+            "upjongNumber": "267",
+            "iconClassName": "fa-solid fa-computer fa-3x",
             "description": "IT서비스 산업입니다.",
             "theNumberOfCompanies": 10
         }

@@ -12,9 +12,13 @@ import SubinfoList from "../components/SubInfo/SubInfoList";
 function Company() {
   const [company, setCompany] = useState(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    
+  }, []);
 
-  const GetCompanyInfo = () => {};
+  const GetCompanyInfo = () => {
+
+  };
 
   return (
     <>

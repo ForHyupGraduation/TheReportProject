@@ -20,7 +20,7 @@ function Home() {
   const [ upjongsInfo, setUpjongsInfo ] = useState(null);
 
   const [company, setCompany] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // const fechData = async () => {
@@ -46,12 +46,7 @@ function Home() {
   const navigateToAbout = () => {
     navigate("/company/:name");
   };
-  if (loading) {
-    return <div>대기중</div>;
-  }
-  if (!company) {
-    return null;
-  }
+
 
 
   if (loading) {
@@ -64,7 +59,7 @@ function Home() {
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">The Reporter</h1>
             <p className="lead text-muted">
-              회사의 객관적인 데이터를 확인하고 올바른 결정을 내리세요
+              회사의 객관적인 데이터로 올바른 결정을 내리세요
             </p>
             <p>
               <a href="#" className="btn btn-primary my-2 me-1">투자 지표 확인하기</a>
