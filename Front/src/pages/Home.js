@@ -8,11 +8,17 @@ import { useEffect, useState } from "react";
 //import axios from "axios";
 
 import LoadingPage from "./LoadingPage";
+
 import companies from "../components/DB/Companies.json";
+import upjongs from "../components/DB/Upjongs.json";
+
+import UpjongCards from "../components/Cards/UpjongList/UpjongCards";
 import CompanyList from "../components/List/CompanyList/CompanyList";
-import NavBar from "../components/NavBar/NavBar";
+
 
 function Home() {
+  const [ upjongsInfo, setUpjongsInfo ] = useState(null);
+
   const [company, setCompany] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -31,6 +37,7 @@ function Home() {
     // fechData();
 
     setCompany(companies);
+    setUpjongsInfo(upjongs.upjongsInfo)
 
     setLoading(false);
   }, []);
@@ -46,14 +53,33 @@ function Home() {
     return null;
   }
 
+
   if (loading) {
     return <LoadingPage />;
   } else {
     return (
       <>
-        <Container>
-          <CompanyList simpleInfos={companies.simpleInfos} />
-        </Container>
+      <section className="py-5 text-center container">
+        <div className="row py-lg-5">
+          <div className="col-lg-6 col-md-8 mx-auto">
+            <h1 className="fw-light">The Reporter</h1>
+            <p className="lead text-muted">
+              회사의 객관적인 데이터를 확인하고 올바른 결정을 내리세요
+            </p>
+            <p>
+              <a href="#" className="btn btn-primary my-2 me-1">투자 지표 확인하기</a>
+              <a href="#" className="btn btn-secondary my-2 ms-1">구직 지표 확인하기</a>
+            </p>
+          </div>
+        </div>
+      </section>
+        <div class="album py-5">
+          <div class="container">
+            <UpjongCards 
+              upjongs={upjongsInfo}
+            />
+          </div>
+        </div>
       </>
     );
   }
