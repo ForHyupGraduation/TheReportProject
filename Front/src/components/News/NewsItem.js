@@ -22,6 +22,7 @@ const NewsItemBlock = styled.div`
   margin: 20px;
   width: 20%;
   box-shadow: 5px 5px;
+  border-radius: 10%;
 
   .display-1 {
     font-size: 20px;
@@ -33,6 +34,7 @@ const NewsItemBlock = styled.div`
     }
     img {
       width: 100%;
+      border-radius: 10%;
     }
   }
 `;

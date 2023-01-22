@@ -10,18 +10,11 @@ import NewsList from "../components/News/NewsList";
 import SubinfoList from "../components/SubInfo/SubInfoList";
 
 function Company() {
-  
-  const [ company, setCompany ] = useState(null);
-  
-  useEffect(() => {
+  const [company, setCompany] = useState(null);
 
-  }, []);
+  useEffect(() => {}, []);
 
-  const GetCompanyInfo = () => {
-
-  };
-
-  
+  const GetCompanyInfo = () => {};
 
   return (
     <>
@@ -29,20 +22,19 @@ function Company() {
         <div className="col-md-9">
           <MainContents>
             <MainContent>
+              <SubTitle>Merged Chart</SubTitle>
               <LineChart />
             </MainContent>
             <MainContent>
+              <SubTitle>Main Chart</SubTitle>
               <Content>
-                <Doughnut>
-                  <DoughnutChart />
-                </Doughnut>
-                <Doughnut>
-                  <DoughnutChart2 />
-                </Doughnut>
+                <DoughnutChart />
+                <DoughnutChart2 />
               </Content>
               <DeScribe>설명란</DeScribe>
             </MainContent>
             <MainContent>
+              <SubTitle>NewsList</SubTitle>
               <MainNews className="List">
                 <NewsList />
               </MainNews>
@@ -51,9 +43,7 @@ function Company() {
         </div>
         <div className="col-md-3">
           <SubContents>
-            <SubContent>
-              <SubinfoList />
-            </SubContent>
+            <SubinfoList />
           </SubContents>
         </div>
       </div>
@@ -72,30 +62,19 @@ const MainContent = styled.div`
   margin: 0 0 30px 30px;
   background-color: #555555;
   color: black;
-`;
-
-const SubContent = styled.div`
-  margin: 0 0 20px 0;
-  background-color: white;
+  padding: 30px;
 `;
 
 const SubContents = styled.div`
   margin: 0 30px 20px 0;
   display: flex;
   flex-direction: column;
-  background-color: #1a1a1a;
-`;
-
-const Doughnut = styled.div`
-  display: flex;
-  background-color: gray;
-  width: 50%;
-  height: 70%;
-  margin-bottom: 20px;
+  background-color: #555555;
 `;
 
 const Content = styled.div`
   display: flex;
+  justify-content: space-around;
 `;
 
 const DeScribe = styled.div`
@@ -105,4 +84,12 @@ const DeScribe = styled.div`
 
 const MainNews = styled.div`
   width: 100%;
+`;
+
+const SubTitle = styled.div`
+  font-size: 70px;
+
+  margin-bottom: 30;
+  text-align: center;
+  text-shadow: 2px 2px 2px #44d52c;
 `;

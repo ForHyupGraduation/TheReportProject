@@ -31,9 +31,7 @@ const SubInfoItem = ({ revenue, flag }) => {
   if (!isLoading) {
     return (
       <SubInfoItemBlock>
-        <div className="contents">
-          <LineChart2 revenue={val} />
-        </div>
+        <LineChart2 revenue={val} />
       </SubInfoItemBlock>
     );
   }
@@ -41,8 +39,11 @@ const SubInfoItem = ({ revenue, flag }) => {
 
 const SubInfoItemBlock = styled.div`
   display: flex;
-
+  box-shadow: 5px 5px;
+  background-color: gray;
   margin: 20px;
+  padding: 20px;
+  border-radius: 10%;
   .contents {
     h2 {
       margin: 0;

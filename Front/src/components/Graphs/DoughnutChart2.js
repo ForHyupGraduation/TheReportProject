@@ -1,5 +1,6 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import styled from "styled-components";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DoughnutChart2 = () => {
@@ -34,6 +35,19 @@ const DoughnutChart2 = () => {
       },
     ],
   };
-  return <Doughnut data={data} options={options} />;
+  return (
+    <Block>
+      <Doughnut data={data} options={options} />
+    </Block>
+  );
 };
 export default DoughnutChart2;
+const Block = styled.div`
+  width: 40%;
+  height: 100%;
+  display: flex;
+  border-radius: 10%;
+  background-color: gray;
+  margin: 30px;
+  box-shadow: 5px 5px;
+`;

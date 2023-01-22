@@ -52,7 +52,7 @@ const LineChart = () => {
       },
     },
   };
-  return <Line data={data} options={options} style={{ width: "100%" }} />;
+  return <Line data={data} options={options} />;
 };
 
 export default LineChart;
