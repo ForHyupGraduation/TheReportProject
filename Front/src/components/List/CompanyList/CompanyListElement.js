@@ -20,7 +20,13 @@ const CompanyListElement = ({
       <td>{interestPoint}%</td>
       <td>{growthPoint}%</td>
       <td>
-        <Link to={"/company/" + companyName}>
+        <Link
+          to={{
+            pathname: `/company/${companyName}`,
+            state: { companyName: { companyName } },
+          }}
+        >
+          {/* "/company/" + companyName */}
           <Button>자세히 보기</Button>
         </Link>
       </td>

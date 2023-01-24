@@ -26,7 +26,6 @@ function Company() {
       <div className="col-lg-9">
         <MainContents>
           <MainContent>
-            <CompanyName>{company}</CompanyName>
             <SubTitle className="lead text-muted">
               대중성과 성장성 종합지표
             </SubTitle>

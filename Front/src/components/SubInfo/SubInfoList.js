@@ -36,10 +36,12 @@ const SubinfoList = () => {
   if (loading) {
     return <SubinfoBlock>대기 중...</SubinfoBlock>;
   }
+
+  // if (revenue !== null) {
+  //   console.log(revenue.revenue)
+  // }
+
   //아직 revenue 값이 설정되지 않았을 때
-  if (revenue !== null) {
-    console.log(revenue.revenue);
-  }
   if (!revenue) {
     return null;
   }
