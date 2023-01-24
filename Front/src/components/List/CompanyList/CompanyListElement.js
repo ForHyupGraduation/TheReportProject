@@ -1,5 +1,5 @@
 import React from "react";
-import { Col } from "react-bootstrap";
+import { Badge, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // import { Accordion, Badge } from "react-bootstrap";
@@ -27,7 +27,7 @@ const CompanyListElement = ({
           }}
         >
           {/* "/company/" + companyName */}
-          <Button>자세히 보기</Button>
+          <Badge>자세히 보기</Badge>
         </Link>
       </td>
     </tr>
@@ -35,9 +35,3 @@ const CompanyListElement = ({
 };
 
 export default CompanyListElement;
-
-const Button = styled.button`
-  border: none;
-  height: 40%;
-  background-color: whitesmoke;
-`;
