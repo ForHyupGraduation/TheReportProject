@@ -3,55 +3,56 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 import styled from "styled-components";
-import DoughnutChart from "../components/Graphs/DoughnutChart";
-import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
+// import DoughnutChart from "../components/Graphs/DoughnutChart";
+// import DoughnutChart2 from "../components/Graphs/DoughnutChart2";
 import LineChart from "../components/Graphs/LineChart";
 import NewsList from "../components/News/NewsList";
 import SubinfoList from "../components/SubInfo/SubInfoList";
+import KakaoCompanyInfos from "../components/DB/KakaoCompanyInfos.json";
+
+import Meter from "../components/Meters/Meter";
 
 function Company() {
   const [company, setCompany] = useState(null);
 
   useEffect(() => {
-    
+    setCompany(KakaoCompanyInfos.companyName);
   }, []);
 
-  const GetCompanyInfo = () => {
-
-  };
+  const GetCompanyInfo = () => {};
 
   return (
-    <>
-      <div className="Container row">
-        <div className="col-md-9">
-          <MainContents>
-            <MainContent>
-              <SubTitle>Merged Chart</SubTitle>
-              <LineChart />
-            </MainContent>
-            <MainContent>
-              <SubTitle>Main Chart</SubTitle>
-              <Content>
-                <DoughnutChart />
-                <DoughnutChart2 />
-              </Content>
-              <DeScribe>설명란</DeScribe>
-            </MainContent>
-            <MainContent>
-              <SubTitle>NewsList</SubTitle>
-              <MainNews className="List">
-                <NewsList />
-              </MainNews>
-            </MainContent>
-          </MainContents>
-        </div>
-        <div className="col-md-3">
-          <SubContents>
-            <SubinfoList />
-          </SubContents>
-        </div>
+    <div className="container row">
+      <div className="col-lg-9">
+        <MainContents>
+          <MainContent>
+            <CompanyName>{company}</CompanyName>
+            <SubTitle className="lead text-muted">
+              대중성과 성장성 종합지표
+            </SubTitle>
+            <LineChart />
+          </MainContent>
+          <MainContent>
+            <Content>
+              <Meter progressEndValue={80} />
+              <Meter progressEndValue={70} />
+            </Content>
+            <DeScribe>설명란</DeScribe>
+          </MainContent>
+          <MainContent>
+            <SubTitle className="lead text-muted">News</SubTitle>
+            <MainNews className="List">
+              <NewsList />
+            </MainNews>
+          </MainContent>
+        </MainContents>
       </div>
-    </>
+      <div className="col-lg-3">
+        <SubContents>
+          <SubinfoList />
+        </SubContents>
+      </div>
+    </div>
   );
 }
 
@@ -63,17 +64,17 @@ const MainContents = styled.div`
 `;
 
 const MainContent = styled.div`
-  margin: 0 0 30px 30px;
-  background-color: #555555;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
   color: black;
   padding: 30px;
+  margin: 30px 0;
 `;
 
 const SubContents = styled.div`
-  margin: 0 30px 20px 0;
   display: flex;
   flex-direction: column;
-  background-color: #555555;
 `;
 
 const Content = styled.div`
@@ -82,7 +83,6 @@ const Content = styled.div`
 `;
 
 const DeScribe = styled.div`
-  background-color: rgba(255, 255, 255, 0.4);
   height: 30%;
 `;
 
@@ -91,9 +91,10 @@ const MainNews = styled.div`
 `;
 
 const SubTitle = styled.div`
-  font-size: 70px;
-
+  font-size: 40px;
   margin-bottom: 30;
   text-align: center;
-  text-shadow: 2px 2px 2px #44d52c;
+`;
+const CompanyName = styled.div`
+  font-size: 40px;
 `;

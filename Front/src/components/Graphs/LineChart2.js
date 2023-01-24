@@ -51,8 +51,8 @@ const LineChart = ({ revenue }) => {
     },
     scales: {
       y: {
-        min: first,
-        max: fourth,
+        min: Math.min(first, second, third, fourth),
+        max: Math.max(first, second, third, fourth),
       },
     },
   };

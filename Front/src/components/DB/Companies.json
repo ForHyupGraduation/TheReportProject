@@ -14,6 +14,21 @@
       "companyName": "엔씨소프트 ",
       "growthPoint": 40,
       "interestPoint": 30
+    },
+    {
+      "companyName": "SK하이닉스 ",
+      "growthPoint": 30,
+      "interestPoint": 30
+    },
+    {
+      "companyName": "오스템임플란트, ",
+      "growthPoint": 50,
+      "interestPoint": 30
+    },
+    {
+      "companyName": "LG에너지솔루션 ",
+      "growthPoint": 40,
+      "interestPoint": 70
     }
   ]
 }

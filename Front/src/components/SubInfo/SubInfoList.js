@@ -51,15 +51,19 @@ const SubinfoList = () => {
   return (
     <>
       <Block>
+        <SubTitle className="lead text-muted">매출액</SubTitle>
         <SubInfoItem revenue={revenue} flag={0} />
       </Block>
       <Block>
+        <SubTitle className="lead text-muted">당기순이익</SubTitle>
         <SubInfoItem revenue={revenue} flag={1} />
       </Block>
       <Block>
+        <SubTitle className="lead text-muted">영업이익</SubTitle>
         <SubInfoItem revenue={revenue} flag={2} />
       </Block>
       <Block>
+        <SubTitle className="lead text-muted">순이익률</SubTitle>
         <SubInfoItem revenue={revenue} flag={3} />
       </Block>
     </>
@@ -73,5 +77,14 @@ const SubinfoBlock = styled.div`
 `;
 
 const Block = styled.div`
-  margin-bottom: 20px;
+  margin: 0 30px 20px 0;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  width: 100%;
+  height: 100%;
+`;
+
+const SubTitle = styled.div`
+  font-size: 40px;
 `;

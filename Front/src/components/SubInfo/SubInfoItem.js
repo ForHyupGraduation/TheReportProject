@@ -16,11 +16,11 @@ const SubInfoItem = ({ revenue, flag }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (flag === 1) {
+    if (flag === 0) {
       setVal(revenue.revenue);
-    } else if (flag === 2) {
+    } else if (flag === 1) {
       setVal(revenue.netProfit);
-    } else if (flag === 3) {
+    } else if (flag === 2) {
       setVal(revenue.operatingProfit);
     } else {
       setVal(revenue.margin);
@@ -40,7 +40,7 @@ const SubInfoItem = ({ revenue, flag }) => {
 const SubInfoItemBlock = styled.div`
   display: flex;
   box-shadow: 5px 5px;
-  background-color: gray;
+  background-color: white;
   margin: 20px;
   padding: 20px;
   border-radius: 10%;
