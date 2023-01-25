@@ -48,6 +48,18 @@ const LineChart = () => {
       y: {
         min: 0,
         max: 100,
+        ticks: {
+          font: {
+            size: 20, //this change the font size
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 20, //this change the font size
+          },
+        },
       },
     },
     plugins: {

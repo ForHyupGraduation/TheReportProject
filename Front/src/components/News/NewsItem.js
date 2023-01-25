@@ -25,6 +25,10 @@ const NewsItem = ({ article }) => {
 };
 
 const NewsItemBlock = styled.div`
+  &:hover {
+    background-color: skyblue;
+    color: blue;
+  }
   padding: 10px;
   display: flex;
   background-color: white;
