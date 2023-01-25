@@ -7,6 +7,7 @@ import back.back.domain.News;
 import back.back.service.CompanyService;
 import back.back.service.NewsFormService;
 import back.back.web.CompanyDto;
+import back.back.web.FinancialDto;
 import back.back.web.HomeDto;
 import back.back.web.MainPage;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -35,18 +36,6 @@ public class NewsFormController {
         return news;
     }
 
-    @GetMapping("/news/add")
-    public String addData(@RequestParam String companyName) {
-        NewsCrawler newsCrawler = new NewsCrawler(companyName);
-        List<back.back.domain.News> news = null;
-        try {
-            news = newsCrawler.titleParsing();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return "ok";
-    }
-
     @GetMapping("/")
     public HomeDto home() {
        return service2.home();
@@ -63,10 +52,12 @@ public class NewsFormController {
     @GetMapping("/news/add2")
     public String addData2(@RequestParam String companyName) throws IOException {
         BuzzInfoCrawler crawler = new BuzzInfoCrawler();
-        Map<String, FinancialRatio> ratio = crawler.findBuzzInfo2(companyName);
+        FinancialDto financialDto = crawler.findBuzzInfo2(companyName);
+
         NewsCrawler crawler2 = new NewsCrawler(companyName);
         List<back.back.domain.News> news = crawler2.titleParsing();
-        MainPage save = service2.save(ratio, news, companyName);
+
+        MainPage save = service2.save(financialDto, news, companyName);
         return "ok";
     }
 }

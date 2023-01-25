@@ -3,6 +3,7 @@ package back.back.crawler;
 
 import back.back.domain.financialratio.FinancialRatio;
 import back.back.web.BuzzIndex;
+import back.back.web.FinancialDto;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -53,7 +54,7 @@ public class BuzzInfoCrawler{
         }
     }
 
-    public Map<String, FinancialRatio> findBuzzInfo2(String buzz) {
+    public FinancialDto findBuzzInfo2(String buzz) {
         Map<String, FinancialRatio> ratioMap = CrawlerUtils.crawlerTarget();
         chromeDriver.get("https://finance.naver.com");
         WebElement searchInput = chromeDriver.findElement(By.id("stock_items"));
@@ -73,8 +74,19 @@ public class BuzzInfoCrawler{
             }
             financialRatio.setAllValue(financialInfo);
         }
+        WebElement element = chromeDriver.findElement(By.cssSelector("#middle > div.h_company > div.wrap_company > div > span.code"));
+        String companyCode = element.getText();
+
+        System.out.println("cc" + companyCode);
+
+
+        WebElement categoryElement = chromeDriver.findElement(By.cssSelector("#content > div.section.trade_compare > h4 > em > a"));
+        String categoryName = categoryElement.getText();
+
+        System.out.println(categoryName);
         closeDriver();
-        return ratioMap;
+
+        return new FinancialDto(ratioMap, companyCode, categoryName);
     }
 
 

@@ -6,10 +6,7 @@ import back.back.domain.financialratio.*;
 import back.back.repository.CompanyRepository;
 import back.back.repository.FinancialRepository;
 import back.back.repository.NewsRepository;
-import back.back.web.CompanyDto;
-import back.back.web.CompanySimpleInfo;
-import back.back.web.HomeDto;
-import back.back.web.MainPage;
+import back.back.web.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +21,10 @@ public class CompanyService {
     private final CompanyRepository companyRepository;
     private final FinancialRepository financialRepository;
     private final NewsRepository newsRepository;
-    public MainPage save(Map<String, FinancialRatio> ratio, List<News> newsForms, String companyName) {
+    public MainPage save(FinancialDto financialDto, List<News> newsForms, String companyName) {
+
+        Map<String, FinancialRatio> ratio = financialDto.getFinancialRatioMap();
+
         OperatingProfitMargin margin = (OperatingProfitMargin) ratio.get("영업이익률");
         OperatingProfit profit = (OperatingProfit) ratio.get("영업이익");
         Revenue revenue = (Revenue) ratio.get("매출액");
@@ -41,6 +41,10 @@ public class CompanyService {
         company.setOperatingProfit(profit);
         company.setNetProfit(netProfit);
         company.setOperatingProfitMargin(margin);
+        company.setCompanyName(companyName);
+        company.setCategoryName(financialDto.getCategoryName());
+        company.setCategoryCode(financialDto.getCompanyCode());
+
         companyRepository.save(company);
 
         MainPage mainPage = new MainPage();
