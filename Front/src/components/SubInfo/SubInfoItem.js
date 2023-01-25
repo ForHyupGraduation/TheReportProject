@@ -29,26 +29,24 @@ const SubInfoItem = ({ revenue, flag }) => {
     setIsLoading(false);
   }, []);
   if (!isLoading) {
-    return (
-      <SubInfoItemBlock>
-        <LineChart2 revenue={val} />
-      </SubInfoItemBlock>
-    );
+    return <LineChart2 revenue={val} />;
   }
 };
 
-const SubInfoItemBlock = styled.div`
-  display: flex;
-  box-shadow: 5px 5px;
-  background-color: white;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 10%;
-  .contents {
-    h2 {
-      margin: 0;
-    }
-  }
-`;
+// const SubInfoItemBlock = styled.div`
+//   box-sizing: border-box;
+//   display: flex;
+
+//   background-color: white;
+
+//   margin: 10px;
+//   padding: 40px;
+
+//   .contents {
+//     h2 {
+//       margin: 0;
+//     }
+//   }
+// `;
 
 export default SubInfoItem;

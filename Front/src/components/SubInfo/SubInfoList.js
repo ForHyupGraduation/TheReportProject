@@ -82,7 +82,8 @@ const Block = styled.div`
   margin: 0 30px 20px 0;
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.03) 10px 10px;
   width: 100%;
   height: 100%;
 `;
@@ -90,4 +91,6 @@ const Block = styled.div`
 const SubTitle = styled.div`
   font-size: 20px;
   text-align: center;
+  font-weight: 700;
+  margin: 0;
 `;

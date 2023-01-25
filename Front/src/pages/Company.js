@@ -22,7 +22,8 @@ function Company() {
   const GetCompanyInfo = () => {};
 
   return (
-    <div className="container row" style={{ margin: "30px auto" }}>
+    <div className="container row" style={{ margin: "20px auto" }}>
+      <Title>{company}</Title>
       <div className="col-lg-9">
         <MainContents>
           <MainContent>
@@ -39,11 +40,12 @@ function Company() {
               <Meter progressEndValue={80} />
               <Meter progressEndValue={70} />
             </Content>
-
             <DeScribe>설명란</DeScribe>
           </MainContent>
           <MainContent>
-            <SubTitle className="lead text-muted">News</SubTitle>
+            <SubTitle className="lead text-muted" style={{ fontSize: "30px" }}>
+              News
+            </SubTitle>
             <NewsList />
           </MainContent>
         </MainContents>
@@ -67,10 +69,11 @@ const MainContents = styled.div`
 const MainContent = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
+  background-color: white;
   color: black;
   padding: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
+  box-shadow: rgba(0, 0, 0, 0.03) 10px 10px;
 `;
 
 const SubContents = styled.div`
@@ -94,10 +97,14 @@ const DeScribe = styled.div`
 const SubTitle = styled.div`
   font-size: 25px;
   font-weight: 700;
-  margin-bottom: 30;
   text-align: center;
   margin-bottom: 30px;
 `;
 // const CompanyName = styled.div`
 //   font-size: 40px;
 // `;
+
+const Title = styled.div`
+  font-size: 48px;
+  font-weight: 900;
+`;

@@ -9,7 +9,12 @@ const NewsItem = ({ article }) => {
       <NewsItemBlock>
         <div className="contents">
           <img src={imageUrl} alt="NewsImage" />
-          <a href={linkUrl} target="_blank" rel="noopener noreferrer">
+          <a
+            href={linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "black", textDecoration: "none" }}
+          >
             <div className="display-1">{title}</div>
             {/* <p>{content}</p> */}
           </a>
@@ -25,13 +30,15 @@ const NewsItemBlock = styled.div`
   background-color: white;
   margin: 20px;
   width: 150px;
-  height: 100px;
-  box-shadow: rgba(0, 0, 0, 0.3) 3px 3px;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 5px 5px;
+
   border-radius: 5%;
-  height: 250px;
+  height: 200px;
 
   .display-1 {
-    font-size: 20px;
+    font-size: 15px;
+    line-height: 150%;
   }
 
   .contents {
@@ -42,6 +49,7 @@ const NewsItemBlock = styled.div`
     img {
       width: 100%;
       border-radius: 10%;
+      margin-bottom: 10px;
     }
   }
   & + & {

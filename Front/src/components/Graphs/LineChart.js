@@ -21,37 +21,42 @@ const LineChart = () => {
     labels: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
     datasets: [
       {
-        labels: "Scale of the week",
         label: "대중성",
         data: [60, 30, 60, 40, 30, 40, 30],
         backgroundColor: "aqua",
-        borderColor: "black",
+        borderColor: "aqua",
         pointBorderColor: "aqua",
         tension: 0.4,
+        pointRadius: 1,
+        pointHoverRadius: 1,
       },
       {
-        labels: "Scale of the week",
         label: " 성장성",
         data: [40, 20, 10, 60, 30, 50, 20],
         backgroundColor: "yellow",
-        borderColor: "black",
+        borderColor: "yellow",
         pointBorderColor: "yellow",
         tension: 0.4,
+        pointRadius: 1,
+        pointHoverRadius: 1,
       },
     ],
   };
 
   const options = {
-    animation: {
-      duration: 0,
-    },
-    plugins: {
-      legend: { display: true },
-    },
     scales: {
       y: {
         min: 0,
         max: 100,
+      },
+    },
+    plugins: {
+      animation: {
+        duration: 1000,
+      },
+      legend: {
+        position: "top",
+        align: "end",
       },
     },
   };
@@ -66,12 +71,9 @@ export default LineChart;
 
 const SubInfoItemBlock = styled.div`
   display: flex;
-  box-shadow: rgba(0, 0, 0, 0.3) 5px 5px;
-  background-color: white;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 3%;
 
+  background-color: white;
+  border-radius: 3%;
   .contents {
     h2 {
       margin: 0;
