@@ -1,5 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+import styled from "styled-components";
 import {
   Chart as ChartJS,
   LineElement,
@@ -20,39 +21,74 @@ const LineChart = () => {
     labels: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
     datasets: [
       {
-        labels: "Scale of the week",
-        data: [6, 3, 6, 4, 3, 4, 3],
+        label: "대중성",
+        data: [60, 30, 60, 40, 30, 40, 30],
         backgroundColor: "aqua",
-        borderColor: "black",
+        borderColor: "aqua",
         pointBorderColor: "aqua",
         tension: 0.4,
+        pointRadius: 1,
+        pointHoverRadius: 1,
       },
       {
-        labels: "Scale of the week",
-        data: [4, 2, 1, 6, 3, 5, 2],
+        label: "성장성",
+        data: [40, 20, 10, 60, 30, 50, 20],
         backgroundColor: "yellow",
-        borderColor: "black",
+        borderColor: "yellow",
         pointBorderColor: "yellow",
         tension: 0.4,
+        pointRadius: 1,
+        pointHoverRadius: 1,
       },
     ],
   };
 
   const options = {
-    animation: {
-      duration: 0,
-    },
-    plugins: {
-      legend: false,
-    },
     scales: {
       y: {
         min: 0,
-        max: 10,
+        max: 100,
+        ticks: {
+          font: {
+            size: 20, //this change the font size
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 20, //this change the font size
+          },
+        },
+      },
+    },
+    plugins: {
+      animation: {
+        duration: 1000,
+      },
+      legend: {
+        position: "top",
+        align: "end",
       },
     },
   };
-  return <Line data={data} options={options} />;
+  return (
+    <SubInfoItemBlock>
+      <Line data={data} options={options} />
+    </SubInfoItemBlock>
+  );
 };
 
 export default LineChart;
+
+const SubInfoItemBlock = styled.div`
+  display: flex;
+
+  background-color: white;
+  border-radius: 3%;
+  .contents {
+    h2 {
+      margin: 0;
+    }
+  }
+`;

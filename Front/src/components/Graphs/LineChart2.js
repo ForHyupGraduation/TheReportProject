@@ -51,12 +51,16 @@ const LineChart = ({ revenue }) => {
     },
     scales: {
       y: {
-        min: first,
-        max: fourth,
+        min: Math.min(first, second, third, fourth),
+        max: Math.max(first, second, third, fourth),
       },
     },
   };
-  return <Line data={data} options={options} style={{ width: "100%" }} />;
+  return (
+    <>
+      <Line data={data} options={options} />
+    </>
+  );
 };
 
 export default LineChart;

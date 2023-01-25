@@ -7,6 +7,7 @@ import styled from "styled-components";
 import SubInfoItem from "./SubInfoItem";
 
 import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
+import { Container } from "react-bootstrap";
 
 const SubinfoList = () => {
   const [revenue, setRevenue] = useState(null);
@@ -36,10 +37,12 @@ const SubinfoList = () => {
   if (loading) {
     return <SubinfoBlock>대기 중...</SubinfoBlock>;
   }
+
+  // if (revenue !== null) {
+  //   console.log(revenue.revenue)
+  // }
+
   //아직 revenue 값이 설정되지 않았을 때
-  if (revenue !== null) {
-    console.log(revenue.revenue);
-  }
   if (!revenue) {
     return null;
   }
@@ -51,15 +54,19 @@ const SubinfoList = () => {
   return (
     <>
       <Block>
+        <SubTitle className="lead text-muted">매출액</SubTitle>
         <SubInfoItem revenue={revenue} flag={0} />
       </Block>
       <Block>
+        <SubTitle className="lead text-muted">당기순이익</SubTitle>
         <SubInfoItem revenue={revenue} flag={1} />
       </Block>
       <Block>
+        <SubTitle className="lead text-muted">영업이익</SubTitle>
         <SubInfoItem revenue={revenue} flag={2} />
       </Block>
       <Block>
+        <SubTitle className="lead text-muted">순이익률</SubTitle>
         <SubInfoItem revenue={revenue} flag={3} />
       </Block>
     </>
@@ -73,5 +80,17 @@ const SubinfoBlock = styled.div`
 `;
 
 const Block = styled.div`
-  margin-bottom: 20px;
+  margin: 0 30px 20px 0;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.03) 10px 10px;
+  width: 100%;
+`;
+
+const SubTitle = styled.div`
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
 `;

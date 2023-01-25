@@ -16,11 +16,11 @@ const SubInfoItem = ({ revenue, flag }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (flag === 1) {
+    if (flag === 0) {
       setVal(revenue.revenue);
-    } else if (flag === 2) {
+    } else if (flag === 1) {
       setVal(revenue.netProfit);
-    } else if (flag === 3) {
+    } else if (flag === 2) {
       setVal(revenue.operatingProfit);
     } else {
       setVal(revenue.margin);
@@ -29,26 +29,24 @@ const SubInfoItem = ({ revenue, flag }) => {
     setIsLoading(false);
   }, []);
   if (!isLoading) {
-    return (
-      <SubInfoItemBlock>
-        <LineChart2 revenue={val} />
-      </SubInfoItemBlock>
-    );
+    return <LineChart2 revenue={val} />;
   }
 };
 
-const SubInfoItemBlock = styled.div`
-  display: flex;
-  box-shadow: 5px 5px;
-  background-color: gray;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 10%;
-  .contents {
-    h2 {
-      margin: 0;
-    }
-  }
-`;
+// const SubInfoItemBlock = styled.div`
+//   box-sizing: border-box;
+//   display: flex;
+
+//   background-color: white;
+
+//   margin: 10px;
+//   padding: 40px;
+
+//   .contents {
+//     h2 {
+//       margin: 0;
+//     }
+//   }
+// `;
 
 export default SubInfoItem;
