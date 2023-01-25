@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Col } from "react-bootstrap";
+// import { Col } from "react-bootstrap";
 
 const NewsItem = ({ article }) => {
   const { content, imageUrl, linkUrl, title } = article;
@@ -24,10 +24,10 @@ const NewsItemBlock = styled.div`
   display: flex;
   background-color: white;
   margin: 20px;
-  width: 80%;
-  height: 80%;
-  box-shadow: gray 3px 3px;
-  border-radius: 10%;
+  width: 150px;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.3) 3px 3px;
+  border-radius: 5%;
   height: 250px;
 
   .display-1 {

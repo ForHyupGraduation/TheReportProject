@@ -22,7 +22,7 @@ function Company() {
   const GetCompanyInfo = () => {};
 
   return (
-    <div className="container row">
+    <div className="container row" style={{ margin: "30px auto" }}>
       <div className="col-lg-9">
         <MainContents>
           <MainContent>
@@ -32,17 +32,19 @@ function Company() {
             <LineChart />
           </MainContent>
           <MainContent>
+            <SubTitle className="lead text-muted">
+              대중성과 성장성에 대한 일일 지표
+            </SubTitle>
             <Content>
               <Meter progressEndValue={80} />
               <Meter progressEndValue={70} />
             </Content>
+
             <DeScribe>설명란</DeScribe>
           </MainContent>
           <MainContent>
             <SubTitle className="lead text-muted">News</SubTitle>
-            <MainNews className="List">
-              <NewsList />
-            </MainNews>
+            <NewsList />
           </MainContent>
         </MainContents>
       </div>
@@ -68,7 +70,7 @@ const MainContent = styled.div`
   background-color: whitesmoke;
   color: black;
   padding: 30px;
-  margin: 30px 0;
+  margin-bottom: 30px;
 `;
 
 const SubContents = styled.div`
@@ -85,15 +87,17 @@ const DeScribe = styled.div`
   height: 30%;
 `;
 
-const MainNews = styled.div`
-  width: 100%;
-`;
+// const MainNews = styled.div`
+//   width: 100%;
+// `;
 
 const SubTitle = styled.div`
-  font-size: 40px;
+  font-size: 25px;
+  font-weight: 700;
   margin-bottom: 30;
   text-align: center;
+  margin-bottom: 30px;
 `;
-const CompanyName = styled.div`
-  font-size: 40px;
-`;
+// const CompanyName = styled.div`
+//   font-size: 40px;
+// `;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+import styled from "styled-components";
 import {
   Chart as ChartJS,
   LineElement,
@@ -21,7 +22,8 @@ const LineChart = () => {
     datasets: [
       {
         labels: "Scale of the week",
-        data: [6, 3, 6, 4, 3, 4, 3],
+        label: "대중성",
+        data: [60, 30, 60, 40, 30, 40, 30],
         backgroundColor: "aqua",
         borderColor: "black",
         pointBorderColor: "aqua",
@@ -29,7 +31,8 @@ const LineChart = () => {
       },
       {
         labels: "Scale of the week",
-        data: [4, 2, 1, 6, 3, 5, 2],
+        label: " 성장성",
+        data: [40, 20, 10, 60, 30, 50, 20],
         backgroundColor: "yellow",
         borderColor: "black",
         pointBorderColor: "yellow",
@@ -43,16 +46,35 @@ const LineChart = () => {
       duration: 0,
     },
     plugins: {
-      legend: false,
+      legend: { display: true },
     },
     scales: {
       y: {
         min: 0,
-        max: 10,
+        max: 100,
       },
     },
   };
-  return <Line data={data} options={options} />;
+  return (
+    <SubInfoItemBlock>
+      <Line data={data} options={options} />
+    </SubInfoItemBlock>
+  );
 };
 
 export default LineChart;
+
+const SubInfoItemBlock = styled.div`
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.3) 5px 5px;
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 3%;
+
+  .contents {
+    h2 {
+      margin: 0;
+    }
+  }
+`;

@@ -56,7 +56,11 @@ const LineChart = ({ revenue }) => {
       },
     },
   };
-  return <Line data={data} options={options} style={{ width: "100%" }} />;
+  return (
+    <>
+      <Line data={data} options={options} style={{ width: "100%" }} />
+    </>
+  );
 };
 
 export default LineChart;

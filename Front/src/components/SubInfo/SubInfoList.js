@@ -88,5 +88,6 @@ const Block = styled.div`
 `;
 
 const SubTitle = styled.div`
-  font-size: 40px;
+  font-size: 20px;
+  text-align: center;
 `;
