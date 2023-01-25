@@ -7,6 +7,7 @@ import styled from "styled-components";
 import SubInfoItem from "./SubInfoItem";
 
 import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
+import { Container } from "react-bootstrap";
 
 const SubinfoList = () => {
   const [revenue, setRevenue] = useState(null);
@@ -85,7 +86,6 @@ const Block = styled.div`
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.03) 10px 10px;
   width: 100%;
-  height: 100%;
 `;
 
 const SubTitle = styled.div`

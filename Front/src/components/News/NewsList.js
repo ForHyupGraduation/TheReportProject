@@ -56,6 +56,4 @@ const NewsListBlock = styled.div`
   box-sizing: border-box;
   flex-wrap: wrap;
   justify-content: space-evenly;
-
-  //행 간격
 `;

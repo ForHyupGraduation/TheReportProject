@@ -24,37 +24,33 @@ function Company() {
   return (
     <div className="container row" style={{ margin: "20px auto" }}>
       <Title>{company}</Title>
-      <div className="col-lg-9">
-        <MainContents>
-          <MainContent>
-            <SubTitle className="lead text-muted">
-              대중성과 성장성 종합지표
-            </SubTitle>
-            <LineChart />
-          </MainContent>
-          <MainContent>
-            <SubTitle className="lead text-muted">
-              대중성과 성장성에 대한 일일 지표
-            </SubTitle>
-            <Content>
-              <Meter progressEndValue={80} />
-              <Meter progressEndValue={70} />
-            </Content>
-            <DeScribe>설명란</DeScribe>
-          </MainContent>
-          <MainContent>
-            <SubTitle className="lead text-muted" style={{ fontSize: "30px" }}>
-              News
-            </SubTitle>
-            <NewsList />
-          </MainContent>
-        </MainContents>
-      </div>
-      <div className="col-lg-3">
-        <SubContents>
-          <SubinfoList />
-        </SubContents>
-      </div>
+      <MainContents className="col-lg-9">
+        <MainContent>
+          <SubTitle className="lead text-muted">
+            대중성과 성장성 종합지표
+          </SubTitle>
+          <LineChart />
+        </MainContent>
+        <MainContent>
+          <SubTitle className="lead text-muted">
+            대중성과 성장성에 대한 일일 지표
+          </SubTitle>
+          <Content>
+            <Meter progressEndValue={80} />
+            <Meter progressEndValue={70} />
+          </Content>
+          <DeScribe>설명란</DeScribe>
+        </MainContent>
+        <MainContent>
+          <SubTitle className="lead text-muted" style={{ fontSize: "30px" }}>
+            News
+          </SubTitle>
+          <NewsList />
+        </MainContent>
+      </MainContents>
+      <SubContents className="col-lg-3">
+        <SubinfoList />
+      </SubContents>
     </div>
   );
 }
@@ -107,4 +103,6 @@ const SubTitle = styled.div`
 const Title = styled.div`
   font-size: 48px;
   font-weight: 900;
+  text-align: center;
+  margin-bottom: 20px;
 `;
