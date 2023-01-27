@@ -37,7 +37,7 @@ public class NewsFormController {
         return news;
     }
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public HomeDto home(@RequestParam String categoryName) {
        return service2.home(categoryName);
     }
