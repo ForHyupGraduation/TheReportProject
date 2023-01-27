@@ -76,20 +76,14 @@ public class BuzzInfoCrawler{
         }
         WebElement element = chromeDriver.findElement(By.cssSelector("#middle > div.h_company > div.wrap_company > div > span.code"));
         String companyCode = element.getText();
-
         System.out.println("cc" + companyCode);
-
-
         WebElement categoryElement = chromeDriver.findElement(By.cssSelector("#content > div.section.trade_compare > h4 > em > a"));
         String categoryName = categoryElement.getText();
-
         System.out.println(categoryName);
         closeDriver();
 
-        return new FinancialDto(ratioMap, companyCode, categoryName);
+        return new FinancialDto(ratioMap, Integer.parseInt(companyCode), categoryName);
     }
-
-
 
     private Map<String, String> empNumberExtract(String buzz) throws InterruptedException {
         // 사람인 크롤링

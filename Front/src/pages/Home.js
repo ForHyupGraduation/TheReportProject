@@ -113,10 +113,8 @@ function Home() {
   }
 }
 
-<<<<<<< HEAD
 export default Home;
-=======
-export default Home;
+
 
 // const Doughnut = styled.div`
 //   display: flex;
@@ -148,4 +146,4 @@ export default Home;
 //   display: flex;
 //   justify-content: center;
 // `;
->>>>>>> d1ea0b84848efa4240a734498521149f2796a2e6
+

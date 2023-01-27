@@ -1,10 +1,13 @@
 package back.back.domain.financialratio;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
+@Setter @Getter
 public class NetProfit implements FinancialRatio{
 
     @Id
@@ -16,37 +19,6 @@ public class NetProfit implements FinancialRatio{
     private String previousSecondQuarter;
     private String previousQuarter;
 
-    public String getPreviousFourthQuarter() {
-        return previousFourthQuarter;
-    }
-
-    public void setPreviousFourthQuarter(String previousFourthQuarter) {
-        this.previousFourthQuarter = previousFourthQuarter;
-    }
-
-    public String getPreviousThirdQuarter() {
-        return previousThirdQuarter;
-    }
-
-    public void setPreviousThirdQuarter(String previousThirdQuarter) {
-        this.previousThirdQuarter = previousThirdQuarter;
-    }
-
-    public String getPreviousSecondQuarter() {
-        return previousSecondQuarter;
-    }
-
-    public void setPreviousSecondQuarter(String previousSecondQuarter) {
-        this.previousSecondQuarter = previousSecondQuarter;
-    }
-
-    public String getPreviousQuarter() {
-        return previousQuarter;
-    }
-
-    public void setPreviousQuarter(String previousQuarter) {
-        this.previousQuarter = previousQuarter;
-    }
 
     @Override
     public String toString() {

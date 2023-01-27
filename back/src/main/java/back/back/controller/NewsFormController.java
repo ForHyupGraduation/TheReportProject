@@ -2,14 +2,15 @@ package back.back.controller;
 
 import back.back.crawler.BuzzInfoCrawler;
 import back.back.crawler.NewsCrawler;
+import back.back.domain.Company;
 import back.back.domain.financialratio.FinancialRatio;
 import back.back.domain.News;
 import back.back.service.CompanyService;
 import back.back.service.NewsFormService;
 import back.back.web.CompanyDto;
+import back.back.web.CompanyInfoPage;
 import back.back.web.FinancialDto;
 import back.back.web.HomeDto;
-import back.back.web.MainPage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -37,27 +38,26 @@ public class NewsFormController {
     }
 
     @GetMapping("/")
-    public HomeDto home() {
-       return service2.home();
+    public HomeDto home(@RequestParam String categoryName) {
+       return service2.home(categoryName);
     }
 
     @GetMapping("/test")
-    public CompanyDto test(@RequestParam String companyName) throws JsonProcessingException {
+    public CompanyInfoPage test(@RequestParam String companyName) throws JsonProcessingException {
         CompanyDto companyDto = service2.mainPage(companyName);
-        String s = mapper.writeValueAsString(companyDto);
-        System.out.println(s);
-        return companyDto;
+        CompanyInfoPage companyInfoPage = new CompanyInfoPage(companyDto);
+        return companyInfoPage;
     }
 
     @GetMapping("/news/add2")
-    public String addData2(@RequestParam String companyName) throws IOException {
+    public Company addData2(@RequestParam String companyName) throws IOException {
         BuzzInfoCrawler crawler = new BuzzInfoCrawler();
         FinancialDto financialDto = crawler.findBuzzInfo2(companyName);
 
         NewsCrawler crawler2 = new NewsCrawler(companyName);
-        List<back.back.domain.News> news = crawler2.titleParsing();
+        List<News> news = crawler2.titleParsing();
 
-        MainPage save = service2.save(financialDto, news, companyName);
-        return "ok";
+        Company save = service2.save(financialDto, news, companyName);
+        return save;
     }
 }

@@ -1,8 +1,10 @@
 package back.back.service;
 
+import back.back.csvFileReader.CsvFileReader;
 import back.back.domain.Company;
 import back.back.domain.News;
 import back.back.domain.financialratio.*;
+import back.back.domain.growth.GrowthRatio;
 import back.back.repository.CompanyRepository;
 import back.back.repository.FinancialRepository;
 import back.back.repository.NewsRepository;
@@ -13,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +24,9 @@ public class CompanyService {
     private final CompanyRepository companyRepository;
     private final FinancialRepository financialRepository;
     private final NewsRepository newsRepository;
-    public MainPage save(FinancialDto financialDto, List<News> newsForms, String companyName) {
+    private final CsvFileReader reader;
+
+    public Company save(FinancialDto financialDto, List<News> newsForms, String companyName) {
 
         Map<String, FinancialRatio> ratio = financialDto.getFinancialRatioMap();
 
@@ -30,13 +35,12 @@ public class CompanyService {
         Revenue revenue = (Revenue) ratio.get("매출액");
         NetProfit netProfit = (NetProfit) ratio.get("당기순이익");
         financialRepository.save(margin, profit, revenue, netProfit);
+
         Company company = new Company();
         company.setCompanyName(companyName);
-
         for (News news : newsForms) {
             company.addNews(news);
         }
-
         company.setRevenue(revenue);
         company.setOperatingProfit(profit);
         company.setNetProfit(netProfit);
@@ -44,20 +48,17 @@ public class CompanyService {
         company.setCompanyName(companyName);
         company.setCategoryName(financialDto.getCategoryName());
         company.setCategoryCode(financialDto.getCompanyCode());
+        GrowthRatio growthRates = reader.readGrowthRatio("growthRates", company.getCategoryName(), company.getCategoryCode());
+        company.setGrowthRatio(growthRates);
+        company.setGrowthPoint((int)Math.round(growthRates.getSalesGrowthRate()* 100));
 
         companyRepository.save(company);
 
-        MainPage mainPage = new MainPage();
-        mainPage.setCompanyName(company.getCompanyName());
-        mainPage.setNews(company.getNews());
-        mainPage.setNetProfit(company.getNetProfit());
-        mainPage.setRevenue(company.getRevenue());
-        mainPage.setOperatingProfitMargin(company.getOperatingProfitMargin());
-
-        return mainPage;
+        return company;
     }
-    public HomeDto home() {
-        List<Company> company = companyRepository.findAll();
+
+    public HomeDto home(String categoryName) {
+        List<Company> company = companyRepository.findAll(categoryName);
         HomeDto homeDto = new HomeDto();
         for (Company company1 : company) {
             homeDto.getSimpleInfos().add(new CompanySimpleInfo(company1.getCompanyName(),
@@ -65,9 +66,14 @@ public class CompanyService {
         }
         return homeDto;
     }
+
+
     public CompanyDto mainPage(String companyName) {
-        CompanyDto companyDto = companyRepository.findByCompanyName(companyName);
-        return companyDto;
+        List<Company> companies = companyRepository.findByCompanyName(companyName);
+        CompanyDto collect = companies.stream().map(company -> new CompanyDto(company))
+                .findFirst()
+                .get();
+        return collect;
     }
 
 }

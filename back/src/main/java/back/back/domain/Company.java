@@ -4,6 +4,7 @@ import back.back.domain.financialratio.NetProfit;
 import back.back.domain.financialratio.OperatingProfit;
 import back.back.domain.financialratio.OperatingProfitMargin;
 import back.back.domain.financialratio.Revenue;
+import back.back.domain.growth.GrowthRatio;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -25,7 +26,7 @@ public class Company {
     @Column(name = "company_name")
     private String companyName;
 
-    private String categoryCode;
+    private int categoryCode;
 
     private String categoryName;
 
@@ -49,6 +50,10 @@ public class Company {
     @JoinColumn(name = "revenue_id")
     private Revenue revenue;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "growth_ratio_id")
+    private GrowthRatio growthRatio;
+
     private Integer growthPoint;
 
     private Integer interestPoint;
@@ -58,19 +63,5 @@ public class Company {
         news.setCompany(this);
     }
 
-    @Override
-    public String toString() {
-        return "Company{" +
-                "id=" + id +
-                ", companyName='" + companyName + '\'' +
-                ", news=" + news +
-                ", netProfit=" + netProfit +
-                ", operatingProfit=" + operatingProfit +
-                ", operatingProfitMargin=" + operatingProfitMargin +
-                ", revenue=" + revenue +
-                ", growthPoint=" + growthPoint +
-                ", interestPoint=" + interestPoint +
-                '}';
-    }
 
 }

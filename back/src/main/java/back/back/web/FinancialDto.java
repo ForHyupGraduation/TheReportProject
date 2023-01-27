@@ -12,8 +12,9 @@ import java.util.Map;
 @Setter @Getter
 public class FinancialDto {
     private final Map<String, FinancialRatio> financialRatioMap;
-    private final String companyCode; // 업종 코드
+    private final int companyCode; // 업종 코드
     private final String categoryName; // 업종
+
     // 1. categorycode -- #게임,
     // form <<<---->>> game; company join categorycode -- categoryName
 }
