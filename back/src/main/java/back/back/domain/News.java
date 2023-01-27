@@ -12,7 +12,6 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "news_id")
     private Long id;
-
     private String title;
     private String content;
     private String imageUrl;

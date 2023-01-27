@@ -1,16 +1,12 @@
-package back.back.domain.growth;
+package back.back.domain.ratio;
 
-import com.opencsv.bean.CsvBindAndJoinByName;
 import com.opencsv.bean.CsvBindByName;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.checkerframework.checker.units.qual.C;
 
 @Entity
-@Getter
-@Setter
-
+@Getter @Setter
 public class GrowthRatio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

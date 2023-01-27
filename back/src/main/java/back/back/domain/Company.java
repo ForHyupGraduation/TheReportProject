@@ -4,13 +4,11 @@ import back.back.domain.financialratio.NetProfit;
 import back.back.domain.financialratio.OperatingProfit;
 import back.back.domain.financialratio.OperatingProfitMargin;
 import back.back.domain.financialratio.Revenue;
-import back.back.domain.growth.GrowthRatio;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import back.back.domain.ratio.GrowthRatio;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.checkerframework.checker.units.qual.C;
 
 import java.util.ArrayList;
 import java.util.List;

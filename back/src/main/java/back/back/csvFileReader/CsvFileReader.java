@@ -1,12 +1,9 @@
 package back.back.csvFileReader;
 
-import back.back.domain.growth.GrowthRatio;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
+import back.back.domain.ratio.GrowthRatio;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.stereotype.Component;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 

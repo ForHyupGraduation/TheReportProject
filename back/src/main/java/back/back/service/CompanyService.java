@@ -4,7 +4,7 @@ import back.back.csvFileReader.CsvFileReader;
 import back.back.domain.Company;
 import back.back.domain.News;
 import back.back.domain.financialratio.*;
-import back.back.domain.growth.GrowthRatio;
+import back.back.domain.ratio.GrowthRatio;
 import back.back.repository.CompanyRepository;
 import back.back.repository.FinancialRepository;
 import back.back.repository.NewsRepository;
@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -68,7 +67,6 @@ public class CompanyService {
         return homeDto;
     }
 
-
     public CompanyDto mainPage(String companyName) {
         List<Company> companies = companyRepository.findByCompanyName(companyName);
         CompanyDto collect = companies.stream().map(company -> new CompanyDto(company))
@@ -76,5 +74,4 @@ public class CompanyService {
                 .get();
         return collect;
     }
-
 }
