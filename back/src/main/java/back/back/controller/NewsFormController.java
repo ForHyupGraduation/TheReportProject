@@ -49,6 +49,7 @@ public class NewsFormController {
         return companyInfoPage;
     }
 
+
     @GetMapping("/news/add2")
     public Company addData2(@RequestParam String companyName) throws IOException {
         BuzzInfoCrawler crawler = new BuzzInfoCrawler();

@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Accordion } from "react-bootstrap";
 import CompanyListElement from "./CompanyListElement";
 
-
 const CompanyList = ({ companies }) => {
-
   console.log(companies);
   return(
     <div>
@@ -55,6 +53,4 @@ const CompanyList = ({ companies }) => {
 //    </Accordion>
 //  )
 //};
-
-
 export default CompanyList;
