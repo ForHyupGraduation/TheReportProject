@@ -17,7 +17,6 @@ public class GrowthRatio {
     @Column(name = "growth_ratio_id")
     private Long id;
 
-
     @CsvBindByName(column = "categoryCode")
     private int categoryCode;
 

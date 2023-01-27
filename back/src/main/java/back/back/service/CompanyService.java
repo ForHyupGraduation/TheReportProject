@@ -62,7 +62,8 @@ public class CompanyService {
         HomeDto homeDto = new HomeDto();
         for (Company company1 : company) {
             homeDto.getSimpleInfos().add(new CompanySimpleInfo(company1.getCompanyName(),
-                    company1.getGrowthPoint(), company1.getInterestPoint()));
+                    company1.getGrowthPoint(), company1.getInterestPoint(), company1.getGrowthRatio().getSalesGrowthRate(),
+                    company1.getGrowthRatio().getOperatingProfitGrowthRate()));
         }
         return homeDto;
     }
