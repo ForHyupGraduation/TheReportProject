@@ -1,14 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import styled from "styled-components";
 import LineChart2 from "../Graphs/LineChart2";
 
 /*
-flag 0 means post
-flag 1 means tradingVolume
-flag 2 means revenue
-flag 3 means operatingProfit
+flag 0 means revenue
+flag 1 means netProfit
+flag 2 means operatingProfit
+flag 3 means margin
 */
 
 const SubInfoItem = ({ revenue, flag }) => {
@@ -17,13 +16,13 @@ const SubInfoItem = ({ revenue, flag }) => {
 
   useEffect(() => {
     if (flag === 0) {
-      setVal(revenue.revenue);
+      setVal(revenue.post);
     } else if (flag === 1) {
-      setVal(revenue.netProfit);
+      setVal(revenue.tradingVolume);
     } else if (flag === 2) {
-      setVal(revenue.operatingProfit);
+      setVal(revenue.revenue);
     } else {
-      setVal(revenue.margin);
+      setVal(revenue.operatingProfit);
     }
 
     setIsLoading(false);

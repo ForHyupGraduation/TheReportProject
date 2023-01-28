@@ -78,11 +78,11 @@
     "previousSecondQuarter": "18,587",
     "previousQuarter": "19,034"
   },
-  "netProfit": {
-    "previousFourthQuarter": "13,221",
-    "previousThirdQuarter": "1,012",
-    "previousSecondQuarter": "1,372",
-    "previousQuarter": "408"
+  "post": {
+    "previousFourthQuarter": "6",
+    "previousThirdQuarter": "11",
+    "previousSecondQuarter": "7",
+    "previousQuarter": "3"
   },
   "operatingProfit": {
     "previousFourthQuarter": "1,587",
@@ -90,10 +90,12 @@
     "previousSecondQuarter": "1,503",
     "previousQuarter": "1,046"
   },
-  "margin": {
-    "previousFourthQuarter": "9.61",
-    "previousThirdQuarter": "9.38",
-    "previousSecondQuarter": "8.09",
-    "previousQuarter": "5.50"
-  }
+  "tradingVolume": {
+    "previousFourthQuarter": "12332",
+    "previousThirdQuarter": "11332",
+    "previousSecondQuarter": "15332",
+    "previousQuarter": "9332"
+  },
+  "growthPoint": 30,
+  "interestPoint": 40
 }

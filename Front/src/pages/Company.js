@@ -14,9 +14,13 @@ import Meter from "../components/Meters/Meter";
 
 function Company() {
   const [company, setCompany] = useState(null);
+  const [growthPoint, setGrowthPoint] = useState(null);
+  const [interestPoint, setinterestPoint] = useState(null);
 
   useEffect(() => {
     setCompany(KakaoCompanyInfos.companyName);
+    setGrowthPoint(KakaoCompanyInfos.growthPoint);
+    setinterestPoint(KakaoCompanyInfos.interestPoint);
   }, []);
 
   const GetCompanyInfo = () => {};
@@ -27,17 +31,17 @@ function Company() {
       <MainContents className="col-lg-9">
         <MainContent>
           <SubTitle className="lead text-muted">
-            대중성과 성장성 종합지표
+            관심도와 성장성 종합지표
           </SubTitle>
           <LineChart />
         </MainContent>
         <MainContent>
           <SubTitle className="lead text-muted">
-            대중성과 성장성에 대한 일일 지표
+            관심도와 성장성에 대한 일일 지표
           </SubTitle>
           <Content>
-            <Meter progressEndValue={80} />
-            <Meter progressEndValue={70} />
+            <Meter progressEndValue={interestPoint} />
+            <Meter progressEndValue={growthPoint} />
           </Content>
           <DeScribe>설명란</DeScribe>
         </MainContent>
