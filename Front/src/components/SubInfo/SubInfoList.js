@@ -59,19 +59,19 @@ const SubinfoList = () => {
   return (
     <>
       <Block>
-        <SubTitle className="lead text-muted">일당 Post</SubTitle>
+        <SubTitle className="lead text-muted">매출액</SubTitle>
         <SubInfoItem revenue={revenue} flag={0} />
       </Block>
       <Block>
-        <SubTitle className="lead text-muted">거래량</SubTitle>
+        <SubTitle className="lead text-muted">당기순이익</SubTitle>
         <SubInfoItem revenue={revenue} flag={1} />
       </Block>
       <Block>
-        <SubTitle className="lead text-muted">분기당 매출액</SubTitle>
+        <SubTitle className="lead text-muted">영업이익</SubTitle>
         <SubInfoItem revenue={revenue} flag={2} />
       </Block>
       <Block>
-        <SubTitle className="lead text-muted">분기당 영업이익</SubTitle>
+        <SubTitle className="lead text-muted">순이익률</SubTitle>
         <SubInfoItem revenue={revenue} flag={3} />
       </Block>
     </>

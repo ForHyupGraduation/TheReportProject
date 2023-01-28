@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -16,16 +16,6 @@ ChartJS.register(
 );
 
 const LineChart = ({ revenue }) => {
-  const [xAxis, setXAxis] = useState([]);
-  useEffect(() => {
-    setXAxis(Object.keys(revenue));
-  }, []);
-  if (xAxis[0] === "previousFourthQuarter") {
-    xAxis[0] = "1분기";
-    xAxis[1] = "2분기";
-    xAxis[2] = "3분기";
-    xAxis[3] = "4분기";
-  }
   const {
     previousFourthQuarter,
     previousThirdQuarter,
@@ -39,7 +29,7 @@ const LineChart = ({ revenue }) => {
   const fourth = parseInt(previousFourthQuarter.split(",").join(""));
 
   const data = {
-    labels: [xAxis[0], xAxis[1], xAxis[2], xAxis[3]],
+    labels: ["Mon", "Tue", "Wed", "Thur"],
     datasets: [
       {
         labels: "Scale of the week",
@@ -61,8 +51,8 @@ const LineChart = ({ revenue }) => {
     },
     scales: {
       y: {
-        min: Math.min(first, second, third, fourth) * 0.8,
-        max: Math.max(first, second, third, fourth) * 1.2,
+        min: Math.min(first, second, third, fourth),
+        max: Math.max(first, second, third, fourth),
       },
     },
   };

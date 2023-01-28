@@ -14,58 +14,47 @@ import Meter from "../components/Meters/Meter";
 
 function Company() {
   const [company, setCompany] = useState(null);
-  const [growthPoint, setGrowthPoint] = useState(null);
-  const [interestPoint, setinterestPoint] = useState(null);
-  const [companyLogo, setCompanyLogo] = useState(null);
-  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     setCompany(KakaoCompanyInfos.companyName);
-    setGrowthPoint(KakaoCompanyInfos.growthPoint);
-    setinterestPoint(KakaoCompanyInfos.interestPoint);
-    setCompanyLogo(KakaoCompanyInfos.companyImageUrl);
-    setLoading(false);
   }, []);
 
-  // const GetCompanyInfo = () => {};
-  if (!isLoading) {
-    return (
-      <div className="container row" style={{ margin: "20px auto" }}>
-        <Title>
-          <img src={companyLogo} />
-          {company}
-        </Title>
-        <MainContents className="col-lg-9">
-          <MainContent>
-            <SubTitle className="lead text-muted">
-              대중성과 성장성 종합지표
-            </SubTitle>
-            <LineChart />
-          </MainContent>
-          <MainContent>
-            <SubTitle className="lead text-muted">
-              대중성과 성장성에 대한 일일 지표
-            </SubTitle>
-            <Content>
-              <Meter progressEndValue={interestPoint} />
-              <Meter progressEndValue={growthPoint} />
-            </Content>
-            <DeScribe>설명란</DeScribe>
-          </MainContent>
-          <MainContent>
-            <SubTitle className="lead text-muted" style={{ fontSize: "30px" }}>
-              News
-            </SubTitle>
-            <NewsList />
-          </MainContent>
-        </MainContents>
-        <SubContents className="col-lg-3">
-          <SubinfoList />
-        </SubContents>
-      </div>
-    );
-  }
+  const GetCompanyInfo = () => {};
+
+  return (
+    <div className="container row" style={{ margin: "20px auto" }}>
+      <Title>{company}</Title>
+      <MainContents className="col-lg-9">
+        <MainContent>
+          <SubTitle className="lead text-muted">
+            대중성과 성장성 종합지표
+          </SubTitle>
+          <LineChart />
+        </MainContent>
+        <MainContent>
+          <SubTitle className="lead text-muted">
+            대중성과 성장성에 대한 일일 지표
+          </SubTitle>
+          <Content>
+            <Meter progressEndValue={80} />
+            <Meter progressEndValue={70} />
+          </Content>
+          <DeScribe>설명란</DeScribe>
+        </MainContent>
+        <MainContent>
+          <SubTitle className="lead text-muted" style={{ fontSize: "30px" }}>
+            News
+          </SubTitle>
+          <NewsList />
+        </MainContent>
+      </MainContents>
+      <SubContents className="col-lg-3">
+        <SubinfoList />
+      </SubContents>
+    </div>
+  );
 }
+
 export default Company;
 
 const MainContents = styled.div`
@@ -112,16 +101,8 @@ const SubTitle = styled.div`
 // `;
 
 const Title = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 48px;
   font-weight: 900;
   text-align: center;
   margin-bottom: 20px;
-  img {
-    width: 60px;
-    border-radius: 30%;
-    margin: 20px;
-  }
 `;

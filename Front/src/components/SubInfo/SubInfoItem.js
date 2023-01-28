@@ -17,13 +17,13 @@ const SubInfoItem = ({ revenue, flag }) => {
 
   useEffect(() => {
     if (flag === 0) {
-      setVal(revenue.post);
-    } else if (flag === 1) {
-      setVal(revenue.tradingVolume);
-    } else if (flag === 2) {
       setVal(revenue.revenue);
-    } else {
+    } else if (flag === 1) {
+      setVal(revenue.netProfit);
+    } else if (flag === 2) {
       setVal(revenue.operatingProfit);
+    } else {
+      setVal(revenue.margin);
     }
 
     setIsLoading(false);
