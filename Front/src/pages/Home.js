@@ -1,19 +1,16 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
 
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { useEffect, useState } from "react";
 
 //import axios from "axios";
-
 import LoadingPage from "./LoadingPage";
 
 import companies from "../components/DB/Companies.json";
 import upjongs from "../components/DB/Upjongs.json";
 
 import UpjongCards from "../components/Cards/UpjongList/UpjongCards";
-import CompanyList from "../components/List/CompanyList/CompanyList";
+import StockVideo from "../videos/stock_one.mp4";
 
 function Home() {
   const [upjongsInfo, setUpjongsInfo] = useState(null);
@@ -51,62 +48,39 @@ function Home() {
   } else {
     return (
       <>
-        <section className="py-5 text-center container">
-          <div className="row py-lg-5">
-            <div className="col-lg-6 col-md-8 mx-auto">
-              <h1 className="fw-light">The Reporter</h1>
-              <p className="lead text-muted">
-                회사의 객관적인 데이터로 올바른 결정을 내리세요
-              </p>
-              <p>
-                <a href="#" className="btn btn-primary my-2 me-1">
-                  투자 지표 확인하기
-                </a>
-                <a href="#" className="btn btn-secondary my-2 ms-1">
-                  구직 지표 확인하기
-                </a>
-              </p>
-            </div>
+        <div style={{ position: "relative"}}>
+          <video muted autoPlay loop style={{ width: "100%"}}>
+            <source src={StockVideo} type="video/mp4" />
+          </video>
+          <div style={{
+            position: "absolute",
+            inset: "0",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "white"
+          }}>
+            <h1 style={{
+              fontWeight: "bold",
+            }}>The Reporter</h1>
+            <p>회사의 객관적인 데이터로 올바른 결정을 내리세요</p>
           </div>
-        </section>
+          <p style={{
+            position: "absolute",
+            inset: "1",
+            display: "grid",
+            placeItems: "center",
+            fontWeight: "bold",
+            color: "white"
+          }}>
+            asdf
+          </p>
+        </div>
         <div class="album py-5">
           <div class="container">
             <UpjongCards upjongs={upjongsInfo} />
           </div>
-        </div>
-
-        <div>
-          <table className="table caption-top">
-            <caption>List of users</caption>
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">COMPANY</th>
-                <th scope="col">INTEREST</th>
-                <th scope="col">GROWTH</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </>
     );
