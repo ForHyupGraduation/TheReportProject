@@ -1,5 +1,7 @@
 {
   "companyName": "카카오 ",
+  "companyImageUrl": "https://t1.kakaocdn.net/kakaocorp/corp_thumbnail/Kakao.png",
+  "upjongNumber": "263",
   "news": [
     {
       "id": 1,
@@ -78,7 +80,7 @@
     "previousSecondQuarter": "18,587",
     "previousQuarter": "19,034"
   },
-  "netProfit": {
+  "tradingVolume": {
     "previousFourthQuarter": "13,221",
     "previousThirdQuarter": "1,012",
     "previousSecondQuarter": "1,372",
@@ -90,10 +92,12 @@
     "previousSecondQuarter": "1,503",
     "previousQuarter": "1,046"
   },
-  "margin": {
-    "previousFourthQuarter": "9.61",
-    "previousThirdQuarter": "9.38",
-    "previousSecondQuarter": "8.09",
-    "previousQuarter": "5.50"
-  }
+  "post": {
+    "previousFourthQuarter": "9",
+    "previousThirdQuarter": "9",
+    "previousSecondQuarter": "9",
+    "previousQuarter": "5"
+  },
+  "growthPoint": 30,
+  "interestPoint": 40
 }
