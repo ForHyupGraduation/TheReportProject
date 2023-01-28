@@ -28,9 +28,10 @@ public class CsvFileReader {
 
     private String pathResolver(String fileName, String categoryName) {
        Integer code = 0;
-        if(categoryName.equals("게임엔터테인먼트")) {
-            code = 263;
-        }
+
+       if(categoryName.equals("게임엔터테인먼트")) {
+           code = 263;
+       }
 
         return "DB/growthDB/" + fileName + code + ".csv";
     }

@@ -64,12 +64,14 @@ public class CompanyService {
                     company1.getGrowthPoint(), company1.getInterestPoint(), company1.getGrowthRatio().getSalesGrowthRate(),
                     company1.getGrowthRatio().getOperatingProfitGrowthRate()));
         }
+        homeDto.setCategoryName(categoryName);
         return homeDto;
     }
 
     public CompanyDto mainPage(String companyName) {
         List<Company> companies = companyRepository.findByCompanyName(companyName);
-        CompanyDto collect = companies.stream().map(company -> new CompanyDto(company))
+        CompanyDto collect = companies.stream()
+                .map(company -> new CompanyDto(company))
                 .findFirst()
                 .get();
         return collect;
