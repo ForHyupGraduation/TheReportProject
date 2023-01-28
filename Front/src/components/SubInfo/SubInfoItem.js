@@ -5,10 +5,10 @@ import styled from "styled-components";
 import LineChart2 from "../Graphs/LineChart2";
 
 /*
-flag 0 means revenue
-flag 1 means netProfit
-flag 2 means operatingProfit
-flag 3 means margin
+flag 0 means post
+flag 1 means tradingVolume
+flag 2 means revenue
+flag 3 means operatingProfit
 */
 
 const SubInfoItem = ({ revenue, flag }) => {

@@ -5,6 +5,7 @@ import styled from "styled-components";
 //import axios from "axios";
 
 import SubInfoItem from "./SubInfoItem";
+import CompaniesDB from "../components/DB/Companies.json";
 
 import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
 import { Container } from "react-bootstrap";
@@ -12,7 +13,7 @@ import { Container } from "react-bootstrap";
 const SubinfoList = () => {
   const [revenue, setRevenue] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const [relatedCompany, setRelatedCompany] = useState(null);
   useEffect(() => {
     // const fechData = async () => {
     //   setLoading(true);
@@ -29,10 +30,14 @@ const SubinfoList = () => {
     //   setLoading(false);
     // };
     // fechData();
+    const simpleInfos = GetCompaniesFromUpjong();
     setRevenue(KakaoCompanyInfos);
     setLoading(false);
+    setRelatedCompany(simpleInfos);
   }, []);
-
+  const GetCompaniesFromUpjong = () => {
+    return CompaniesDB.simpleInfos;
+  };
   // 아직 대기중임
   if (loading) {
     return <SubinfoBlock>대기 중...</SubinfoBlock>;
