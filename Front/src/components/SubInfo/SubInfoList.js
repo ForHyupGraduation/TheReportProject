@@ -28,7 +28,7 @@ const SubinfoList = () => {
     //   setLoading(false);
     // };
     // fechData();
-    setRevenue(KakaoCompanyInfos);
+    setRevenue(KakaoCompanyInfos.companyDto);
     setLoading(false);
   }, []);
 
@@ -48,6 +48,7 @@ const SubinfoList = () => {
 
   //revenue 값이 유효 할 때
   if (!loading) {
+    console.log(revenue);
   }
 
   return (

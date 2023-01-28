@@ -16,18 +16,23 @@ function Company() {
   const [company, setCompany] = useState(null);
   const [growthPoint, setGrowthPoint] = useState(null);
   const [interestPoint, setinterestPoint] = useState(null);
+  const [companyLogo, setCompanyLogo] = useState(null);
 
   useEffect(() => {
-    setCompany(KakaoCompanyInfos.companyName);
-    setGrowthPoint(KakaoCompanyInfos.growthPoint);
-    setinterestPoint(KakaoCompanyInfos.interestPoint);
+    setCompany(KakaoCompanyInfos.companyDto.companyName);
+    setGrowthPoint(KakaoCompanyInfos.companyDto.growthPoint);
+    setinterestPoint(KakaoCompanyInfos.companyDto.interestPoint);
+    setCompanyLogo(KakaoCompanyInfos.companyDto.companyLogoUrl);
   }, []);
 
   const GetCompanyInfo = () => {};
 
   return (
     <div className="container row" style={{ margin: "20px auto" }}>
-      <Title>{company}</Title>
+      <Title>
+        <img src={companyLogo} alt="companyLogo" />
+        {company}
+      </Title>
       <MainContents className="col-lg-9">
         <MainContent>
           <SubTitle className="lead text-muted">
@@ -105,8 +110,14 @@ const SubTitle = styled.div`
 // `;
 
 const Title = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 48px;
   font-weight: 900;
   text-align: center;
   margin-bottom: 20px;
+  img {
+    width: 100px;
+  }
 `;
