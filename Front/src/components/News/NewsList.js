@@ -8,6 +8,7 @@ import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
 const NewsList = () => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [companyLogo, setCompanyLogo] = useState(null);
 
   useEffect(() => {
     // const fechData = async () => {
@@ -24,7 +25,8 @@ const NewsList = () => {
     //   setLoading(false);
     // };
     // fechData();
-    setArticles(KakaoCompanyInfos.news);
+    setArticles(KakaoCompanyInfos.companyDto.news);
+    setCompanyLogo(KakaoCompanyInfos.companyDto.companyLogoUrl);
     setLoading(false);
   }, []);
 
@@ -43,7 +45,7 @@ const NewsList = () => {
   return (
     <NewsListBlock>
       {articles.map((article) => (
-        <NewsItem key={article.id} article={article} />
+        <NewsItem key={article.id} article={article} logo={companyLogo} />
       ))}
     </NewsListBlock>
   );

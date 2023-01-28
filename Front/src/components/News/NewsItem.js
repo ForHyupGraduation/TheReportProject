@@ -2,13 +2,21 @@ import React from "react";
 import styled from "styled-components";
 // import { Col } from "react-bootstrap";
 
-const NewsItem = ({ article }) => {
+const NewsItem = ({ article, logo }) => {
   const { content, imageUrl, linkUrl, title } = article;
+
+  let image = null;
+  if (imageUrl) {
+    image = imageUrl;
+  } else {
+    image = logo;
+  }
+
   return (
     <div className="Container row">
       <NewsItemBlock>
         <div className="contents">
-          <img src={imageUrl} alt="NewsImage" />
+          <img src={image} alt="NewsImage" />
           <a
             href={linkUrl}
             target="_blank"
@@ -41,7 +49,7 @@ const NewsItemBlock = styled.div`
   height: 200px;
 
   .display-1 {
-    font-size: 15px;
+    font-size: 13px;
     line-height: 150%;
   }
 
