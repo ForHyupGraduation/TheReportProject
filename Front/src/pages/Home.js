@@ -10,7 +10,7 @@ import companies from "../components/DB/Companies.json";
 import upjongs from "../components/DB/Upjongs.json";
 
 import UpjongCards from "../components/Cards/UpjongList/UpjongCards";
-import StockVideo from "../videos/stock_one.mp4";
+import StockVideo from "../videos/stock_two.mp4";
 
 function Home() {
   const [upjongsInfo, setUpjongsInfo] = useState(null);
@@ -48,32 +48,40 @@ function Home() {
   } else {
     return (
       <>
-        <div style={{ position: "relative"}}>
-          <video muted autoPlay loop style={{ width: "100%"}}>
+        <div style={{ position: "relative" }}>
+          <video muted autoPlay loop style={{ width: "100%" }}>
             <source src={StockVideo} type="video/mp4" />
           </video>
-          <div style={{
-            position: "absolute",
-            inset: "0",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white"
-          }}>
-            <h1 style={{
-              fontWeight: "bold",
-            }}>The Reporter</h1>
+          <div
+            style={{
+              position: "absolute",
+              inset: "0",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "white",
+            }}
+          >
+            <h1
+              style={{
+                fontWeight: "bold",
+              }}
+            >
+              The Reporter
+            </h1>
             <p>회사의 객관적인 데이터로 올바른 결정을 내리세요</p>
           </div>
-          <p style={{
-            position: "absolute",
-            inset: "1",
-            display: "grid",
-            placeItems: "center",
-            fontWeight: "bold",
-            color: "white"
-          }}>
+          <p
+            style={{
+              position: "absolute",
+              inset: "1",
+              display: "grid",
+              placeItems: "center",
+              fontWeight: "bold",
+              color: "white",
+            }}
+          >
             asdf
           </p>
         </div>
@@ -88,7 +96,6 @@ function Home() {
 }
 
 export default Home;
-
 
 // const Doughnut = styled.div`
 //   display: flex;
@@ -120,4 +127,3 @@ export default Home;
 //   display: flex;
 //   justify-content: center;
 // `;
-
