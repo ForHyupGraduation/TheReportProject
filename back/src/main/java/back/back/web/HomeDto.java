@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 public class HomeDto {
+    private String categoryName;
     private List<CompanySimpleInfo> simpleInfos;
 
     public HomeDto() {
