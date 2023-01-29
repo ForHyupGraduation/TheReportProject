@@ -5,6 +5,8 @@ import styled from "styled-components";
 //import axios from "axios";
 
 import SubInfoItem from "./SubInfoItem";
+import CompanyList from "../List/CompanyList/CompanyList";
+import CompaniesDB from "../DB/Companies.json";
 
 import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
 import { Container } from "react-bootstrap";
@@ -70,6 +72,9 @@ const SubinfoList = ({ company }) => {
       <Block>
         <SubTitle className="lead text-muted">분기당 영업이익</SubTitle>
         <SubInfoItem revenue={revenue} flag={3} />
+      </Block>
+      <Block>
+        <CompanyList companies={CompaniesDB.simpleInfos} />
       </Block>
     </>
   );

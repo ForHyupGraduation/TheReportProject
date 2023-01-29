@@ -36,7 +36,7 @@ const Upjong = () => {
               <h1 className="fw-light">{upjong} 산업</h1>
 
               <ScatterChart
-                label={`${upjong} Growth Rates`}
+                labels={companies.map((company) => company.companyName)}
                 data={companies.map((company) => ({
                   x: company.salesGrowthRate,
                   y: company.operatingProfitGrowthRate,

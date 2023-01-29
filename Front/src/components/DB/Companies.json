@@ -2,18 +2,25 @@
   "categoryName": "게임엔터테인먼트",
   "simpleInfos": [
     {
-      "companyName": "넥슨게임즈",
-      "growthPoint": 10,
-      "interestPoint": null,
-      "salesGrowthRate": 0.099,
-      "operatingProfitGrowthRate": 0.525
-    },
-    {
       "companyName": "엔씨소프트",
       "growthPoint": 14,
       "interestPoint": null,
       "salesGrowthRate": 0.143,
       "operatingProfitGrowthRate": 0.558
+    },
+    {
+      "companyName": "카카오게임즈 ",
+      "growthPoint": 23,
+      "interestPoint": null,
+      "salesGrowthRate": 0.23,
+      "operatingProfitGrowthRate": 0.627
+    },
+    {
+      "companyName": "넷마블",
+      "growthPoint": 12,
+      "interestPoint": null,
+      "salesGrowthRate": 0.119,
+      "operatingProfitGrowthRate": 0.448
     }
   ]
 }
