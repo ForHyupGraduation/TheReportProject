@@ -5,8 +5,6 @@ import styled from "styled-components";
 //import axios from "axios";
 
 import SubInfoItem from "./SubInfoItem";
-import CompanyList from "../List/CompanyList/CompanyList";
-import CompaniesDB from "../DB/Companies.json";
 
 import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
 import { Container } from "react-bootstrap";
@@ -15,7 +13,6 @@ const SubinfoList = ({ company }) => {
   const [revenue, setRevenue] = useState(null);
   const [loading, setLoading] = useState(false);
   const [companyName, setCompanyName] = useState(null);
-  const [companies, setCompanies] = useState(null);
   useEffect(() => {
     // const fechData = async () => {
     //   setLoading(true);
@@ -35,7 +32,6 @@ const SubinfoList = ({ company }) => {
     setRevenue(KakaoCompanyInfos.companyDto);
     setLoading(false);
     setCompanyName({ company });
-    setCompanies(CompaniesDB.simpleInfos);
   }, []);
 
   // 아직 대기중임
@@ -75,9 +71,6 @@ const SubinfoList = ({ company }) => {
         <SubTitle className="lead text-muted">분기당 영업이익</SubTitle>
         <SubInfoItem revenue={revenue} flag={3} />
       </Block>
-      <Block>
-        <CompanyList companies={companies} />
-      </Block>
     </>
   );
 };
@@ -95,7 +88,6 @@ const Block = styled.div`
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.03) 10px 10px;
   width: 100%;
-  font-size: 0.8rem;
 `;
 
 const SubTitle = styled.div`
