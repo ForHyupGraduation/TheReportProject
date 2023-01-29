@@ -45,7 +45,7 @@ const NewsList = () => {
   return (
     <NewsListBlock>
       {articles.map((article) => (
-        <NewsItem key={article.id} article={article} logo={companyLogo} />
+        <NewsItem key={article.title} article={article} logo={companyLogo} />
       ))}
     </NewsListBlock>
   );

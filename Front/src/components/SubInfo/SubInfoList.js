@@ -9,15 +9,16 @@ import SubInfoItem from "./SubInfoItem";
 import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
 import { Container } from "react-bootstrap";
 
-const SubinfoList = () => {
+const SubinfoList = ({ company }) => {
   const [revenue, setRevenue] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [companyName, setCompanyName] = useState(null);
   useEffect(() => {
     // const fechData = async () => {
     //   setLoading(true);
     //   try {
     //     await axios
-    //       .get("http://localhost:8080/test?companyName=카카오 ")
+    //       .get(`http://localhost:8080/test?companyName=${company} `)
     //       .then((response) => {
     //         console.log(response);
     //         setRevenue(response.data);
@@ -30,6 +31,7 @@ const SubinfoList = () => {
     // fechData();
     setRevenue(KakaoCompanyInfos.companyDto);
     setLoading(false);
+    setCompanyName({ company });
   }, []);
 
   // 아직 대기중임
@@ -48,7 +50,7 @@ const SubinfoList = () => {
 
   //revenue 값이 유효 할 때
   if (!loading) {
-    console.log(revenue);
+    console.log(companyName);
   }
 
   return (

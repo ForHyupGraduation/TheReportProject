@@ -1,34 +1,19 @@
 {
+  "categoryName": "게임엔터테인먼트",
   "simpleInfos": [
     {
-      "companyName": "카카오 ",
-      "growthPoint": 30,
-      "interestPoint": 40
+      "companyName": "넥슨게임즈",
+      "growthPoint": 10,
+      "interestPoint": null,
+      "salesGrowthRate": 0.099,
+      "operatingProfitGrowthRate": 0.525
     },
     {
-      "companyName": "삼성전자 ",
-      "growthPoint": 20,
-      "interestPoint": 60
-    },
-    {
-      "companyName": "엔씨소프트 ",
-      "growthPoint": 40,
-      "interestPoint": 30
-    },
-    {
-      "companyName": "SK하이닉스 ",
-      "growthPoint": 30,
-      "interestPoint": 30
-    },
-    {
-      "companyName": "오스템임플란트, ",
-      "growthPoint": 50,
-      "interestPoint": 30
-    },
-    {
-      "companyName": "LG에너지솔루션 ",
-      "growthPoint": 40,
-      "interestPoint": 70
+      "companyName": "엔씨소프트",
+      "growthPoint": 14,
+      "interestPoint": null,
+      "salesGrowthRate": 0.143,
+      "operatingProfitGrowthRate": 0.558
     }
   ]
 }
