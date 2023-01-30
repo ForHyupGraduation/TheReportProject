@@ -1,11 +1,19 @@
-from crawler.volume import DownloadVolumeDataSetFromFirstToLast
-from crawler.post import DownloadPostDataSetFromFirstToLast
+from crawler.growtRates import GetCompanyCodes
 
-from normalization.growthRates import GetNormalizedGrowthRates
-from normalization.growthRates import GetCsvFileNames
+companyCodes = GetCompanyCodes("300")
 
-for csvFileName in GetCsvFileNames():
-    upjongNumber = csvFileName.split('.')[0].split('s')[1]
-    GetNormalizedGrowthRates(upjongNumber)
 
-#GetNormalizedGrowthRates("287")
+
+
+#interests = []
+
+
+#DownloadPostDataSet("036570", 7)
+#DownloadVolumeDataSet("036570", 3)
+
+#for duplicatedCompanyCode in GetDuplicatedCompanyCodes():
+#    interests = GetInterests(duplicatedCompanyCode)
+    
+#DownloadInterests(GetInterestsWithoutNoneValues(interests))
+
+#GetNormalizedInterests("036570")

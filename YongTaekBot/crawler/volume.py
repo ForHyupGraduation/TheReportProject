@@ -10,9 +10,9 @@ import time
 import random
 import csv
 
-def GetVolumeDataSetFromCSV(companyCode, firstPageNumber, lastPageNumber):
+def GetVolumeDataSetFromCSV(companyCode):
     volumeDataSet = []
-    with open(f"./data/volume/volume{companyCode}-{firstPageNumber}to{lastPageNumber}.csv", 'r') as csvfile:
+    with open(f"./data/volume/volume{companyCode}.csv", 'r') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
             volumeDataSet.append(volumePerDay(row[0] ,row[1], row[2], float(row[3])))
@@ -35,13 +35,13 @@ def GetVolumeDataSet(driver, volumeDataSet, companyCode):
             
     return volumeDataSet
 
-def DownloadVolumeDataSetFromFirstToLast(companyCode, firstPageNumber, lastPageNumber):
+def DownloadVolumeDataSet(companyCode, lastPageNumber):
     driver = CreateChromeDriver()
-    InitVolume(companyCode, firstPageNumber, lastPageNumber)
-    for pageNumber in range(firstPageNumber, lastPageNumber + 1):
+    InitVolume(companyCode)
+    for pageNumber in range(1, lastPageNumber + 1):
         driver.get(GetFinanceVolumeURL(companyCode, pageNumber))
-        volumeDataSet = GetVolumeDataSet(driver, GetVolumeDataSetFromCSV(companyCode, firstPageNumber, lastPageNumber), companyCode)
-        with open(f"./data/volume/volume{companyCode}-{firstPageNumber}to{lastPageNumber}.csv", 'w', newline='') as csvfile:
+        volumeDataSet = GetVolumeDataSet(driver, GetVolumeDataSetFromCSV(companyCode), companyCode)
+        with open(f"./data/volume/volume{companyCode}.csv", 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             for volumeData in volumeDataSet:
                 writer.writerow([volumeData.companyName, volumeData.companyCode, volumeData.volumeDate, volumeData.volume])

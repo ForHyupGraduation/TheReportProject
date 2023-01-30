@@ -58,18 +58,18 @@ class volumePerDay:
         self.volumeDate = volumeDate
         self.volume = volume
 
-def InitPost(companyCode, firstPageNumber, lastPageNumber):
+def InitPost(companyCode):
     if not os.path.exists("./data/post"):
         os.makedirs("./data/post")
     
-    with open(f"./data/post/post{companyCode}-{firstPageNumber}to{lastPageNumber}.csv", 'w', newline='') as csvfile:
+    with open(f"./data/post/post{companyCode}.csv", 'w', newline='') as csvfile:
         pass
 
-def InitVolume(companyCode, firstPageNumber, lastPageNumber):
+def InitVolume(companyCode):
     if not os.path.exists("./data/volume"):
         os.makedirs("./data/volume")
 
-    with open(f"./data/volume/volume{companyCode}-{firstPageNumber}to{lastPageNumber}.csv", 'w', newline='') as csvfile:
+    with open(f"./data/volume/volume{companyCode}.csv", 'w', newline='') as csvfile:
         pass
 
 def InitGrowthRates(upjongNumber):
