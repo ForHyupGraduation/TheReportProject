@@ -1,19 +1,13 @@
-from crawler.growtRates import GetCompanyCodes
+from normalization.interest import DownloadNormalizedInterests
 
-companyCodes = GetCompanyCodes("300")
+import os
 
+companyCodes = []
 
+for path in os.listdir("./data/interest"):
+    if path.endswith('.csv'):
+        print(path)
+        companyCodes.append(path.split('.')[0].split('t')[2])
 
-
-#interests = []
-
-
-#DownloadPostDataSet("036570", 7)
-#DownloadVolumeDataSet("036570", 3)
-
-#for duplicatedCompanyCode in GetDuplicatedCompanyCodes():
-#    interests = GetInterests(duplicatedCompanyCode)
-    
-#DownloadInterests(GetInterestsWithoutNoneValues(interests))
-
-#GetNormalizedInterests("036570")
+for companyCode in companyCodes:
+    DownloadNormalizedInterests(companyCode)

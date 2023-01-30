@@ -43,8 +43,11 @@ def GetInterestsFromCSV(companyCode):
         "maxVolume": maxVolume
     }
             
-def GetNormalizedInterests(companyCode):
+def DownloadNormalizedInterests(companyCode):
     interests = GetInterestsFromCSV(companyCode)
+
+    with open(f"./data/interest/normalizedInterest/normalizedInterest{companyCode}.csv", 'w', newline='') as csvfile:
+        pass
     
     for interest in interests['interests']:
         normalizedPosts = round(GetNormalizationValue(
