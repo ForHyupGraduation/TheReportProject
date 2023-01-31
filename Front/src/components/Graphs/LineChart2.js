@@ -64,8 +64,8 @@ const LineChart = ({ revenue }) => {
     },
     scales: {
       y: {
-        min: Math.min(first, second, third, fourth),
-        max: Math.max(first, second, third, fourth),
+        min: parseInt(Math.min(first, second, third, fourth) * 0.8),
+        max: parseInt(Math.max(first, second, third, fourth) * 1.2),
       },
     },
   };

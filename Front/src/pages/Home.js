@@ -10,7 +10,7 @@ import companies from "../components/DB/Companies.json";
 import upjongs from "../components/DB/Upjongs.json";
 
 import UpjongCards from "../components/Cards/UpjongList/UpjongCards";
-import StockVideo from "../videos/stock_one.mp4";
+import StockVideo from "../videos/stock_two.mp4";
 
 function Home() {
   const [upjongsInfo, setUpjongsInfo] = useState(null);
