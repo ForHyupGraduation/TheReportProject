@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,7 +25,6 @@ import java.util.Map;
 public class CompanyService {
     private final CompanyRepository companyRepository;
     private final FinancialRepository financialRepository;
-    private final NewsRepository newsRepository;
     private final CsvFileReader reader;
 
     public Company save(FinancialDto financialDto, List<News> newsForms, String companyName) {
@@ -82,12 +82,20 @@ public class CompanyService {
         return aDouble.intValue();
     }
 
+
+    public List<RelationCompanyListDto> findRelationCompany(String categoryName) {
+        List<Company> companies = companyRepository.findAllByCategoryName(categoryName);
+        return companies.stream()
+                .map(company -> new RelationCompanyListDto(company))
+                .collect(Collectors.toList());
+    }
+
     public HomeDto home(String categoryName) {
-        List<Company> company = companyRepository.findAll(categoryName);
+        List<Company> company = companyRepository.findAllByCategoryName(categoryName);
         HomeDto homeDto = new HomeDto();
         for (Company company1 : company) {
             homeDto.getSimpleInfos().add(new CompanySimpleInfo(company1.getCompanyName(),
-                    company1.getGrowthPoint(), company1.getInterestPoint(), company1.getGrowthRatio().getAverageOperatingProfitsGrowthRate(),
+                    company1.getGrowthPoint(), company1.getInterestPoint(), company1.getGrowthRatio().getAverageSalesGrowthRate(),
                     company1.getGrowthRatio().getAverageOperatingProfitsGrowthRate()));
         }
         homeDto.setCategoryName(categoryName);
