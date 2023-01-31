@@ -18,7 +18,11 @@ public class CsvFileReader {
                     .build()
                     .parse();
 
-            return growthRatios.stream().filter(g -> g.getCategoryCode() == companyCode)
+            for (GrowthRatio growthRatio : growthRatios) {
+                System.out.println("growthRatio = " + growthRatio);
+            }
+
+            return growthRatios.stream().filter(g -> g.getCompanyCode() == companyCode)
                     .findFirst()
                     .orElse(null);
 

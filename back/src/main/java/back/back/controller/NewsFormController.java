@@ -4,6 +4,7 @@ import back.back.crawler.BuzzInfoCrawler;
 import back.back.crawler.NewsCrawler;
 import back.back.domain.Company;
 import back.back.domain.News;
+import back.back.request.SendRequest;
 import back.back.service.CompanyService;
 import back.back.web.CompanyDto;
 import back.back.web.CompanyInfoPage;
@@ -21,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class NewsFormController {
     private final CompanyService service2;
+    private final SendRequest sendRequest;
 
     @GetMapping("/home")
     public HomeDto home(@RequestParam String categoryName) {
@@ -44,5 +46,11 @@ public class NewsFormController {
 
         Company save = service2.save(financialDto, news, companyName);
         return save;
+    }
+
+    @GetMapping("/operate")
+    public String operate() throws InterruptedException {
+        sendRequest.sendRequest();
+        return "ok";
     }
 }

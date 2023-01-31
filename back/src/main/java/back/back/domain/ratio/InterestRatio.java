@@ -7,11 +7,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
-
 @Entity
 @Getter @Setter
-@ToString(of = {"companyDate", "postPerDay", "volumePerDay"})
+@ToString(of = {"companyDate", "postsPerDay", "volumePerDay"})
 public class InterestRatio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +18,7 @@ public class InterestRatio {
 
     private String companyDate;
 
-    private Double postPerDay;
+    private Double postsPerDay;
 
     private Double volumePerDay;
 

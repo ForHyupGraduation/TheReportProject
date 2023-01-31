@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -51,12 +50,12 @@ public class CompanyService {
         company.setCategoryName(financialDto.getCategoryName());
         company.setCompanyCode(financialDto.getCompanyCode());
 
-        GrowthRatio growthRates = reader.readGrowthRatio("normalizedGrowthRates", company.getCategoryName(), company.getCompanyCode());
-        List<InterestRatio> normalizedInterest = reader.readInterestRatio("normalizedInterest", company.getCompanyCode());
+        GrowthRatio growthRates = reader.readGrowthRatio("growthRates", company.getCategoryName(), company.getCompanyCode());
+        List<InterestRatio> normalizedInterest = reader.readInterestRatio("interest", company.getCompanyCode());
 
         company.setGrowthRatio(growthRates);
         company.addInterestRate(normalizedInterest);
-        company.setGrowthPoint((int)Math.round(growthRates.getSalesGrowthRate() * 100));
+        company.setGrowthPoint((int)Math.round(growthRates.getAverageSalesGrowthRate() * 100));
         company.setInterestPoint(findLatestRatio(normalizedInterest));
         companyRepository.save(company);
 
@@ -68,7 +67,7 @@ public class CompanyService {
 
         Double aDouble = normalizedInterest.stream()
                 .filter(ratio -> ratio.getCompanyDate().equals(today.toString()))
-                .map(ratio -> ratio.getPostPerDay() * 100 + ratio.getVolumePerDay() * 100)
+                .map(ratio -> ratio.getPostsPerDay() * 100 + ratio.getVolumePerDay() * 100)
                 .findFirst()
                 .orElse(null);
         return aDouble.intValue();
@@ -77,7 +76,7 @@ public class CompanyService {
 
     private Integer findLatestRatio(List<InterestRatio> normalizedInterest) {
         Double aDouble = normalizedInterest.stream()
-                .map(ratio -> ratio.getPostPerDay() * 100 + ratio.getVolumePerDay() * 100)
+                .map(ratio -> ratio.getPostsPerDay() * 100 + ratio.getVolumePerDay() * 100)
                 .findFirst()
                 .orElse(null);
         return aDouble.intValue();
@@ -88,8 +87,8 @@ public class CompanyService {
         HomeDto homeDto = new HomeDto();
         for (Company company1 : company) {
             homeDto.getSimpleInfos().add(new CompanySimpleInfo(company1.getCompanyName(),
-                    company1.getGrowthPoint(), company1.getInterestPoint(), company1.getGrowthRatio().getSalesGrowthRate(),
-                    company1.getGrowthRatio().getOperatingProfitGrowthRate()));
+                    company1.getGrowthPoint(), company1.getInterestPoint(), company1.getGrowthRatio().getAverageOperatingProfitsGrowthRate(),
+                    company1.getGrowthRatio().getAverageOperatingProfitsGrowthRate()));
         }
         homeDto.setCategoryName(categoryName);
         return homeDto;

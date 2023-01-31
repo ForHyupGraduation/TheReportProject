@@ -10,7 +10,7 @@ public class InterestRatioDto {
     private Double volumePerDay;
     public InterestRatioDto(InterestRatio ratio) {
         this.companyDate = ratio.getCompanyDate();
-        this.postPerDay = ratio.getPostPerDay();
+        this.postPerDay = ratio.getPostsPerDay();
         this.volumePerDay = ratio.getVolumePerDay();
     }
 }
