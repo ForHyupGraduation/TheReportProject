@@ -1,7 +1,7 @@
 companyName,companyCode,averageSalesGrowthRate,averageOperatingProfitsGrowthRate
 선광,003100,1.0,1.0
-한국공항,005430,0.56,0.0
-SG&G,040610,0.0,0.66
+한국공항,005430,0.56,1
+SG&G,040610,1,0.66
 현대무벡스,319400,0.95,0.91
 토탈소프트,045340,0.98,0.94
 맥쿼리인프라,088980,0.95,0.91

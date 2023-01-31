@@ -3,6 +3,7 @@ from normalization import GetNormalizationValue
 
 import csv
 import os
+import math
 
 def GetCsvFileNames():
     csvFileNames = []
@@ -13,10 +14,10 @@ def GetCsvFileNames():
     
 
 def GetGrowthRatesDataSetFromCSV(upjongNumber):
-    minAverageSalesGrowthRate = 0
+    minAverageSalesGrowthRate = math.inf
     maxAverageSalesGrowthRate = 0
 
-    minAverageOperatingProfitsGrowthRate = 0
+    minAverageOperatingProfitsGrowthRate = math.inf
     maxAverageOperatingProfitsGrowthRate = 0
 
     growthRatesDataSet = []

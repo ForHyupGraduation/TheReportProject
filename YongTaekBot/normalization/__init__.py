@@ -12,8 +12,8 @@ class companyGrowthRates:
 
 
 def GetNormalizationValue(val, minVal, maxVal):
-    if maxVal - minVal == 0:
-        return 0
+    if maxVal - minVal == 0 or val - minVal == 0:
+        return 1
     else:
         return (val - minVal) / (maxVal - minVal)
 
