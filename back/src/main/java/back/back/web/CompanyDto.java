@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 @Data
 public class CompanyDto {
     private String companyName;
+    private String categoryName;
     private List<NewsListDto> news;
     private Revenue revenue;
     private NetProfit netProfit;
@@ -30,6 +31,7 @@ public class CompanyDto {
 
     public CompanyDto(Company company) {
         this.companyName = company.getCompanyName();
+        this.categoryName = company.getCategoryName();
         List<NewsListDto> collect = company.getNews().stream()
                 .map(NewsListDto::new)
                 .collect(Collectors.toList());
