@@ -18,3 +18,4 @@ def addTitleToGrowthRates(upjongNumber):
             for row in reader:
                 
                 writer.writerow([row[0], row[1], row[2], row[3]])
+
