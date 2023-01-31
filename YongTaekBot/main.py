@@ -1,9 +1,16 @@
 from normalization.interest import DownloadNormalizedInterests
 from tmpFeatures.addTitleToCsv import addTitleToGrowthRates
+from normalization.growthRates import GetNormalizedGrowthRates
 
 import os
+import csv
 
-for path in os.listdir("./data/growthRates/normalizedGrowthRates"):
-    if path.endswith(".csv"):
-        code = path.split('.')[0].split('s')[1]
-        addTitleToGrowthRates(code)
+upjongNumbers = []
+
+for path in os.listdir("./data/growthRates/header"):
+    if path.endswith('.csv'):
+        upjongNumber = path.split('.')[0].split('s')[1]
+        upjongNumbers.append(upjongNumber)
+
+for upjongNumber in upjongNumbers:
+    GetNormalizedGrowthRates(upjongNumber)

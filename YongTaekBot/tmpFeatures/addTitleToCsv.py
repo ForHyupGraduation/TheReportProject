@@ -7,19 +7,14 @@ import csv
 def addTitleToGrowthRates(upjongNumber):
     if not os.path.exists("./data/growthRates/header"):
         os.makedirs("./data/growthRates/header")
-    with open(f"./data/growthRates/header/add_header_growthRates{upjongNumber}.csv", 'wt', newline='') as csvfile:
+    with open(f"./data/growthRates/header/add_header_growthRates{upjongNumber}.csv", 'w', newline='', encoding='utf-8') as csvfile:
         pass
 
-    with open(f"./data/growthRates/growthRates{upjongNumber}.csv", 'r') as readerCsvFile:
-        with open(f"./data/growthRates/header/add_header_growthRates{upjongNumber}.csv", 'w', newline='', encoding='utf-8') as writerCsvFile:
-            reader = csv.reader(readerCsvFile)
-            writer = csv.writer(writerCsvFile)
-
-            header = ['companyName', 'companyCode', 'averageSalesGrowthRate', 'averageOperatingProfitsRate']
-            
-            writer.writerow(header)
+    with open(f"./data/growthRates/growthRates{upjongNumber}.csv", 'r') as readerCsvfile:
+        reader = csv.reader(readerCsvfile)
+        with open(f"./data/growthRates/header/add_header_growthRates{upjongNumber}.csv", 'w', newline='', encoding='UTF-8') as writerCsvfile:
+            writer = csv.writer(writerCsvfile)    
+        
             for row in reader:
-                print(row)
+                
                 writer.writerow([row[0], row[1], row[2], row[3]])
-
-    print(f"[+] Success To Download add_header_growthRates{upjongNumber}.csv File")
