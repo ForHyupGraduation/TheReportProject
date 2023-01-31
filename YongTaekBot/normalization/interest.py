@@ -1,6 +1,7 @@
 from merge import Interest
 from normalization import GetNormalizationValue
 
+import math
 import csv
 import os
 
@@ -12,10 +13,10 @@ def GetCsvFileNames():
     return csvFileNames
 
 def GetInterestsFromCSV(companyCode):
-    minPosts = 0
+    minPosts = math.inf
     maxPosts = 0
 
-    minVolume = 0
+    minVolume = math.inf
     maxVolume = 0
 
     interests = []
@@ -45,10 +46,10 @@ def GetInterestsFromCSV(companyCode):
             
 
 def GetEncodingInterestsFromCSV(companyCode):
-    minPosts = 0
+    minPosts = math.inf
     maxPosts = 0
 
-    minVolume = 0
+    minVolume = math.inf
     maxVolume = 0
 
     interests = []
