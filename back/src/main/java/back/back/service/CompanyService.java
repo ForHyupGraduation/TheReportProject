@@ -5,6 +5,7 @@ import back.back.domain.Company;
 import back.back.domain.News;
 import back.back.domain.financialratio.*;
 import back.back.domain.ratio.GrowthRatio;
+import back.back.domain.ratio.InterestRatio;
 import back.back.repository.CompanyRepository;
 import back.back.repository.FinancialRepository;
 import back.back.repository.NewsRepository;
@@ -13,8 +14,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -46,14 +49,38 @@ public class CompanyService {
         company.setOperatingProfitMargin(margin);
         company.setCompanyName(companyName);
         company.setCategoryName(financialDto.getCategoryName());
-        company.setCategoryCode(financialDto.getCompanyCode());
-        GrowthRatio growthRates = reader.readGrowthRatio("growthRates", company.getCategoryName(), company.getCategoryCode());
-        company.setGrowthRatio(growthRates);
-        company.setGrowthPoint((int)Math.round(growthRates.getSalesGrowthRate()* 100));
+        company.setCompanyCode(financialDto.getCompanyCode());
 
+        GrowthRatio growthRates = reader.readGrowthRatio("normalizedGrowthRates", company.getCategoryName(), company.getCompanyCode());
+        List<InterestRatio> normalizedInterest = reader.readInterestRatio("normalizedInterest", company.getCompanyCode());
+
+        company.setGrowthRatio(growthRates);
+        company.addInterestRate(normalizedInterest);
+        company.setGrowthPoint((int)Math.round(growthRates.getSalesGrowthRate() * 100));
+        company.setInterestPoint(findLatestRatio(normalizedInterest));
         companyRepository.save(company);
 
         return company;
+    }
+
+    private Integer findTodayRatio(List<InterestRatio> normalizedInterest) {
+        LocalDate today = LocalDate.now();
+
+        Double aDouble = normalizedInterest.stream()
+                .filter(ratio -> ratio.getCompanyDate().equals(today.toString()))
+                .map(ratio -> ratio.getPostPerDay() * 100 + ratio.getVolumePerDay() * 100)
+                .findFirst()
+                .orElse(null);
+        return aDouble.intValue();
+    }
+
+
+    private Integer findLatestRatio(List<InterestRatio> normalizedInterest) {
+        Double aDouble = normalizedInterest.stream()
+                .map(ratio -> ratio.getPostPerDay() * 100 + ratio.getVolumePerDay() * 100)
+                .findFirst()
+                .orElse(null);
+        return aDouble.intValue();
     }
 
     public HomeDto home(String categoryName) {

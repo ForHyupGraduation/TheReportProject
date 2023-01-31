@@ -46,14 +46,6 @@ public class BuzzInfoCrawler{
         return new BuzzIndex(map, empNumberInfo);
     }
 
-    private void sleep() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public FinancialDto findBuzzInfo2(String buzz) {
         Map<String, FinancialRatio> ratioMap = CrawlerUtils.crawlerTarget();
         chromeDriver.get("https://finance.naver.com");
@@ -86,22 +78,16 @@ public class BuzzInfoCrawler{
     }
 
     private Map<String, String> empNumberExtract(String buzz) throws InterruptedException {
-        // 사람인 크롤링
         chromeDriver.get("https://www.saramin.co.kr/zf_user/");
         Map<String, String> map = new LinkedHashMap<>();
         WebElement buttonSearch = chromeDriver.findElement(By.className("search"));
         buttonSearch.click();
-        Thread.sleep(500);
         WebElement input = chromeDriver.findElement(By.id("ipt_keyword_recruit"));
         input.sendKeys(buzz);
-        Thread.sleep(500);
         chromeDriver.findElement(By.id("btn_search_recruit")).click();
-        Thread.sleep(500);
         chromeDriver.findElement(By.cssSelector("#content > ul.tab_search_result.on > li:nth-child(3) > a")).click();
-        Thread.sleep(500);
         String href = chromeDriver.findElement(By.cssSelector("#company_info_list > div.content > div:nth-child(1) > h2 > a")).getAttribute("href");
         chromeDriver.get(href);
-        Thread.sleep(500);
         for (int i=0; i<5; i++) {
             WebElement empPerMonth = chromeDriver.findElement(By.cssSelector("#employee_graph_info > div.graph_range > div:nth-child(" + (i + 1) + ") > div > span.txt_value"));
             WebElement month = chromeDriver.findElement(By.cssSelector("#employee_graph_info > div.graph_range > div:nth-child("+ (i + 1) +") > em"));
@@ -114,5 +100,14 @@ public class BuzzInfoCrawler{
         chromeDriver.close();
         chromeDriver.quit();
         chromeDriver = null;
+    }
+
+
+    private void sleep() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

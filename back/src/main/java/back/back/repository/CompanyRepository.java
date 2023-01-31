@@ -1,17 +1,10 @@
 package back.back.repository;
 
 import back.back.domain.Company;
-import back.back.domain.News;
-import back.back.domain.financialratio.NetProfit;
-import back.back.domain.financialratio.OperatingProfit;
-import back.back.domain.financialratio.OperatingProfitMargin;
-import back.back.domain.financialratio.Revenue;
-import back.back.web.CompanyDto;
+
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
