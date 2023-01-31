@@ -19,8 +19,9 @@ public class CompanyRepository {
         return company.getId();
     }
 
-    public List<Company> findAll(String categoryName) {
-        String jpql = "select c from Company c where c.categoryName = :categoryName ";
+    public List<Company> findAllByCategoryName(String categoryName) {
+        String jpql = "select c from Company c " +
+                "where c.categoryName = :categoryName ";
         List<Company> resultList = em.createQuery(jpql, Company.class)
                 .setParameter("categoryName", categoryName)
                 .getResultList();

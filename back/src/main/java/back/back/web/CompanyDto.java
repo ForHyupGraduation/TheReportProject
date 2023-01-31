@@ -23,6 +23,8 @@ public class CompanyDto {
     private Integer growthPoint;
     private Integer interestPoint;
     private List<InterestRatioDto> interestRatioDtos;
+    private List<RelationCompanyListDto> simpleInfos;
+
     public CompanyDto() {
     }
 
