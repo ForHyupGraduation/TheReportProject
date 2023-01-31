@@ -84,7 +84,7 @@ public class CompanyService {
 
 
     public List<RelationCompanyListDto> findRelationCompany(String categoryName) {
-        List<Company> companies = companyRepository.findByCompanyName(categoryName);
+        List<Company> companies = companyRepository.findAllByCategoryName(categoryName);
         return companies.stream()
                 .map(company -> new RelationCompanyListDto(company))
                 .collect(Collectors.toList());
