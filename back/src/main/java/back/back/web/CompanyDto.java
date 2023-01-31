@@ -6,7 +6,6 @@ import back.back.domain.financialratio.OperatingProfit;
 import back.back.domain.financialratio.OperatingProfitMargin;
 import back.back.domain.financialratio.Revenue;
 
-import back.back.web.news.NewsDto;
 import back.back.web.news.NewsListDto;
 import lombok.Data;
 
@@ -23,6 +22,7 @@ public class CompanyDto {
     private OperatingProfitMargin margin;
     private Integer growthPoint;
     private Integer interestPoint;
+    private List<InterestRatioDto> interestRatioDtos;
     public CompanyDto() {
     }
 
@@ -38,6 +38,9 @@ public class CompanyDto {
         this.margin = company.getOperatingProfitMargin();
         this.growthPoint = company.getGrowthPoint();
         this.interestPoint = company.getInterestPoint();
+        this.interestRatioDtos = company.getInterestRatios()
+                .stream().map(ratio -> new InterestRatioDto(ratio))
+                .collect(Collectors.toList());
     }
 
 }

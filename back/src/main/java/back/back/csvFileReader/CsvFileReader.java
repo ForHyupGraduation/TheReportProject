@@ -1,9 +1,11 @@
 package back.back.csvFileReader;
 
 import back.back.domain.ratio.GrowthRatio;
+import back.back.domain.ratio.InterestRatio;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.stereotype.Component;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
@@ -11,14 +13,18 @@ import java.util.List;
 public class CsvFileReader {
     public GrowthRatio readGrowthRatio(String fileName, String categoryName, int companyCode) { // 263
         try {
-            List<GrowthRatio> growthRatios = new CsvToBeanBuilder(new FileReader(pathResolver(fileName, categoryName)))
+            List<GrowthRatio> growthRatios = new CsvToBeanBuilder(new FileReader(growthPathResolver(fileName, categoryName)))
                     .withType(GrowthRatio.class)
                     .build()
                     .parse();
 
-            return growthRatios.stream().filter(g -> g.getCategoryCode() == companyCode)
+            for (GrowthRatio growthRatio : growthRatios) {
+                System.out.println("growthRatio = " + growthRatio);
+            }
+
+            return growthRatios.stream().filter(g -> g.getCompanyCode() == companyCode)
                     .findFirst()
-                    .get();
+                    .orElse(null);
 
         }catch(Exception e) {
             e.printStackTrace();
@@ -26,20 +32,30 @@ public class CsvFileReader {
         }
     }
 
-    private String pathResolver(String fileName, String categoryName) {
+    public List<InterestRatio> readInterestRatio(String fileName, int companyCode) {
+        try {
+            List<InterestRatio> parse = new CsvToBeanBuilder<InterestRatio>(new FileReader(interestPathResolver(fileName, companyCode)))
+                    .withType(InterestRatio.class)
+                    .build()
+                    .parse();
+            return parse;
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    private String interestPathResolver(String fileName, Integer companyCode) {
+        return "DB/normalizedInterests/" + fileName + companyCode + ".csv";
+    }
+
+    private String growthPathResolver(String fileName, String categoryName) {
        Integer code = 0;
 
        if(categoryName.equals("게임엔터테인먼트")) {
            code = 263;
        }
 
-        return "DB/growthDB/" + fileName + code + ".csv";
-    }
-
-    public static void main(String[] args) {
-        CsvFileReader csvFileReader = new CsvFileReader();
-        GrowthRatio growthRatio = csvFileReader.readGrowthRatio("DB/growthDB/growthRates263.csv", "삼성전자",225570);
-        System.out.println("growthRatio.getOperatingProfitGrowthRate() = " + growthRatio.getOperatingProfitGrowthRate());
-
+        return "DB/normalizedGrowthRates/" + fileName + code + ".csv";
     }
 }

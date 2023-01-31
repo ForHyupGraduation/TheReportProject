@@ -5,6 +5,7 @@ import back.back.domain.financialratio.OperatingProfit;
 import back.back.domain.financialratio.OperatingProfitMargin;
 import back.back.domain.financialratio.Revenue;
 import back.back.domain.ratio.GrowthRatio;
+import back.back.domain.ratio.InterestRatio;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -24,7 +25,7 @@ public class Company {
     @Column(name = "company_name")
     private String companyName;
 
-    private int categoryCode;
+    private Integer companyCode;
 
     private String categoryName;
 
@@ -52,6 +53,9 @@ public class Company {
     @JoinColumn(name = "growth_ratio_id")
     private GrowthRatio growthRatio;
 
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<InterestRatio> interestRatios = new ArrayList<>();
+
     private Integer growthPoint;
 
     private Integer interestPoint;
@@ -61,5 +65,10 @@ public class Company {
         news.setCompany(this);
     }
 
-
+    public void addInterestRate(List<InterestRatio> ratio) {
+        for (InterestRatio interestRatio : ratio) {
+            this.interestRatios.add(interestRatio);
+            interestRatio.setCompany(this);
+        }
+    }
 }

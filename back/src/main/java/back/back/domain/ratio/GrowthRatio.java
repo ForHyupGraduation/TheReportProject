@@ -4,22 +4,27 @@ import com.opencsv.bean.CsvBindByName;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter @Setter
+@ToString(of={"companyName", "categoryCode", "averageSalesGrowthRate", "averageOperatingProfitGrowthRate"})
 public class GrowthRatio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "growth_ratio_id")
     private Long id;
 
-    @CsvBindByName(column = "categoryCode")
-    private int categoryCode;
+    @CsvBindByName(column = "companyName")
+    private String companyName;
 
-    @CsvBindByName(column = "salesGrowthRate")
-    private Double salesGrowthRate;
+    @CsvBindByName(column = "companyCode")
+    private int companyCode;
 
-    @CsvBindByName(column = "operatingProfitGrowthRate")
-    private Double operatingProfitGrowthRate;
+    @CsvBindByName(column = "averageSalesGrowthRate")
+    private Double averageSalesGrowthRate;
+
+    @CsvBindByName(column = "averageOperatingProfitsGrowthRate")
+    private Double averageOperatingProfitsGrowthRate;
 
 }

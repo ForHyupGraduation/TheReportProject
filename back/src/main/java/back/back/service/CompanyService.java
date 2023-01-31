@@ -5,6 +5,7 @@ import back.back.domain.Company;
 import back.back.domain.News;
 import back.back.domain.financialratio.*;
 import back.back.domain.ratio.GrowthRatio;
+import back.back.domain.ratio.InterestRatio;
 import back.back.repository.CompanyRepository;
 import back.back.repository.FinancialRepository;
 import back.back.repository.NewsRepository;
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -46,14 +48,38 @@ public class CompanyService {
         company.setOperatingProfitMargin(margin);
         company.setCompanyName(companyName);
         company.setCategoryName(financialDto.getCategoryName());
-        company.setCategoryCode(financialDto.getCompanyCode());
-        GrowthRatio growthRates = reader.readGrowthRatio("growthRates", company.getCategoryName(), company.getCategoryCode());
-        company.setGrowthRatio(growthRates);
-        company.setGrowthPoint((int)Math.round(growthRates.getSalesGrowthRate()* 100));
+        company.setCompanyCode(financialDto.getCompanyCode());
 
+        GrowthRatio growthRates = reader.readGrowthRatio("growthRates", company.getCategoryName(), company.getCompanyCode());
+        List<InterestRatio> normalizedInterest = reader.readInterestRatio("interest", company.getCompanyCode());
+
+        company.setGrowthRatio(growthRates);
+        company.addInterestRate(normalizedInterest);
+        company.setGrowthPoint((int)Math.round(growthRates.getAverageSalesGrowthRate() * 100));
+        company.setInterestPoint(findLatestRatio(normalizedInterest));
         companyRepository.save(company);
 
         return company;
+    }
+
+    private Integer findTodayRatio(List<InterestRatio> normalizedInterest) {
+        LocalDate today = LocalDate.now();
+
+        Double aDouble = normalizedInterest.stream()
+                .filter(ratio -> ratio.getCompanyDate().equals(today.toString()))
+                .map(ratio -> ratio.getPostsPerDay() * 100 + ratio.getVolumePerDay() * 100)
+                .findFirst()
+                .orElse(null);
+        return aDouble.intValue();
+    }
+
+
+    private Integer findLatestRatio(List<InterestRatio> normalizedInterest) {
+        Double aDouble = normalizedInterest.stream()
+                .map(ratio -> ratio.getPostsPerDay() * 100 + ratio.getVolumePerDay() * 100)
+                .findFirst()
+                .orElse(null);
+        return aDouble.intValue();
     }
 
     public HomeDto home(String categoryName) {
@@ -61,8 +87,8 @@ public class CompanyService {
         HomeDto homeDto = new HomeDto();
         for (Company company1 : company) {
             homeDto.getSimpleInfos().add(new CompanySimpleInfo(company1.getCompanyName(),
-                    company1.getGrowthPoint(), company1.getInterestPoint(), company1.getGrowthRatio().getSalesGrowthRate(),
-                    company1.getGrowthRatio().getOperatingProfitGrowthRate()));
+                    company1.getGrowthPoint(), company1.getInterestPoint(), company1.getGrowthRatio().getAverageOperatingProfitsGrowthRate(),
+                    company1.getGrowthRatio().getAverageOperatingProfitsGrowthRate()));
         }
         homeDto.setCategoryName(categoryName);
         return homeDto;
