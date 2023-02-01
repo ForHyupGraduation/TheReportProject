@@ -2,25 +2,116 @@
   "categoryName": "게임엔터테인먼트",
   "simpleInfos": [
     {
-      "companyName": "엔씨소프트",
-      "growthPoint": 14,
-      "interestPoint": null,
-      "salesGrowthRate": 0.143,
-      "operatingProfitGrowthRate": 0.558
+      "companyName": "밸로프",
+      "growthPoint": 17,
+      "interestPoint": 4,
+      "salesGrowthRate": 0.17,
+      "operatingProfitGrowthRate": 0.29
     },
     {
-      "companyName": "카카오게임즈 ",
+      "companyName": "위메이드플레이",
+      "growthPoint": 17,
+      "interestPoint": 7,
+      "salesGrowthRate": 0.17,
+      "operatingProfitGrowthRate": 1.0
+    },
+    {
+      "companyName": "미스터블루",
+      "growthPoint": 17,
+      "interestPoint": 0,
+      "salesGrowthRate": 0.17,
+      "operatingProfitGrowthRate": 0.53
+    },
+    {
+      "companyName": "위메이드맥스",
+      "growthPoint": 16,
+      "interestPoint": 29,
+      "salesGrowthRate": 0.16,
+      "operatingProfitGrowthRate": 0.46
+    },
+    {
+      "companyName": "크래프톤",
+      "growthPoint": 16,
+      "interestPoint": 57,
+      "salesGrowthRate": 0.16,
+      "operatingProfitGrowthRate": 0.57
+    },
+    {
+      "companyName": "미투젠",
+      "growthPoint": 14,
+      "interestPoint": 1,
+      "salesGrowthRate": 0.14,
+      "operatingProfitGrowthRate": 0.54
+    },
+    {
+      "companyName": "카카오게임즈",
       "growthPoint": 23,
-      "interestPoint": null,
+      "interestPoint": 17,
       "salesGrowthRate": 0.23,
-      "operatingProfitGrowthRate": 0.627
+      "operatingProfitGrowthRate": 0.63
+    },
+    {
+      "companyName": "액션스퀘어",
+      "growthPoint": 10,
+      "interestPoint": 19,
+      "salesGrowthRate": 0.1,
+      "operatingProfitGrowthRate": 0.43
+    },
+    {
+      "companyName": "썸에이지",
+      "growthPoint": 35,
+      "interestPoint": 5,
+      "salesGrowthRate": 0.35,
+      "operatingProfitGrowthRate": 0.51
+    },
+    {
+      "companyName": "펄어비스",
+      "growthPoint": 7,
+      "interestPoint": 35,
+      "salesGrowthRate": 0.07,
+      "operatingProfitGrowthRate": 0.47
+    },
+    {
+      "companyName": "더블유게임즈",
+      "growthPoint": 12,
+      "interestPoint": 10,
+      "salesGrowthRate": 0.12,
+      "operatingProfitGrowthRate": 0.53
     },
     {
       "companyName": "넷마블",
       "growthPoint": 12,
-      "interestPoint": null,
-      "salesGrowthRate": 0.119,
-      "operatingProfitGrowthRate": 0.448
+      "interestPoint": 29,
+      "salesGrowthRate": 0.12,
+      "operatingProfitGrowthRate": 0.45
+    },
+    {
+      "companyName": "미투온",
+      "growthPoint": 14,
+      "interestPoint": 1,
+      "salesGrowthRate": 0.14,
+      "operatingProfitGrowthRate": 0.54
+    },
+    {
+      "companyName": "데브시스터즈",
+      "growthPoint": 51,
+      "interestPoint": 11,
+      "salesGrowthRate": 0.51,
+      "operatingProfitGrowthRate": 1.0
+    },
+    {
+      "companyName": "모비릭스",
+      "growthPoint": 12,
+      "interestPoint": 11,
+      "salesGrowthRate": 0.12,
+      "operatingProfitGrowthRate": 0.58
+    },
+    {
+      "companyName": "넥슨게임즈",
+      "growthPoint": 10,
+      "interestPoint": 34,
+      "salesGrowthRate": 0.1,
+      "operatingProfitGrowthRate": 0.53
     }
   ]
 }
