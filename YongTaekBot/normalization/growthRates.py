@@ -1,19 +1,14 @@
-from normalization import companyGrowthRates
+from crawling import companyGrowthRatesDataClass
+
 from normalization import GetNormalizationValue
+from normalization import InitNormalizedGrowthRates
+
 
 import csv
 import os
 import math
 
-def GetCsvFileNames():
-    csvFileNames = []
-    for path in os.listdir('./data/growthRates'):
-        if path.endswith('.csv'):
-            csvFileNames.append(path)
-    return csvFileNames
-    
-
-def GetGrowthRatesDataSetFromCSV(upjongNumber):
+def GetGrowthRates(upjongNumber):
     minAverageSalesGrowthRate = math.inf
     maxAverageSalesGrowthRate = 0
 
@@ -21,23 +16,23 @@ def GetGrowthRatesDataSetFromCSV(upjongNumber):
     maxAverageOperatingProfitsGrowthRate = 0
 
     growthRatesDataSet = []
-
-    with open(f"./data/growthRates/header/add_header_growthRates{upjongNumber}.csv", 'r', encoding='utf-8') as csvfile:
+    
+    with open(f"./data/growthRates/growthRates{upjongNumber}.csv", 'r', encoding='UTF-8') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            growthRatesData = companyGrowthRates(row[0], row[1], float(row[2]), float(row[3]))
+            newGrowthRatesData = companyGrowthRatesDataClass(row[0], row[1], float(row[2]), float(row[3]))
             if minAverageSalesGrowthRate >= float(row[2]):
                 minAverageSalesGrowthRate = float(row[2])
             if maxAverageSalesGrowthRate <= float(row[2]):
                 maxAverageSalesGrowthRate = float(row[2])
-            
+
             if minAverageOperatingProfitsGrowthRate >= float(row[3]):
                 minAverageOperatingProfitsGrowthRate = float(row[3])
             if maxAverageOperatingProfitsGrowthRate <= float(row[3]):
                 maxAverageOperatingProfitsGrowthRate = float(row[3])
-        
-            growthRatesDataSet.append(growthRatesData)
 
+            growthRatesDataSet.append(newGrowthRatesData)
+    
     return {
         "growthRatesDataSet": growthRatesDataSet,
         "minAverageSalesGrowthRate": minAverageSalesGrowthRate,
@@ -46,40 +41,32 @@ def GetGrowthRatesDataSetFromCSV(upjongNumber):
         "maxAverageOperatingProfitsGrowthRate": maxAverageOperatingProfitsGrowthRate
     }
 
-def GetNormalizedGrowthRates(upjongNumber):
-    growthRatesDataSetInfo = GetGrowthRatesDataSetFromCSV(upjongNumber)
+def DownloadNormalizedGrowthRates(upjongNumber):
+    growthRates = GetGrowthRates(upjongNumber)
     
-    if not os.path.exists('./data/growthRates/header/normalizedGrowthRates'):
-        os.makedirs("./data/growthRates/header/normalizedGrowthRates")
+    minAverageSalesGrowthRate = growthRates["minAverageSalesGrowthRate"]
+    maxAverageSalesGrowthRate = growthRates["maxAverageSalesGrowthRate"]
+    minAverageOperatingProfitsGrowthRate = growthRates["minAverageOperatingProfitsGrowthRate"]
+    maxAverageOperatingProfitsGrowthRate = growthRates["maxAverageOperatingProfitsGrowthRate"]
 
-    with open(f"./data/growthRates/header/normalizedGrowthRates/normalizedGrowthRates{upjongNumber}.csv", 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        header = ['companyName', 'companyCode', 'averageSalesGrowthRate', 'averageOperatingProfitsGrowthRate']
-        writer.writerow(header)
-
-    for growthRatesData in growthRatesDataSetInfo['growthRatesDataSet']:
-
+    for growthRateData in growthRates["growthRatesDataSet"]:
         normalizedAverageSalesGrowthRates = GetNormalizationValue(
-            growthRatesData.averageSalesGrowthRate,
-            growthRatesDataSetInfo['minAverageSalesGrowthRate'],
-            growthRatesDataSetInfo['maxAverageSalesGrowthRate']
+            growthRateData.averageSalesGrowthRate,
+            minAverageSalesGrowthRate,
+            maxAverageSalesGrowthRate
         )
-        normalizedAverageOpearingProfitsGrowthRate = GetNormalizationValue(
-            growthRatesData.averageOperatingProfitsGrowthRate,
-            growthRatesDataSetInfo['minAverageOperatingProfitsGrowthRate'],
-            growthRatesDataSetInfo['maxAverageOperatingProfitsGrowthRate']
+        
+        normalizedAverageOperatingProfitsGrowthRates = GetNormalizationValue(
+            growthRateData.averageOperatingProfitsGrowthRate,
+            minAverageOperatingProfitsGrowthRate,
+            maxAverageOperatingProfitsGrowthRate
         )
 
-
-        with open(f"./data/growthRates/header/normalizedGrowthRates/normalizedGrowthRates{upjongNumber}.csv", 'a', newline='', encoding='utf-8') as csvfile:
+        with open(f"./data/growthRates/normalized/growthRates{upjongNumber}.csv", 'a', newline='', encoding='UTF-8') as csvfile:
             writer = csv.writer(csvfile)
-            
             writer.writerow([
-                growthRatesData.companyName,
-                growthRatesData.companyCode,
+                growthRateData.companyName,
+                growthRateData.companyCode,
                 round(normalizedAverageSalesGrowthRates, 2),
-                round(normalizedAverageOpearingProfitsGrowthRate, 2)
+                round(normalizedAverageOperatingProfitsGrowthRates, 2)
             ])
-
-    print(f"[+] {upjongNumber} Done!")
-    

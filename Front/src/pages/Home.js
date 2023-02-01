@@ -12,6 +12,8 @@ import upjongs from "../components/DB/Upjongs.json";
 import UpjongCards from "../components/Cards/UpjongList/UpjongCards";
 import StockVideo from "../videos/stock_two.mp4";
 
+import SummaryGraph from "../components/SummaryGraph/SummaryGraph";
+
 function Home() {
   const [upjongsInfo, setUpjongsInfo] = useState(null);
 
@@ -85,6 +87,7 @@ function Home() {
             asdf
           </p>
         </div>
+
         <div class="album py-5">
           <div class="container">
             <UpjongCards upjongs={upjongsInfo} />
