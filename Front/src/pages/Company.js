@@ -1,36 +1,58 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-
+import axios from "axios";
 import styled from "styled-components";
 import LineChart from "../components/Graphs/LineChart";
 import NewsList from "../components/News/NewsList";
 import SubinfoList from "../components/SubInfo/SubInfoList";
+import { useLocation } from "react-router-dom";
 import KakaoCompanyInfos from "../components/DB/KakaoCompanyInfos.json";
 
 import Meter from "../components/Meters/Meter";
 
 function Company() {
+  const location = useLocation();
   const [company, setCompany] = useState(null);
   const [growthPoint, setGrowthPoint] = useState(null);
   const [interestPoint, setinterestPoint] = useState(null);
   const [companyLogo, setCompanyLogo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [newsList, setNewsList] = useState(null);
+  const companyName = decodeURI(location.pathname.split("/")[2]);
 
   useEffect(() => {
-    setCompany(KakaoCompanyInfos.companyDto.companyName);
-    setGrowthPoint(KakaoCompanyInfos.companyDto.growthPoint);
-    setinterestPoint(KakaoCompanyInfos.companyDto.interestPoint);
-    setCompanyLogo(KakaoCompanyInfos.companyDto.companyLogoUrl);
-    setIsLoading(false);
+    const fechData = async () => {
+      setIsLoading(true);
+      try {
+        await axios
+          .get(`http://localhost:8080/test?companyName=${companyName}`)
+          .then((response) => {
+            setCompany(response.data.companyName);
+            setGrowthPoint(response.data.growthPoint);
+            setinterestPoint(response.data.interestPoint);
+            setCompanyLogo(response.data.companyLogoUrl);
+            setNewsList(response.data.news);
+            setIsLoading(false);
+          });
+      } catch (e) {
+        console.log(e);
+      }
+      setIsLoading(false);
+    };
+    fechData();
+    // setCompany(KakaoCompanyInfos.companyDto.companyName);
+    // setGrowthPoint(KakaoCompanyInfos.companyDto.growthPoint);
+    // setinterestPoint(KakaoCompanyInfos.companyDto.interestPoint);
+    // setCompanyLogo(KakaoCompanyInfos.companyDto.companyLogoUrl);
+    // setIsLoading(false);
   }, []);
 
-  const GetCompanyInfo = () => {};
   if (!isLoading) {
     return (
       <div className="container row" style={{ margin: "20px auto" }}>
         <Title>
-          <img src={companyLogo} alt="companyLogo" />
+          <img src={companyLogo} alt="" />
           {company}
         </Title>
         <MainContents className="col-lg-9">
@@ -54,11 +76,11 @@ function Company() {
             <SubTitle className="lead text-muted" style={{ fontSize: "30px" }}>
               News
             </SubTitle>
-            <NewsList />
+            <NewsList newsList={newsList} />
           </MainContent>
         </MainContents>
         <SubContents className="col-lg-3">
-          <SubinfoList company={company} />
+          <SubinfoList />
         </SubContents>
       </div>
     );

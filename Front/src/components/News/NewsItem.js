@@ -3,7 +3,7 @@ import styled from "styled-components";
 // import { Col } from "react-bootstrap";
 
 const NewsItem = ({ article, logo }) => {
-  const { content, imageUrl, linkUrl, title } = article;
+  const { imageUrl, linkUrl, title } = article;
 
   let image = null;
   if (imageUrl) {
@@ -15,18 +15,18 @@ const NewsItem = ({ article, logo }) => {
   return (
     <div className="Container row">
       <NewsItemBlock>
-        <div className="contents">
-          <img src={image} alt="NewsImage" />
-          <a
-            href={linkUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "black", textDecoration: "none" }}
-          >
+        <a
+          href={linkUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "black", textDecoration: "none" }}
+        >
+          <div className="contents">
+            <img src={image} alt="NewsImage" />
             <div className="display-1">{title}</div>
             {/* <p>{content}</p> */}
-          </a>
-        </div>
+          </div>
+        </a>
       </NewsItemBlock>
     </div>
   );

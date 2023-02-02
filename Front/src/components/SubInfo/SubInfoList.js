@@ -66,11 +66,11 @@ const SubinfoList = ({ company }) => {
         <SubInfoItem revenue={revenue} flag={1} />
       </Block>
       <Block>
-        <SubTitle className="lead text-muted">분기당 매출액</SubTitle>
+        <SubTitle className="lead text-muted">연도별 매출액</SubTitle>
         <SubInfoItem revenue={revenue} flag={2} />
       </Block>
       <Block>
-        <SubTitle className="lead text-muted">분기당 영업이익</SubTitle>
+        <SubTitle className="lead text-muted">연도별 영업이익</SubTitle>
         <SubInfoItem revenue={revenue} flag={3} />
       </Block>
       <Block>

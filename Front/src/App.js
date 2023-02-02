@@ -8,6 +8,7 @@ import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
 import Login from "./pages/Login";
 import Regist from "./pages/Regist";
+import Test from "./pages/Test";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/regist" element={<Regist />} />
+          <Route path="/test" element={<Test />} />
         </Route>
       </Routes>
     </div>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import queryString from "query-string";
 import LoadingPage from "./LoadingPage";
 
 import { useLocation } from "react-router-dom";

@@ -29,6 +29,7 @@ const LineChart = ({ revenue }) => {
     xAxis[2] = "3분기";
     xAxis[3] = "4분기";
   }
+
   const {
     previousFourthQuarter,
     previousThirdQuarter,

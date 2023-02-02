@@ -87,7 +87,9 @@ function Home() {
             asdf
           </p>
         </div>
-
+        <div>
+          <SummaryGraph />
+        </div>
         <div class="album py-5">
           <div class="container">
             <UpjongCards upjongs={upjongsInfo} />
@@ -99,34 +101,3 @@ function Home() {
 }
 
 export default Home;
-
-// const Doughnut = styled.div`
-//   display: flex;
-//   background-color: gray;
-//   width: 50%;
-//   height: 400px;
-//   justify-content: space-around;
-//   flex-direction: column;
-//   align-items: center;
-// `;
-
-// const Content = styled.div`
-//   display: flex;
-// `;
-
-// const CompanyInfo = styled.div`
-//   display: flex;
-//   justify-content: center;
-// `;
-
-// const Line = styled.div`
-//   margin: 20px 0;
-//   width: 100%;
-//   height: 300px;
-//   background-color: gray;
-// `;
-
-// const ChartName = styled.div`
-//   display: flex;
-//   justify-content: center;
-// `;
