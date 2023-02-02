@@ -6,6 +6,8 @@ import Upjong from "./pages/Upjong";
 import Header from "./components/Layouts/Header";
 import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
+import Login from "./pages/Login";
+import Regist from "./pages/Regist";
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
           <Route path="/upjong/:upjongNumber" element={<Upjong />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/regist" element={<Regist />} />
         </Route>
       </Routes>
     </div>

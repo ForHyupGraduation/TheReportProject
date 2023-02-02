@@ -96,19 +96,12 @@ const DeScribe = styled.div`
   height: 30%;
 `;
 
-// const MainNews = styled.div`
-//   width: 100%;
-// `;
-
 const SubTitle = styled.div`
   font-size: 25px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 30px;
 `;
-// const CompanyName = styled.div`
-//   font-size: 40px;
-// `;
 
 const Title = styled.div`
   display: flex;
