@@ -1,17 +1,17 @@
 import React from "react";
-import { Badge, Col } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // import { Accordion, Badge } from "react-bootstrap";
 // import LineChart from "../../Graphs/LineChart";
 // import Meter from "../../Meters/Meter";
-import styled from "styled-components";
 
 const CompanyListElement = ({
   growthPoint,
   interestPoint,
   eventKey,
   companyName,
+  upjongNumber,
 }) => {
   return (
     <tr>
@@ -23,10 +23,11 @@ const CompanyListElement = ({
         <Link
           to={{
             pathname: `/company/${companyName}`,
-            state: { companyName: { companyName } },
+            state: {
+              upjongNumber: { upjongNumber },
+            },
           }}
         >
-          {/* "/company/" + companyName */}
           <Badge>자세히 보기</Badge>
         </Link>
       </td>

@@ -10,7 +10,6 @@ const NewsList = ({ newsList }) => {
   const [companyLogo, setCompanyLogo] = useState(null);
 
   useEffect(() => {
-    console.log(newsList);
     setArticles(newsList);
     setCompanyLogo(KakaoCompanyInfos.companyDto.companyLogoUrl);
     setLoading(false);

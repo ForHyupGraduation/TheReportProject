@@ -11,7 +11,7 @@ import KakaoCompanyInfos from "../components/DB/KakaoCompanyInfos.json";
 
 import Meter from "../components/Meters/Meter";
 
-function Company() {
+function Company({ upjongNumber }) {
   const location = useLocation();
   const [company, setCompany] = useState(null);
   const [growthPoint, setGrowthPoint] = useState(null);
@@ -20,7 +20,7 @@ function Company() {
   const [isLoading, setIsLoading] = useState(true);
   const [newsList, setNewsList] = useState(null);
   const companyName = decodeURI(location.pathname.split("/")[2]);
-
+  console.log(upjongNumber);
   useEffect(() => {
     const fechData = async () => {
       setIsLoading(true);
@@ -28,6 +28,7 @@ function Company() {
         await axios
           .get(`http://localhost:8080/test?companyName=${companyName}`)
           .then((response) => {
+            console.log(response);
             setCompany(response.data.companyName);
             setGrowthPoint(response.data.growthPoint);
             setinterestPoint(response.data.interestPoint);
@@ -80,7 +81,7 @@ function Company() {
           </MainContent>
         </MainContents>
         <SubContents className="col-lg-3">
-          <SubinfoList />
+          <SubinfoList companyName={companyName} />
         </SubContents>
       </div>
     );
