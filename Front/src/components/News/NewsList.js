@@ -2,30 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import NewsItem from "./NewsItem";
 import styled from "styled-components";
-//import axios from "axios";
 import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
 
-const NewsList = () => {
+const NewsList = ({ newsList }) => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
   const [companyLogo, setCompanyLogo] = useState(null);
 
   useEffect(() => {
-    // const fechData = async () => {
-    //   setLoading(true);
-    //   try {
-    //     await axios
-    //       .get("http://localhost:8080/test?companyName=카카오 ")
-    //       .then((response) => {
-    //         setArticles(response.data);
-    //       });
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    //   setLoading(false);
-    // };
-    // fechData();
-    setArticles(KakaoCompanyInfos.companyDto.news);
+    setArticles(newsList);
     setCompanyLogo(KakaoCompanyInfos.companyDto.companyLogoUrl);
     setLoading(false);
   }, []);

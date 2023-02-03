@@ -93,8 +93,12 @@ const Login = () => {
             Login
           </LoginButton>
           <ExternalLogin>
-            <ExternalLoginButton>Google</ExternalLoginButton>
-            <ExternalLoginButton>Naver</ExternalLoginButton>
+            <ExternalLoginButton>
+              <i class="fa-brands fa-google"></i>
+            </ExternalLoginButton>
+            <ExternalLoginButton>
+              <i class="fa-solid fa-n"></i>
+            </ExternalLoginButton>
           </ExternalLogin>
         </LoginButtonContainer>
         <SignUpLinkContainer>

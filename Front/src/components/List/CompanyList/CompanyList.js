@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Accordion } from "react-bootstrap";
 import CompanyListElement from "./CompanyListElement";
 
-const CompanyList = ({ companies }) => {
+const CompanyList = ({ companies, upjongNumber }) => {
+  console.log(upjongNumber);
   return (
     <div>
-      <table class="table table-striped">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -24,6 +24,7 @@ const CompanyList = ({ companies }) => {
                 growthPoint={company.growthPoint}
                 companyName={company.companyName}
                 eventKey={index}
+                upjongNumber={upjongNumber}
               />
             );
           })}

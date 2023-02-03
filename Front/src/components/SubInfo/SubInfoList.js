@@ -20,7 +20,7 @@ const SubinfoList = ({ company }) => {
     //   setLoading(true);
     //   try {
     //     await axios
-    //       .get(`http://localhost:8080/test?companyName=${company} `)
+    //       .get(`http://localhost:8080/test?companyName=${company}`)
     //       .then((response) => {
     //         console.log(response);
     //         setRevenue(response.data);

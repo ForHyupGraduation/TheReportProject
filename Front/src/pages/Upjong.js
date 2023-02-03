@@ -11,9 +11,10 @@ const Upjong = () => {
   const [companies, setCompanies] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [upjong, setUpjong] = useState(0);
+  const [upjongNumber, setUpjongNumber] = useState(null);
 
   useEffect(() => {
-    const upjongNumber = location.pathname.split("/")[2];
+    setUpjongNumber(location.pathname.split("/")[2]);
     const simpleInfos = GetCompaniesFromUpjong(upjongNumber);
     setUpjong(CompaniesDB.categoryName);
     setCompanies(simpleInfos);
@@ -27,6 +28,7 @@ const Upjong = () => {
   if (isLoading) {
     return <LoadingPage />;
   } else {
+    console.log(upjongNumber);
     return (
       <div className="container">
         <section className="py-5 text-center container">
@@ -54,7 +56,7 @@ const Upjong = () => {
           </div>
         </section>
         <div>
-          <CompanyList companies={companies} />
+          <CompanyList companies={companies} upjongNumber={upjongNumber} />
         </div>
       </div>
     );
