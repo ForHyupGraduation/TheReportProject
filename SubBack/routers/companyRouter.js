@@ -38,17 +38,17 @@ const ChangeCSVToJson = (rows) => {
 }
 
 router.get('/upjongNumber/:companyName', (req, res) => {
+    let statusCode = 502;
     try
     {
         const companyName = req.params.companyName;
-        const UPJONG_NUMBERS_DB_PATH = path.join(__dirname + "../DB", "upjongNumbers", "upjongNumbers.csv");
+        const UPJONG_NUMBERS_DB_PATH = path.join(__dirname, "../../DB", "upjongNumbers", "upjongNumbers.csv");
+        
         const csv = fs.readFileSync(UPJONG_NUMBERS_DB_PATH, 'utf-8');
         const rows = csv.split('\r\n');
         const allUpjongNumbers = ChangeCSVToJson(rows);
 
         let upjongNumber = null;
-        let statusCode = 502;
-
         for(const index in allUpjongNumbers)
         {
             if(allUpjongNumbers[index].companyName == companyName)
@@ -57,6 +57,7 @@ router.get('/upjongNumber/:companyName', (req, res) => {
                 statusCode = 200;
             }
         }
+
         return res.status(200).send({
             "upjongNumber": upjongNumber
         })
