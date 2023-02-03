@@ -37,6 +37,38 @@ const ChangeCSVToJson = (rows) => {
     return results;
 }
 
+router.get('/upjongNumber/:companyName', (req, res) => {
+    try
+    {
+        const companyName = req.params.companyName;
+        const UPJONG_NUMBERS_DB_PATH = path.join(__dirname + "../DB", "upjongNumbers", "upjongNumbers.csv");
+        const csv = fs.readFileSync(UPJONG_NUMBERS_DB_PATH, 'utf-8');
+        const rows = csv.split('\r\n');
+        const allUpjongNumbers = ChangeCSVToJson(rows);
+
+        let upjongNumber = null;
+        let statusCode = 502;
+
+        for(const index in allUpjongNumbers)
+        {
+            if(allUpjongNumbers[index].companyName == companyName)
+            {
+                upjongNumber = allUpjongNumbers[index].upjongNumber;
+                statusCode = 200;
+            }
+        }
+        return res.status(200).send({
+            "upjongNumber": upjongNumber
+        })
+
+    }
+    catch(error)
+    {
+        console.error(error);
+        return res.status(statusCode).send();
+    }
+})
+
 router.get('/yearly/operatingProfits/:upjongNumber/:companyName', (req, res) => {
     try
     {
