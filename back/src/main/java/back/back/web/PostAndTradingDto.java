@@ -1,5 +1,6 @@
 package back.back.web;
 
+import back.back.domain.MinMaxRatio;
 import back.back.domain.ratio.PostAndTrading;
 import lombok.Data;
 

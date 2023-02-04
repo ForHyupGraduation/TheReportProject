@@ -30,8 +30,6 @@ public class CompanyController {
     public CompanyDto test(@RequestParam String companyName){
         CompanyDto companyDto = companyService.mainPage(companyName);
         List<CompanySimpleInfo> simpleInfos = companyService.getSimpleCompanyInfo(companyDto.getCategoryName());
-        List<RelationCompanyListDto> relationCompany = companyService.findRelationCompany(companyDto.getCategoryName());
-        companyDto.setRelationCompanyListDtos(relationCompany);
         companyDto.setCompanySimpleInfos(simpleInfos);
         return companyDto;
     }

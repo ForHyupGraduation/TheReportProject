@@ -22,8 +22,7 @@ public class CompanyDto {
     private Integer interestPoint;
     private List<InterestRatioDto> interestRatioDtos; //
     private List<NewsListDto> news;
-    private List<PostAndTradingDto> postAndTradings;
-    private List<RelationCompanyListDto> relationCompanyListDtos;
+//    private List<PostAndTradingDto> postAndTradings;
     private List<CompanySimpleInfo> companySimpleInfos;
     private SalesDto sales;
     private OperatingProfitDto operatingProfit;
@@ -46,13 +45,13 @@ public class CompanyDto {
         this.interestPoint = company.getInterestPoint();
 
         this.interestRatioDtos = company.getPostAndTradings()
-                .stream().map(ratio -> new InterestRatioDto(ratio))
+                .stream().map(ratio -> new InterestRatioDto(ratio, company.getMinMaxRatio()))
                 .collect(Collectors.toList());
-
-        this.postAndTradings = company.getPostAndTradings()
-                .stream()
-                .limit(5)
-                .map(postAndTrading -> new PostAndTradingDto(postAndTrading))
-                .collect(Collectors.toList());
+//
+//        this.postAndTradings = company.getPostAndTradings()
+//                .stream()
+//                .limit(5)
+//                .map(postAndTrading -> new PostAndTradingDto(postAndTrading))
+//                .collect(Collectors.toList());
     }
 }
