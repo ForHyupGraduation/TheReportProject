@@ -21,7 +21,6 @@ function Company() {
   const [companyLogo, setCompanyLogo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [newsList, setNewsList] = useState(null);
-  const [upjongNumber, setUpjongNumber] = useState(null);
   const companyName = decodeURI(location.pathname.split("/")[2]);
 
   useEffect(() => {
@@ -39,11 +38,6 @@ function Company() {
             setNewsList(response.data.news);
             setIsLoading(false);
           });
-        await axios
-          .get(`http://localhost:5000/company/upjongNumber/${companyName}`)
-          .then((response) => {
-            setUpjongNumber(response.data.upjongNumber);
-          });
       } catch (e) {
         console.log(e);
       }
@@ -57,7 +51,7 @@ function Company() {
     // setIsLoading(false);
   }, []);
 
-  if (!isLoading && companyData && upjongNumber) {
+  if (!isLoading && companyData) {
     return (
       <div className="container row" style={{ margin: "20px auto" }}>
         <Title>
@@ -89,7 +83,7 @@ function Company() {
           </MainContent>
         </MainContents>
         <SubContents className="col-lg-3">
-          {/* <SubinfoList companyData={companyData} upjongNumber={upjongNumber} /> */}
+          {/* <SubinfoList companyData={companyData}/> */}
         </SubContents>
       </div>
     );

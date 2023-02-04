@@ -25,10 +25,8 @@ const ScatterChart = ({ labels, data, backgroundColor }) => {
   useEffect(() => {
     setIsLoading(false);
   }, []);
-  console.log(data);
 
   if (!isLoading) {
-    console.log(labels, data);
     return (
       <Scatter
         options={options}

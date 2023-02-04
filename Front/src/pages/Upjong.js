@@ -6,12 +6,35 @@ import CompaniesDB from "../components/DB/Companies.json";
 import CompanyList from "../components/List/CompanyList/CompanyList";
 import ScatterChart from "../components/Graphs/ScatterChart";
 
+import axios from "axios";
+
 const Upjong = () => {
-  const location = useLocation();
   const [companies, setCompanies] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [upjong, setUpjong] = useState(0);
   const [upjongNumber, setUpjongNumber] = useState(null);
+
+  const location = useLocation();
+  const title = location.state?.title; // 추가된 부분
+
+  console.log(title);
+  useEffect(() => {
+    setIsLoading(false);
+    const fechData = async () => {
+      setIsLoading(true);
+      try {
+        await axios
+          .get(`http://localhost:8080/home?categoryName=${title}`)
+          .then((response) => {
+            console.log(response);
+          });
+      } catch (e) {
+        console.log(e);
+      }
+      setIsLoading(false);
+    };
+    fechData();
+  }, []);
 
   useEffect(() => {
     setUpjongNumber(location.pathname.split("/")[2]);

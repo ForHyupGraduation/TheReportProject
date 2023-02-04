@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./UpjongCard.css";
 
 const UpjongCard = ({
@@ -8,8 +9,13 @@ const UpjongCard = ({
   theNumberOfCompanies,
   upjongNumber,
 }) => {
+  console.log(title);
   return (
-    <a href={`/upjong/${upjongNumber}`} className="upjong_card">
+    <Link
+      to={`/upjong/${upjongNumber}`}
+      className="upjong_card"
+      state={{ title }}
+    >
       <div className="card shadow-sm">
         <div className="card-body text-center">
           <div>
@@ -21,7 +27,7 @@ const UpjongCard = ({
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
