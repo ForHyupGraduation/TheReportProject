@@ -31,13 +31,13 @@ public class CompanyRepository {
     public List<Company> findByCompanyName (String companyName) {
         String jpql = "select c " +
                 "from Company c " +
-                "join fetch c.revenue revenue " +
-                "join fetch c.netProfit netP " +
+                "join fetch c.normalizedGrowthRatio ratio " +
+                "join fetch c.sales revenue " +
                 "join fetch c.operatingProfit operating_profit " +
-                "join fetch c.operatingProfitMargin margin " +
-                "join fetch c.growthRatio growthRatio " +
                 "where c.companyName = :companyName";
-        List<Company> findCompany= em.createQuery(jpql, Company.class).setParameter("companyName", companyName)
+
+        List<Company> findCompany= em.createQuery(jpql, Company.class)
+                .setParameter("companyName", companyName)
                 .getResultList();
 
         return findCompany;

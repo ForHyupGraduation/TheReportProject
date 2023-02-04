@@ -1,8 +1,13 @@
 package back.back.csvFileReader;
 
-import back.back.domain.ratio.GrowthRatio;
-import back.back.domain.ratio.InterestRatio;
+import back.back.domain.MinMaxRatio;
+import back.back.domain.financialratio.OperatingProfit;
+import back.back.domain.financialratio.Sales;
+import back.back.domain.ratio.PostAndTrading;
+import back.back.domain.ratio.NormalizedGrowthRatio;
+import back.back.domain.ratio.NormalizedInterestRatio;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.enums.CSVReaderNullFieldIndicator;
 import org.springframework.stereotype.Component;
 
 import java.io.FileNotFoundException;
@@ -11,31 +16,30 @@ import java.util.List;
 
 @Component
 public class CsvFileReader {
-    public GrowthRatio readGrowthRatio(String fileName, String categoryName, int companyCode) { // 263
+    public NormalizedGrowthRatio readGrowthRatio(String categoryName, String companyCode) {
         try {
-            List<GrowthRatio> growthRatios = new CsvToBeanBuilder(new FileReader(growthPathResolver(fileName, categoryName)))
-                    .withType(GrowthRatio.class)
+            List<NormalizedGrowthRatio> normalizedGrowthRatios = new CsvToBeanBuilder(new FileReader(growthPathResolver(categoryName)))
+                    .withType(NormalizedGrowthRatio.class)
                     .build()
                     .parse();
-
-            for (GrowthRatio growthRatio : growthRatios) {
-                System.out.println("growthRatio = " + growthRatio);
+            for (NormalizedGrowthRatio normalizedGrowthRatio : normalizedGrowthRatios) {
+                System.out.println("growthRatio = " + normalizedGrowthRatio);
             }
-
-            return growthRatios.stream().filter(g -> g.getCompanyCode() == companyCode)
+            return normalizedGrowthRatios.stream()
+                    .filter(g -> g.getCompanyCode().equals(companyCode))
                     .findFirst()
                     .orElse(null);
-
-        }catch(Exception e) {
+        } catch(Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
 
-    public List<InterestRatio> readInterestRatio(String fileName, int companyCode) {
+    public List<NormalizedInterestRatio> readInterestRatio(String companyCode) {
         try {
-            List<InterestRatio> parse = new CsvToBeanBuilder<InterestRatio>(new FileReader(interestPathResolver(fileName, companyCode)))
-                    .withType(InterestRatio.class)
+            List<NormalizedInterestRatio> parse = new CsvToBeanBuilder<NormalizedInterestRatio>(new FileReader(interestPathResolver(companyCode)))
+                    .withType(NormalizedInterestRatio.class)
+                    .withFieldAsNull(CSVReaderNullFieldIndicator.BOTH)
                     .build()
                     .parse();
             return parse;
@@ -44,18 +48,114 @@ public class CsvFileReader {
         }
     }
 
-
-    private String interestPathResolver(String fileName, Integer companyCode) {
-        return "DB/normalizedInterests/" + fileName + companyCode + ".csv";
+    public List<PostAndTrading> postAndTrading(String companyCode) {
+        try {
+            return new CsvToBeanBuilder<PostAndTrading>(new FileReader("DB/interests/interest"+companyCode+".csv"))
+                    .withType(PostAndTrading.class)
+                    .withFieldAsNull(null)
+                    .build()
+                    .parse();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private String growthPathResolver(String fileName, String categoryName) {
-       Integer code = 0;
+    public OperatingProfit operatingProfit(String categoryName, String companyCode) {
+        Integer code = 0;
+        if(categoryName.equals("게임엔터테인먼트")) {
+            code = 263;
+        } else if(categoryName.equals("양방향미디어와서비스")) {
+            code = 300;
+        }
 
+        try {
+
+            System.out.println("ddd");
+            return new CsvToBeanBuilder<OperatingProfit>(new FileReader("DB/yearly/operatingProfits/operatingProfits"+code+".csv"))
+                    .withType(OperatingProfit.class)
+                    .withFieldAsNull(CSVReaderNullFieldIndicator.BOTH)
+                    .build()
+                    .parse()
+                    .stream()
+                    .filter(oper -> oper.getCompanyCode().equals(companyCode))
+                    .findFirst()
+                    .orElse(null);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Sales sales(String categoryName, String companyCode) {
+        Integer code = 0;
+        if(categoryName.equals("게임엔터테인먼트")) {
+            code = 263;
+        } else if(categoryName.equals("양방향미디어와서비스")) {
+            code = 300;
+        }
+
+        try {
+
+            System.out.println("fff");
+            return new CsvToBeanBuilder<Sales>(new FileReader("DB/yearly/sales/sales"+ code +".csv"))
+                    .withIgnoreEmptyLine(true)
+                    .withType(Sales.class)
+                    .build()
+                    .parse()
+                    .stream()
+                    .filter(oper -> oper.getCompanyCode().equals(companyCode))
+                    .findFirst()
+                    .orElse(null);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public MinMaxRatioDto readMinMaxRatio(String companyCode) {
+        try {
+          System.out.println("asd");
+          return new CsvToBeanBuilder<MinMaxRatioDto>(new FileReader("DB/minMax.csv"))
+                    .withType(MinMaxRatioDto.class)
+                    .withFieldAsNull(CSVReaderNullFieldIndicator.BOTH)
+                    .build()
+                    .parse()
+                    .stream()
+                    .filter(ratio -> ratio.getCompanyCode().equals(companyCode))
+                    .findFirst()
+                    .orElse(null);
+        }catch(FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String interestPathResolver(String companyCode) {
+        return "DB/normalizedInterests/" + "interest" + companyCode + ".csv";
+    }
+
+    private String growthPathResolver(String categoryName) {
+       Integer code = 0;
        if(categoryName.equals("게임엔터테인먼트")) {
            code = 263;
+       } else if(categoryName.equals("양방향미디어와서비스")) {
+           code = 300;
        }
+        return "DB/normalizedGrowthRates/growthRates" + code + ".csv";
+    }
 
-        return "DB/normalizedGrowthRates/" + fileName + code + ".csv";
+    public static void main(String[] args) {
+        CsvFileReader csvFileReader = new CsvFileReader();
+        List<PostAndTrading> postAndTradings = csvFileReader.postAndTrading("020120");
+        MinMaxRatioDto minMaxRatioDto = csvFileReader.readMinMaxRatio("020120");
+        List<NormalizedInterestRatio> inter = csvFileReader.readInterestRatio("020120");
+
+        System.out.println("minMaxRatioDto.getMaxPosts() = " + minMaxRatioDto.getMaxPosts());
+
+        for (PostAndTrading postAndTrading : postAndTradings) {
+            System.out.println("postAndTrading.getPostPerDay() = " + postAndTrading.getPostPerDay());
+        }
+
+        for (NormalizedInterestRatio normalizedInterestRatio : inter) {
+            System.out.println("normalizedInterestRatio.getCompany() = " + normalizedInterestRatio.getPostsPerDay());
+        }
     }
 }

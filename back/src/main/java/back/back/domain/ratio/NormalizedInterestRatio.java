@@ -10,7 +10,7 @@ import lombok.ToString;
 @Entity
 @Getter @Setter
 @ToString(of = {"companyDate", "postsPerDay", "volumePerDay"})
-public class InterestRatio {
+public class NormalizedInterestRatio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "interest_ratio_id")

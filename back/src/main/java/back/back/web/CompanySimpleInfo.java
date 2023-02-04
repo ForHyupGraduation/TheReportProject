@@ -1,7 +1,6 @@
 package back.back.web;
 import back.back.domain.Company;
 import lombok.Data;
-import org.checkerframework.checker.units.qual.C;
 
 @Data
 public class CompanySimpleInfo {
@@ -24,7 +23,7 @@ public class CompanySimpleInfo {
         this.companyName = company.getCompanyName();
         this.growthPoint = company.getGrowthPoint();
         this.interestPoint = company.getInterestPoint();
-        this.salesGrowthRate = company.getGrowthRatio().getAverageSalesGrowthRate();
-        this.operatingProfitGrowthRate = company.getGrowthRatio().getAverageOperatingProfitsGrowthRate();
+        this.salesGrowthRate = company.getNormalizedGrowthRatio().getAverageSalesGrowthRate();
+        this.operatingProfitGrowthRate = company.getNormalizedGrowthRatio().getAverageOperatingProfitsGrowthRate();
     }
 }

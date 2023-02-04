@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import LineChart from "../Graphs/LineChart";
+import ScatterChart from "../Graphs/ScatterChart";
 
-const SummaryGraph = ({ growthRates, interests }) => {
+const SummaryGraph = ({ companyData }) => {
   const [isToggle, setIsToggle] = useState(false);
+  const [companies, setCompanies] = useState(null);
 
   const onChangeToggle = (event) => {
     setIsToggle(!isToggle);
   };
 
-  console.log(isToggle);
+  useEffect(() => {
+    setCompanies(companyData.interestRatioDtos);
+    console.log(companyData.interestRatioDtos);
+  }, []);
 
+  console.log(isToggle);
   if (isToggle) {
     return (
       <div className="card">
@@ -21,7 +28,14 @@ const SummaryGraph = ({ growthRates, interests }) => {
             onChange={onChangeToggle}
           />
         </div>
-        형일님
+        <ScatterChart
+          labels={companies.map((company) => company.companyDate)}
+          data={companies.map((company) => ({
+            x: company.postPerDay,
+            y: company.volumePerDay,
+          }))}
+          backgroundColor={`rgba(255, 99, 132, 1)`}
+        />
       </div>
     );
   } else {
@@ -36,7 +50,7 @@ const SummaryGraph = ({ growthRates, interests }) => {
             onChange={onChangeToggle}
           />
         </div>
-        재광님
+        <LineChart />
       </div>
     );
   }

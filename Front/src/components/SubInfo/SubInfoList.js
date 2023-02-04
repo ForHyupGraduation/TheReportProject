@@ -4,36 +4,40 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 //import axios from "axios";
 
+import axios from "axios";
+
 import SubInfoItem from "./SubInfoItem";
 import CompanyList from "../List/CompanyList/CompanyList";
 import CompaniesDB from "../DB/Companies.json";
 
 import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
-import { Container } from "react-bootstrap";
 
-const SubinfoList = ({ company }) => {
+const SubinfoList = (companyData, upjongNumber) => {
   const [revenue, setRevenue] = useState(null);
   const [loading, setLoading] = useState(false);
   const [companyName, setCompanyName] = useState(null);
+
   useEffect(() => {
-    // const fechData = async () => {
-    //   setLoading(true);
-    //   try {
-    //     await axios
-    //       .get(`http://localhost:8080/test?companyName=${company}`)
-    //       .then((response) => {
-    //         console.log(response);
-    //         setRevenue(response.data);
-    //       });
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    //   setLoading(false);
-    // };
-    // fechData();
-    setRevenue(KakaoCompanyInfos.companyDto);
+    setRevenue(companyData);
     setLoading(false);
-    setCompanyName({ company });
+    const fechData = async () => {
+      setCompanyName(companyData.companyData.companyName);
+      setLoading(true);
+      try {
+        await axios
+          .get(
+            `http://localhost:5000/company/yearly/operatingProfits/${companyData.upjongNumber}/${companyData.companyData.companyName}`
+          )
+          .then((response) => {
+            console.log(response);
+            setRevenue(response.data);
+          });
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fechData();
   }, []);
 
   // 아직 대기중임
@@ -51,33 +55,31 @@ const SubinfoList = ({ company }) => {
   }
 
   //revenue 값이 유효 할 때
-  if (!loading) {
-    console.log(companyName);
+  if (!loading && companyData && upjongNumber) {
+    return (
+      <>
+        <Block>
+          <SubTitle className="lead text-muted">post</SubTitle>
+          <SubInfoItem revenue={revenue} flag={0} />
+        </Block>
+        <Block>
+          <SubTitle className="lead text-muted">거래량</SubTitle>
+          <SubInfoItem revenue={revenue} flag={1} />
+        </Block>
+        <Block>
+          <SubTitle className="lead text-muted">연간 매출액</SubTitle>
+          <SubInfoItem revenue={revenue} flag={2} />
+        </Block>
+        <Block>
+          <SubTitle className="lead text-muted">연간 영업이익</SubTitle>
+          <SubInfoItem revenue={revenue} flag={3} />
+        </Block>
+        <Block>
+          <CompanyList companies={CompaniesDB.simpleInfos} />
+        </Block>
+      </>
+    );
   }
-
-  return (
-    <>
-      <Block>
-        <SubTitle className="lead text-muted">post</SubTitle>
-        <SubInfoItem revenue={revenue} flag={0} />
-      </Block>
-      <Block>
-        <SubTitle className="lead text-muted">거래량</SubTitle>
-        <SubInfoItem revenue={revenue} flag={1} />
-      </Block>
-      <Block>
-        <SubTitle className="lead text-muted">연간 매출액</SubTitle>
-        <SubInfoItem revenue={revenue} flag={2} />
-      </Block>
-      <Block>
-        <SubTitle className="lead text-muted">연간 영업이익</SubTitle>
-        <SubInfoItem revenue={revenue} flag={3} />
-      </Block>
-      <Block>
-        <CompanyList companies={CompaniesDB.simpleInfos} />
-      </Block>
-    </>
-  );
 };
 
 export default SubinfoList;

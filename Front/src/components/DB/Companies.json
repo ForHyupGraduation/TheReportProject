@@ -1,5 +1,87 @@
 {
   "categoryName": "게임엔터테인먼트",
+  "interestRatioDtos": [
+    {
+      "companyDate": "2023.01.30",
+      "postPerDay": 0.17,
+      "volumePerDay": 0.22
+    },
+    {
+      "companyDate": "2023.01.27",
+      "postPerDay": 0.17,
+      "volumePerDay": 0.27
+    },
+    {
+      "companyDate": "2023.01.26",
+      "postPerDay": 0.25,
+      "volumePerDay": 0.29
+    },
+    {
+      "companyDate": "2023.01.25",
+      "postPerDay": 0.17,
+      "volumePerDay": 0.34
+    },
+    {
+      "companyDate": "2023.01.20",
+      "postPerDay": 0.09,
+      "volumePerDay": 0.14
+    },
+    {
+      "companyDate": "2023.01.19",
+      "postPerDay": 0.25,
+      "volumePerDay": 0.19
+    },
+    {
+      "companyDate": "2023.01.18",
+      "postPerDay": 0.38,
+      "volumePerDay": 0.32
+    },
+    {
+      "companyDate": "2023.01.17",
+      "postPerDay": 0.73,
+      "volumePerDay": 0.64
+    },
+    {
+      "companyDate": "2023.01.16",
+      "postPerDay": 1.0,
+      "volumePerDay": 1.0
+    },
+    {
+      "companyDate": "2023.01.13",
+      "postPerDay": 0.28,
+      "volumePerDay": 0.23
+    },
+    {
+      "companyDate": "2023.01.12",
+      "postPerDay": 0.23,
+      "volumePerDay": 0.21
+    },
+    {
+      "companyDate": "2023.01.11",
+      "postPerDay": 0.34,
+      "volumePerDay": 0.24
+    },
+    {
+      "companyDate": "2023.01.10",
+      "postPerDay": 0.56,
+      "volumePerDay": 0.35
+    },
+    {
+      "companyDate": "2023.01.09",
+      "postPerDay": 0.28,
+      "volumePerDay": 0.27
+    },
+    {
+      "companyDate": "2023.01.06",
+      "postPerDay": 0.57,
+      "volumePerDay": 0.42
+    },
+    {
+      "companyDate": "2023.01.05",
+      "postPerDay": 0.41,
+      "volumePerDay": 0.35
+    }
+  ],
   "simpleInfos": [
     {
       "companyName": "밸로프",

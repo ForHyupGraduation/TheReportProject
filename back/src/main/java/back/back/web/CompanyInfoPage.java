@@ -8,7 +8,6 @@ import lombok.Setter;
 public class CompanyInfoPage {
     private CompanyDto companyDto;
 
-
     public CompanyInfoPage(CompanyDto companyDto) {
         this.companyDto = companyDto;
     }

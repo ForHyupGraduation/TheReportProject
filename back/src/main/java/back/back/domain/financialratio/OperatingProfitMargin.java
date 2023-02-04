@@ -18,23 +18,9 @@ public class OperatingProfitMargin implements FinancialRatio{
     private String previousSecondQuarter;
     private String previousQuarter;
 
-    @Override
-    public String toString() {
-        return "OperatingProfitMargin{" +
-                "id=" + id +
-                ", previousFourthQuarter='" + previousFourthQuarter + '\'' +
-                ", previousThirdQuarter='" + previousThirdQuarter + '\'' +
-                ", previousSecondQuarter='" + previousSecondQuarter + '\'' +
-                ", previousQuarter='" + previousQuarter + '\'' +
-                '}';
-    }
-
 
     @Override
     public void setAllValue(List<String> allValue) {
-        setPreviousFourthQuarter(allValue.get(0));
-        setPreviousThirdQuarter(allValue.get(1));
-        setPreviousSecondQuarter(allValue.get(2));
-        setPreviousQuarter(allValue.get(3));
+
     }
 }

@@ -17,33 +17,40 @@ ChartJS.register(
 );
 
 const LineChart = ({ revenue }) => {
-  const [xAxis, setXAxis] = useState([]);
+  const [first, setFirst] = useState(null);
+  const [second, setSecond] = useState(null);
+  const [third, setThird] = useState(null);
+  const [fourth, setFourth] = useState(null);
 
   useEffect(() => {
-    setXAxis(Object.keys(revenue));
+    const {
+      previousFourthQuarter,
+      previousThirdQuarter,
+      previousSecondQuarter,
+      previousQuarter,
+    } = revenue;
+
+    const values = [
+      previousQuarter,
+      previousSecondQuarter,
+      previousThirdQuarter,
+      previousFourthQuarter,
+    ];
+    const parsedValues = values.map((value) => {
+      if (isNaN(parseInt(value.split(",").join("")))) {
+        return 0;
+      }
+      return parseInt(value.split(",").join(""));
+    });
+
+    setFirst(parsedValues[0]);
+    setSecond(parsedValues[1]);
+    setThird(parsedValues[2]);
+    setFourth(parsedValues[3]);
   }, []);
 
-  if (xAxis[0] === "previousFourthQuarter") {
-    xAxis[0] = "1분기";
-    xAxis[1] = "2분기";
-    xAxis[2] = "3분기";
-    xAxis[3] = "4분기";
-  }
-
-  const {
-    previousFourthQuarter,
-    previousThirdQuarter,
-    previousSecondQuarter,
-    previousQuarter,
-  } = revenue;
-
-  const first = parseInt(previousQuarter.split(",").join(""));
-  const second = parseInt(previousSecondQuarter.split(",").join(""));
-  const third = parseInt(previousThirdQuarter.split(",").join(""));
-  const fourth = parseInt(previousFourthQuarter.split(",").join(""));
-
   const data = {
-    labels: [xAxis[0], xAxis[1], xAxis[2], xAxis[3]],
+    labels: [1, 2, 3, 4],
     datasets: [
       {
         labels: "Scale of the week",
@@ -65,7 +72,7 @@ const LineChart = ({ revenue }) => {
     },
     scales: {
       y: {
-        min: parseInt(Math.min(first, second, third, fourth) * 0.8),
+        min: parseInt(Math.min(first, second, third, fourth)),
         max: parseInt(Math.max(first, second, third, fourth) * 1.2),
       },
     },

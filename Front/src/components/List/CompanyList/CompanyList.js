@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import CompanyListElement from "./CompanyListElement";
 
 const CompanyList = ({ companies, upjongNumber }) => {
-  console.log(upjongNumber);
   return (
     <div>
       <table className="table table-striped">

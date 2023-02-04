@@ -2,39 +2,23 @@ package back.back.domain.financialratio;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Setter @Getter
-public class OperatingProfit implements FinancialRatio{
+@NoArgsConstructor
+public class OperatingProfit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "operating_profit_id")
     private Long id;
-    private String previousFourthQuarter;
-    private String previousThirdQuarter;
-    private String previousSecondQuarter;
-    private String previousQuarter;
+    private String companyCode;
+    private String operatingFourYearsAgo;
+    private String operatingThreeYearsAgo;
+    private String operatingTwoYearsAgo;
+    private String operatingOneYearsAgo;
 
-    @Override
-    public String toString() {
-        return "OperatingProfit{" +
-                "id=" + id +
-                ", previousFourthQuarter='" + previousFourthQuarter + '\'' +
-                ", previousThirdQuarter='" + previousThirdQuarter + '\'' +
-                ", previousSecondQuarter='" + previousSecondQuarter + '\'' +
-                ", previousQuarter='" + previousQuarter + '\'' +
-                '}';
-    }
-
-
-    @Override
-    public void setAllValue(List<String> allValue) {
-        setPreviousFourthQuarter(allValue.get(0));
-        setPreviousThirdQuarter(allValue.get(1));
-        setPreviousSecondQuarter(allValue.get(2));
-        setPreviousQuarter(allValue.get(3));
-    }
 }

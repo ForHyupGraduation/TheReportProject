@@ -5,7 +5,7 @@ import back.back.domain.News;
 import back.back.domain.financialratio.NetProfit;
 import back.back.domain.financialratio.OperatingProfit;
 import back.back.domain.financialratio.OperatingProfitMargin;
-import back.back.domain.financialratio.Revenue;
+import back.back.domain.financialratio.Sales;
 import jakarta.persistence.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,8 +28,8 @@ public class JpaTest {
         OperatingProfit operatingProfit = new OperatingProfit();
         em.persist(operatingProfit);
 
-        Revenue revenue = new Revenue();
-        em.persist(revenue);
+        Sales sales = new Sales();
+        em.persist(sales);
 
         OperatingProfitMargin operatingProfitMargin = new OperatingProfitMargin();
         em.persist(operatingProfitMargin);

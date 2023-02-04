@@ -87,9 +87,7 @@ function Home() {
             asdf
           </p>
         </div>
-        <div>
-          <SummaryGraph />
-        </div>
+
         <div class="album py-5">
           <div class="container">
             <UpjongCards upjongs={upjongsInfo} />
