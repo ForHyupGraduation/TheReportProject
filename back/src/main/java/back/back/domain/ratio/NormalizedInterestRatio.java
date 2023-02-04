@@ -9,18 +9,19 @@ import lombok.ToString;
 
 @Entity
 @Getter @Setter
-@ToString(of = {"companyDate", "postsPerDay", "volumePerDay"})
 public class NormalizedInterestRatio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "interest_ratio_id")
     private Long id;
 
-    private String companyDate;
+    private String companyCode;
 
-    private Double postsPerDay;
+    private String date;
 
-    private Double volumePerDay;
+    private Double postPerDay;
+
+    private Double tradingPerDay;
 
     @JsonIgnore
     @ManyToOne

@@ -6,6 +6,7 @@ import back.back.domain.News;
 import back.back.domain.financialratio.*;
 import back.back.domain.ratio.NormalizedGrowthRatio;
 import back.back.domain.ratio.NormalizedInterestRatio;
+import back.back.domain.ratio.PostAndTrading;
 import back.back.repository.CompanyRepository;
 import back.back.repository.FinancialRepository;
 import back.back.web.*;
@@ -27,8 +28,6 @@ public class CompanyService {
     private final CsvFileReader reader;
 
     public Company save(FinancialDto financialDto, List<News> news, String companyName) {
-
-
         Company company = new Company();
 
         company.setCompanyName(companyName);
@@ -40,21 +39,43 @@ public class CompanyService {
         company.setNormalizedGrowthRatio(financialDto.getGrowthRates());
         company.addPostAndTradings(financialDto.getPostAndTradings());
         company.addInterestRate(financialDto.getNormalizedInterestRatios());
-
+        company.setMinMaxRatio(financialDto.getMinMaxRatio());
         company.addNews(news);
         company.setGrowthPoint(100);
-        company.setInterestPoint(financialDto.getMinMaxRatio().getMaxPosts().intValue());
+        company.setInterestPoint(getInterestPoint(financialDto));
         companyRepository.save(company);
 
         return company;
+    }
+
+    private int getInterestPoint(FinancialDto financialDto) {
+        PostAndTrading postAndTrading = financialDto.getPostAndTradings()
+                .stream()
+                .limit(1)
+                .findFirst()
+                .get();
+
+        System.out.println("postAndTrading.getDate() = " + postAndTrading.getDate());
+
+        Double todayPost = postAndTrading.getPostPerDay();
+        Double todayVolume = postAndTrading.getTradingPerDay();
+
+        Double maxPosts = financialDto.getMinMaxRatio().getMaxPosts();
+        Double minPosts = financialDto.getMinMaxRatio().getMinPosts();
+        Double maxVolume = financialDto.getMinMaxRatio().getMaxVolume();
+        Double minVolume = financialDto.getMinMaxRatio().getMinVolume();
+
+        Double positionA = (todayPost - minPosts) / (maxPosts - minPosts);
+        Double positionB = (todayVolume - minVolume) / (maxVolume - minVolume);
+        return (int)((positionA + positionB) / 2 * 100) ;
     }
 
     private Integer findTodayRatio(List<NormalizedInterestRatio> normalizedInterest) {
         LocalDate today = LocalDate.now();
 
         Double aDouble = normalizedInterest.stream()
-                .filter(ratio -> ratio.getCompanyDate().equals(today.toString()))
-                .map(ratio -> ratio.getPostsPerDay() * 100 + ratio.getVolumePerDay() * 100)
+                .filter(ratio -> ratio.getDate().equals(today.toString()))
+                .map(ratio -> ratio.getPostPerDay() * 100 + ratio.getTradingPerDay() * 100)
                 .findFirst()
                 .orElse(null);
         return aDouble.intValue();
@@ -63,7 +84,7 @@ public class CompanyService {
 
     private Integer findLatestRatio(List<NormalizedInterestRatio> normalizedInterest) {
         Double aDouble = normalizedInterest.stream()
-                .map(ratio -> ratio.getPostsPerDay() * 100 + ratio.getVolumePerDay() * 100)
+                .map(ratio -> ratio.getPostPerDay() * 100 + ratio.getTradingPerDay() * 100)
                 .findFirst()
                 .orElse(null);
         return aDouble.intValue();

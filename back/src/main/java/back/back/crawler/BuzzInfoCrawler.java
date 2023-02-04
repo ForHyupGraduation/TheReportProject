@@ -86,7 +86,6 @@ public class BuzzInfoCrawler{
         MinMaxRatio minMaxRatio = new MinMaxRatio(reader.readMinMaxRatio(companyCode));
         Sales sales = reader.sales(categoryName, companyCode);
         OperatingProfit operatingProfit = reader.operatingProfit(categoryName, companyCode);
-
         FinancialDto financialDto = new FinancialDto(companyCode, categoryName);
 
         financialDto.setSales(sales);

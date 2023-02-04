@@ -31,7 +31,6 @@ public class CompanyController {
     @GetMapping("/test")
     public CompanyDto test(@RequestParam String companyName){
         CompanyDto companyDto = companyService.mainPage(companyName);
-        companyDto.setSimpleInfos(companyService.findRelationCompany(companyDto.getCategoryName()));
         return companyDto;
     }
 

@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class PostAndTradingDto {
     private String date;
-    private Integer postPerDay;
+    private Double postPerDay;
     private Double tradingPerDay;
 
     public PostAndTradingDto(PostAndTrading postAndTrading) {

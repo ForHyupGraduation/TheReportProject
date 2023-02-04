@@ -16,9 +16,9 @@ public class OperatingProfit{
     @Column(name = "operating_profit_id")
     private Long id;
     private String companyCode;
-    private String operatingFourYearsAgo;
-    private String operatingThreeYearsAgo;
-    private String operatingTwoYearsAgo;
-    private String operatingOneYearsAgo;
+    private String operatingProfitsFourYearsAgo;
+    private String operatingProfitsThreeYearsAgo;
+    private String operatingProfitsTwoYearsAgo;
+    private String operatingProfitsOneYearsAgo;
 
 }

@@ -20,7 +20,7 @@ public class PostAndTrading {
     private Long id;
     private String companyCode;
     private String date;
-    private Integer postPerDay;
+    private Double postPerDay;
     private Double tradingPerDay;
 
 

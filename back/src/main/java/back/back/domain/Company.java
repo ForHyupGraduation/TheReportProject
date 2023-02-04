@@ -64,6 +64,7 @@ public class Company {
     @JoinColumn(name = "growth_ratio_id")
     private NormalizedGrowthRatio normalizedGrowthRatio;
 
+
     @Embedded
     private MinMaxRatio minMaxRatio;
 

@@ -13,9 +13,9 @@ public class OperatingProfitDto {
     private String operatingOneYearsAgo;
 
     public OperatingProfitDto(OperatingProfit operatingProfit) {
-        operatingFourYearsAgo = operatingProfit.getOperatingFourYearsAgo();
-        operatingThreeYearsAgo = operatingProfit.getOperatingThreeYearsAgo();
-        operatingTwoYearsAgo = operatingProfit.getOperatingTwoYearsAgo();
-        operatingOneYearsAgo = operatingProfit.getOperatingOneYearsAgo();
+        operatingFourYearsAgo = operatingProfit.getOperatingProfitsFourYearsAgo();
+        operatingThreeYearsAgo = operatingProfit.getOperatingProfitsThreeYearsAgo();
+        operatingTwoYearsAgo = operatingProfit.getOperatingProfitsTwoYearsAgo();
+        operatingOneYearsAgo = operatingProfit.getOperatingProfitsOneYearsAgo();
     }
 }

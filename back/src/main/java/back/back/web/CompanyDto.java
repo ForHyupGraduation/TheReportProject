@@ -20,11 +20,9 @@ public class CompanyDto {
     private Integer growthPoint;
     private Integer interestPoint;
     private List<InterestRatioDto> interestRatioDtos; //
-
-    private List<RelationCompanyListDto> simpleInfos;
     private List<NewsListDto> news;
     private List<PostAndTradingDto> postAndTradings;
-    //
+
     private SalesDto sales;
     private OperatingProfitDto operatingProfit;
 
@@ -45,7 +43,7 @@ public class CompanyDto {
         this.growthPoint = company.getGrowthPoint();
         this.interestPoint = company.getInterestPoint();
 
-        this.interestRatioDtos = company.getNormalizedInterestRatios()
+        this.interestRatioDtos = company.getPostAndTradings()
                 .stream().map(ratio -> new InterestRatioDto(ratio))
                 .collect(Collectors.toList());
 

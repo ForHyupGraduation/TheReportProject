@@ -1,6 +1,7 @@
 package back.back.web;
 
 import back.back.domain.ratio.NormalizedInterestRatio;
+import back.back.domain.ratio.PostAndTrading;
 import lombok.Data;
 
 @Data
@@ -9,9 +10,9 @@ public class InterestRatioDto {
     private Double postPerDay;
     private Double volumePerDay;
 
-    public InterestRatioDto(NormalizedInterestRatio ratio) {
-        this.companyDate = ratio.getCompanyDate();
-        this.postPerDay = ratio.getPostsPerDay();
-        this.volumePerDay = ratio.getVolumePerDay();
+    public InterestRatioDto(PostAndTrading postAndTrading) {
+        this.companyDate = postAndTrading.getDate();
+        this.postPerDay = postAndTrading.getPostPerDay();
+        this.volumePerDay = postAndTrading.getTradingPerDay();
     }
 }

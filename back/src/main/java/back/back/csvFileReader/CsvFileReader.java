@@ -67,19 +67,21 @@ public class CsvFileReader {
         } else if(categoryName.equals("양방향미디어와서비스")) {
             code = 300;
         }
+        System.out.println("code = " + code);
 
         try {
-
-            System.out.println("ddd");
-            return new CsvToBeanBuilder<OperatingProfit>(new FileReader("DB/yearly/operatingProfits/operatingProfits"+code+".csv"))
+            OperatingProfit operatingProfit = new CsvToBeanBuilder<OperatingProfit>(new FileReader("DB/yearly/operatingProfits/operatingProfits" + code + ".csv"))
                     .withType(OperatingProfit.class)
-                    .withFieldAsNull(CSVReaderNullFieldIndicator.BOTH)
                     .build()
                     .parse()
                     .stream()
                     .filter(oper -> oper.getCompanyCode().equals(companyCode))
                     .findFirst()
                     .orElse(null);
+
+            System.out.println("operatingProfit.getOperatingFourYearsAgo() = " + operatingProfit.getOperatingProfitsFourYearsAgo());
+            return operatingProfit;
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -148,14 +150,6 @@ public class CsvFileReader {
         MinMaxRatioDto minMaxRatioDto = csvFileReader.readMinMaxRatio("020120");
         List<NormalizedInterestRatio> inter = csvFileReader.readInterestRatio("020120");
 
-        System.out.println("minMaxRatioDto.getMaxPosts() = " + minMaxRatioDto.getMaxPosts());
 
-        for (PostAndTrading postAndTrading : postAndTradings) {
-            System.out.println("postAndTrading.getPostPerDay() = " + postAndTrading.getPostPerDay());
-        }
-
-        for (NormalizedInterestRatio normalizedInterestRatio : inter) {
-            System.out.println("normalizedInterestRatio.getCompany() = " + normalizedInterestRatio.getPostsPerDay());
-        }
     }
 }
