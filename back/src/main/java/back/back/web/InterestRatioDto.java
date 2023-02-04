@@ -9,7 +9,7 @@ public class InterestRatioDto {
     private String companyDate;
     private Double postPerDay;
     private Double volumePerDay;
-
+    private Integer interestPoint;
     public InterestRatioDto(PostAndTrading postAndTrading) {
         this.companyDate = postAndTrading.getDate();
         this.postPerDay = postAndTrading.getPostPerDay();
