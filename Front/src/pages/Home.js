@@ -1,49 +1,29 @@
 import React from "react";
 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 //import axios from "axios";
 import LoadingPage from "./LoadingPage";
 
-import companies from "../components/DB/Companies.json";
 import upjongs from "../components/DB/Upjongs.json";
 
 import UpjongCards from "../components/Cards/UpjongList/UpjongCards";
 import StockVideo from "../videos/stock_two.mp4";
 
-import SummaryGraph from "../components/SummaryGraph/SummaryGraph";
-
 function Home() {
   const [upjongsInfo, setUpjongsInfo] = useState(null);
-
-  const [company, setCompany] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // const fechData = async () => {
-    //   setLoading(true);
-    //   try {
-    //     await axios.get("http://localhost:8080/").then((response) => {
-    //       setCompany(response.data);
-    //     });
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    //   setLoading(false);
-    // };
-    // fechData();
-
-    setCompany(companies);
     setUpjongsInfo(upjongs.upjongsInfo);
-
     setLoading(false);
   }, []);
 
-  const navigate = useNavigate();
-  const navigateToAbout = () => {
-    navigate("/company/:name");
-  };
+  // const navigate = useNavigate();
+  // const navigateToAbout = () => {
+  //   navigate("/company/:name");
+  // };
 
   if (loading) {
     return <LoadingPage />;
