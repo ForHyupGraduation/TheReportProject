@@ -19,7 +19,6 @@ public class CompanySimpleInfo {
     }
 
     public CompanySimpleInfo(Company company) {
-
         this.companyName = company.getCompanyName();
         this.growthPoint = company.getGrowthPoint();
         this.interestPoint = company.getInterestPoint();

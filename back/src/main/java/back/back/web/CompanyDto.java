@@ -7,6 +7,7 @@ import back.back.domain.financialratio.OperatingProfitMargin;
 import back.back.domain.financialratio.Sales;
 
 import back.back.domain.ratio.PostAndTrading;
+import back.back.service.CompanyService;
 import back.back.web.news.NewsListDto;
 import lombok.Data;
 
@@ -22,7 +23,8 @@ public class CompanyDto {
     private List<InterestRatioDto> interestRatioDtos; //
     private List<NewsListDto> news;
     private List<PostAndTradingDto> postAndTradings;
-
+    private List<RelationCompanyListDto> relationCompanyListDtos;
+    private List<CompanySimpleInfo> companySimpleInfos;
     private SalesDto sales;
     private OperatingProfitDto operatingProfit;
 
@@ -52,7 +54,5 @@ public class CompanyDto {
                 .limit(5)
                 .map(postAndTrading -> new PostAndTradingDto(postAndTrading))
                 .collect(Collectors.toList());
-
     }
-
 }

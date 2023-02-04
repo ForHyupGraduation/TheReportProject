@@ -6,9 +6,7 @@ import back.back.domain.Company;
 import back.back.domain.News;
 import back.back.request.SendRequest;
 import back.back.service.CompanyService;
-import back.back.web.CompanyDto;
-import back.back.web.FinancialDto;
-import back.back.web.HomeDto;
+import back.back.web.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,15 +29,13 @@ public class CompanyController {
     @GetMapping("/test")
     public CompanyDto test(@RequestParam String companyName){
         CompanyDto companyDto = companyService.mainPage(companyName);
+        List<CompanySimpleInfo> simpleInfos = companyService.getSimpleCompanyInfo(companyDto.getCategoryName());
+        List<RelationCompanyListDto> relationCompany = companyService.findRelationCompany(companyDto.getCategoryName());
+        companyDto.setRelationCompanyListDtos(relationCompany);
+        companyDto.setCompanySimpleInfos(simpleInfos);
         return companyDto;
     }
 
-
-    @GetMapping("/test2")
-    public CompanyDto test2(@RequestParam String companyName) {
-        CompanyDto companyDto = companyService.mainPage(companyName);
-        return null;
-    }
 
     @GetMapping("/news/add2")
     public Company addData2(@RequestParam String companyName) throws IOException {

@@ -48,6 +48,14 @@ public class CompanyService {
         return company;
     }
 
+    public List<CompanySimpleInfo> getSimpleCompanyInfo(String categoryName) {
+
+        return companyRepository.findAllByCategoryName(categoryName)
+                .stream()
+                .map(company -> new CompanySimpleInfo(company))
+                .collect(Collectors.toList());
+    }
+
     private int getInterestPoint(FinancialDto financialDto) {
         PostAndTrading postAndTrading = financialDto.getPostAndTradings()
                 .stream()
