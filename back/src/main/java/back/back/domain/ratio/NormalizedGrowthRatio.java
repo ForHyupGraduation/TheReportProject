@@ -9,7 +9,7 @@ import lombok.ToString;
 @Entity
 @Getter @Setter
 @ToString(of={"companyName", "categoryCode", "averageSalesGrowthRate", "averageOperatingProfitGrowthRate"})
-public class GrowthRatio {
+public class NormalizedGrowthRatio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "growth_ratio_id")
@@ -19,7 +19,7 @@ public class GrowthRatio {
     private String companyName;
 
     @CsvBindByName(column = "companyCode")
-    private int companyCode;
+    private String companyCode;
 
     @CsvBindByName(column = "averageSalesGrowthRate")
     private Double averageSalesGrowthRate;

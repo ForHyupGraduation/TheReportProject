@@ -4,11 +4,10 @@ import back.back.csvFileReader.CsvFileReader;
 import back.back.domain.Company;
 import back.back.domain.News;
 import back.back.domain.financialratio.*;
-import back.back.domain.ratio.GrowthRatio;
-import back.back.domain.ratio.InterestRatio;
+import back.back.domain.ratio.NormalizedGrowthRatio;
+import back.back.domain.ratio.NormalizedInterestRatio;
 import back.back.repository.CompanyRepository;
 import back.back.repository.FinancialRepository;
-import back.back.repository.NewsRepository;
 import back.back.web.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,42 +26,30 @@ public class CompanyService {
     private final FinancialRepository financialRepository;
     private final CsvFileReader reader;
 
-    public Company save(FinancialDto financialDto, List<News> newsForms, String companyName) {
+    public Company save(FinancialDto financialDto, List<News> news, String companyName) {
 
-        Map<String, FinancialRatio> ratio = financialDto.getFinancialRatioMap();
-
-        OperatingProfitMargin margin = (OperatingProfitMargin) ratio.get("영업이익률");
-        OperatingProfit profit = (OperatingProfit) ratio.get("영업이익");
-        Revenue revenue = (Revenue) ratio.get("매출액");
-        NetProfit netProfit = (NetProfit) ratio.get("당기순이익");
-        financialRepository.save(margin, profit, revenue, netProfit);
 
         Company company = new Company();
-        company.setCompanyName(companyName);
-        for (News news : newsForms) {
-            company.addNews(news);
-        }
-        company.setRevenue(revenue);
-        company.setOperatingProfit(profit);
-        company.setNetProfit(netProfit);
-        company.setOperatingProfitMargin(margin);
+
         company.setCompanyName(companyName);
         company.setCategoryName(financialDto.getCategoryName());
         company.setCompanyCode(financialDto.getCompanyCode());
 
-        GrowthRatio growthRates = reader.readGrowthRatio("growthRates", company.getCategoryName(), company.getCompanyCode());
-        List<InterestRatio> normalizedInterest = reader.readInterestRatio("interest", company.getCompanyCode());
+        company.setSales(financialDto.getSales());
+        company.setOperatingProfit(financialDto.getOperatingProfit());
+        company.setNormalizedGrowthRatio(financialDto.getGrowthRates());
+        company.addPostAndTradings(financialDto.getPostAndTradings());
+        company.addInterestRate(financialDto.getNormalizedInterestRatios());
 
-        company.setGrowthRatio(growthRates);
-        company.addInterestRate(normalizedInterest);
-        company.setGrowthPoint((int)Math.round(growthRates.getAverageSalesGrowthRate() * 100));
-        company.setInterestPoint(findLatestRatio(normalizedInterest));
+        company.addNews(news);
+        company.setGrowthPoint(100);
+        company.setInterestPoint(financialDto.getMinMaxRatio().getMaxPosts().intValue());
         companyRepository.save(company);
 
         return company;
     }
 
-    private Integer findTodayRatio(List<InterestRatio> normalizedInterest) {
+    private Integer findTodayRatio(List<NormalizedInterestRatio> normalizedInterest) {
         LocalDate today = LocalDate.now();
 
         Double aDouble = normalizedInterest.stream()
@@ -74,7 +61,7 @@ public class CompanyService {
     }
 
 
-    private Integer findLatestRatio(List<InterestRatio> normalizedInterest) {
+    private Integer findLatestRatio(List<NormalizedInterestRatio> normalizedInterest) {
         Double aDouble = normalizedInterest.stream()
                 .map(ratio -> ratio.getPostsPerDay() * 100 + ratio.getVolumePerDay() * 100)
                 .findFirst()
@@ -95,8 +82,8 @@ public class CompanyService {
         HomeDto homeDto = new HomeDto();
         for (Company company1 : company) {
             homeDto.getSimpleInfos().add(new CompanySimpleInfo(company1.getCompanyName(),
-                    company1.getGrowthPoint(), company1.getInterestPoint(), company1.getGrowthRatio().getAverageSalesGrowthRate(),
-                    company1.getGrowthRatio().getAverageOperatingProfitsGrowthRate()));
+                    company1.getGrowthPoint(), company1.getInterestPoint(), company1.getNormalizedGrowthRatio().getAverageSalesGrowthRate(),
+                    company1.getNormalizedGrowthRatio().getAverageOperatingProfitsGrowthRate()));
         }
         homeDto.setCategoryName(categoryName);
         return homeDto;

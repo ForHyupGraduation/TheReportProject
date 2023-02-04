@@ -4,8 +4,9 @@ import back.back.domain.Company;
 import back.back.domain.financialratio.NetProfit;
 import back.back.domain.financialratio.OperatingProfit;
 import back.back.domain.financialratio.OperatingProfitMargin;
-import back.back.domain.financialratio.Revenue;
+import back.back.domain.financialratio.Sales;
 
+import back.back.domain.ratio.PostAndTrading;
 import back.back.web.news.NewsListDto;
 import lombok.Data;
 
@@ -16,15 +17,16 @@ import java.util.stream.Collectors;
 public class CompanyDto {
     private String companyName;
     private String categoryName;
-    private List<NewsListDto> news;
-    private Revenue revenue;
-    private NetProfit netProfit;
-    private OperatingProfit operatingProfit;
-    private OperatingProfitMargin margin;
     private Integer growthPoint;
     private Integer interestPoint;
-    private List<InterestRatioDto> interestRatioDtos;
+    private List<InterestRatioDto> interestRatioDtos; //
+
     private List<RelationCompanyListDto> simpleInfos;
+    private List<NewsListDto> news;
+    private List<PostAndTradingDto> postAndTradings;
+    //
+    private SalesDto sales;
+    private OperatingProfitDto operatingProfit;
 
     public CompanyDto() {
     }
@@ -36,15 +38,23 @@ public class CompanyDto {
                 .map(NewsListDto::new)
                 .collect(Collectors.toList());
         this.news = collect;
-        this.revenue = company.getRevenue();
-        this.netProfit = company.getNetProfit();
-        this.operatingProfit = company.getOperatingProfit();
-        this.margin = company.getOperatingProfitMargin();
+
+        this.sales = new SalesDto(company.getSales());
+        this.operatingProfit = new OperatingProfitDto(company.getOperatingProfit());
+
         this.growthPoint = company.getGrowthPoint();
         this.interestPoint = company.getInterestPoint();
-        this.interestRatioDtos = company.getInterestRatios()
+
+        this.interestRatioDtos = company.getNormalizedInterestRatios()
                 .stream().map(ratio -> new InterestRatioDto(ratio))
                 .collect(Collectors.toList());
+
+        this.postAndTradings = company.getPostAndTradings()
+                .stream()
+                .limit(5)
+                .map(postAndTrading -> new PostAndTradingDto(postAndTrading))
+                .collect(Collectors.toList());
+
     }
 
 }

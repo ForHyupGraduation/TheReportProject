@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class FinancialRepository {
     private final EntityManager em;
-    public void save(OperatingProfitMargin margin, OperatingProfit profit, Revenue revenue, NetProfit netProfit) {
+    public void save(OperatingProfitMargin margin, OperatingProfit profit, Sales sales, NetProfit netProfit) {
         em.persist(margin);
         em.persist(profit);
-        em.persist(revenue);
+        em.persist(sales);
         em.persist(netProfit);
     }
 }

@@ -35,6 +35,13 @@ public class CompanyController {
         return companyDto;
     }
 
+
+    @GetMapping("/test2")
+    public CompanyDto test2(@RequestParam String companyName) {
+        CompanyDto companyDto = companyService.mainPage(companyName);
+        return null;
+    }
+
     @GetMapping("/news/add2")
     public Company addData2(@RequestParam String companyName) throws IOException {
         BuzzInfoCrawler crawler = new BuzzInfoCrawler();
