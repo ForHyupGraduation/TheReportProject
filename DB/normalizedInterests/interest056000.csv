@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 코원플레이,056000,2023.01.27,0.0,0
 코원플레이,056000,2023.01.20,0.0,0
 코원플레이,056000,2023.01.19,0.17,0

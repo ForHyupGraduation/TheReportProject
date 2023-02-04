@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 웹젠,069080,2023.01.30,0.07,0.04
 웹젠,069080,2023.01.27,0.09,0.04
 웹젠,069080,2023.01.26,0.18,0.07

@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 핑거스토리,417180,2023.01.30,0.0,0.0
 핑거스토리,417180,2023.01.27,0.02,0.09
 핑거스토리,417180,2023.01.26,0.21,0.51

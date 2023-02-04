@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 카카오게임즈,293490,2023.01.30,0.08,0.09
 카카오게임즈,293490,2023.01.27,0.09,0.15
 카카오게임즈,293490,2023.01.26,0.18,0.18

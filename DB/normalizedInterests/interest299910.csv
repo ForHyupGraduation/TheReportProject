@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 베스파,299910,2023.01.30,0.0,0
 베스파,299910,2023.01.27,0.05,0
 베스파,299910,2023.01.26,0.05,0

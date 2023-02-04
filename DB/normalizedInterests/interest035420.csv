@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 NAVER,035420,2023.01.30,0.37,0.93
 NAVER,035420,2023.01.27,1.0,1.0
 NAVER,035420,2023.01.26,0.34,0.54

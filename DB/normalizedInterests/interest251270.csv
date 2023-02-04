@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 넷마블,251270,2023.01.30,0.08,0.21
 넷마블,251270,2023.01.27,0.17,0.33
 넷마블,251270,2023.01.26,0.51,0.78

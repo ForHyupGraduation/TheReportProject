@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 밸로프,331520,2023.01.30,0.04,0.0
 밸로프,331520,2023.01.27,0.06,0.03
 밸로프,331520,2023.01.26,0.0,0.01

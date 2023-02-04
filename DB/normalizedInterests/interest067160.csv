@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 아프리카TV,067160,2023.01.30,0.14,0.22
 아프리카TV,067160,2023.01.27,0.08,0.17
 아프리카TV,067160,2023.01.26,0.22,0.64

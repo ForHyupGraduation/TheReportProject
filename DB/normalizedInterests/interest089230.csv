@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 THE E&M,089230,2023.01.30,0.11,0.03
 THE E&M,089230,2023.01.27,0.11,0.04
 THE E&M,089230,2023.01.26,0.22,0.27

@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 엠게임,058630,2023.01.30,0.03,0.05
 엠게임,058630,2023.01.27,0.06,0.02
 엠게임,058630,2023.01.26,0.08,0.05

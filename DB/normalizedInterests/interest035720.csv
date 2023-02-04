@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 카카오,035720,2023.01.30,0.08,0.22
 카카오,035720,2023.01.27,0.26,0.67
 카카오,035720,2023.01.26,0.06,0.15

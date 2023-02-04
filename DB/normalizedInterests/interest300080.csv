@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 플리토,300080,2023.01.30,0.73,1.0
 플리토,300080,2023.01.27,0.33,0.56
 플리토,300080,2023.01.26,0.26,0.21

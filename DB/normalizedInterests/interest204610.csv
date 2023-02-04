@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 티쓰리,204610,2023.01.30,0.01,0.0
 티쓰리,204610,2023.01.27,0.05,0.05
 티쓰리,204610,2023.01.26,0.02,0.02

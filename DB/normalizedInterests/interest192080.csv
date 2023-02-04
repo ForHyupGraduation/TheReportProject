@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 더블유게임즈,192080,2023.01.30,0.09,0.01
 더블유게임즈,192080,2023.01.27,0.15,0.03
 더블유게임즈,192080,2023.01.26,0.24,0.06

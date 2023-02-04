@@ -1,3 +1,4 @@
-from subFeatures.addTitle import AddInterestTitle, AddNormalizedGrowthRatesTitle
+from subFeatures.addTitle import AddInterestTitle, AddNormalizedGrowthRatesTitle, AddNormalizedInterestsTitle
 
-AddNormalizedGrowthRatesTitle()
+AddNormalizedInterestsTitle()
+

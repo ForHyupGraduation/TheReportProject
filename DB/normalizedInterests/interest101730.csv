@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 위메이드맥스,101730,2023.01.30,0.1,0.19
 위메이드맥스,101730,2023.01.27,0.01,0.04
 위메이드맥스,101730,2023.01.26,0.04,0.03

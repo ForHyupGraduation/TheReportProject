@@ -1,4 +1,4 @@
-companyName,companyCode,companyDate,postsPerDay,volumePerDay
+companyName,companyCode,date,postPerDay,tradingPerDay
 줌인터넷,239340,2023.01.30,0.27,0.55
 줌인터넷,239340,2023.01.27,0.14,0.31
 줌인터넷,239340,2023.01.26,0.11,0.07
