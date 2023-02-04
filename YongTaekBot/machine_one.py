@@ -1,3 +1,3 @@
-from subFeatures.upjongNumbers import DownloadUpjongNumbers
+from subFeatures.addTitle import AddInterestTitle, AddNormalizedGrowthRatesTitle
 
-DownloadUpjongNumbers()
+AddNormalizedGrowthRatesTitle()
