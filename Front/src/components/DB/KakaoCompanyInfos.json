@@ -1,94 +1,270 @@
 {
-  "companyDto": {
-    "companyName": "넥슨게임즈",
-    "companyLogoUrl": "http://file.mk.co.kr/meet/neds/2022/02/image_readtop_2022_189497_16460316614960162.jpg",
-    "news": [
-      {
-        "title": "넥슨게임즈 ‘블루아카이브’, 日 앱스토어 매출 1위 등극",
-        "content": "2주년 맞이 생방송에 업데이트 효과까지…주가도 반등 넥슨게임즈(대표 박용현)가 개발한 서브컬처 모바일게임 ‘블루아카이브’가 일본 애플 앱스토어 매출 1위에 등극했다. 지난 2021년 2월 일본 서비스 시작 이후...",
-        "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F009%2F2023%2F01%2F25%2F5078705.jpg&type=ff264_180&expire=2&refresh=true",
-        "linkUrl": "https://www.mk.co.kr/article/10617110"
-      },
-      {
-        "title": "[게임스톡] 넥슨게임즈 1만 4000원대로 후퇴 4.09%↓",
-        "content": "지난 25일 급등하며 기세를 이어가던 넥슨게임즈 주가가 내림세로 돌아섰다. 27일 넥슨게임즈 주가는 전거래일 대비 4.09%(630원) 하락한 1만 4780원에 장을 마감했다. 이날 이 회사의 주가는 오름세로 거래를 시작했다....",
-        "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5462%2F2023%2F01%2F27%2F39229.jpg&type=ofullfill264_180_gray&expire=2&refresh=true",
-        "linkUrl": "http://www.tgdaily.co.kr/news/articleView.html?idxno=322378"
-      },
-      {
-        "title": "[브리핑] 넥슨·카카오게임즈",
-        "content": "포쓰저널 문기수 기자 ◇넥슨, 강남 일대 '카트라이더: 드리프트' 대형 옥외광고 넥슨은 서울 강남 일대에... ◇ 카카오게임즈 신작 '에버소울', ASMR 등 이색 오디오 콘텐츠로 호응 카카오게임즈가 신작 모바일 게임...",
-        "imageUrl": null,
-        "linkUrl": "http://www.4th.kr/news/articleView.html?idxno=2032860"
-      },
-      {
-        "title": "넥슨게임즈 \"'블루 아카이브', 일본서 TV 애니메이션 제작\"",
-        "content": "넥슨 자회사 넥슨게임즈는 역할수행게임(RPG) '블루 아카이브'가 일본에서 TV 애니메이션으로 제작된다고 23일 밝혔다. 넥슨게임즈의 대표작인 블루 아카이브는 2021년 2월 일본에서 먼저 서비스를 시작해 같은 해 11월...",
-        "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F001%2F2023%2F01%2F23%2F13715148.jpg&type=ff264_180&expire=2&refresh=true",
-        "linkUrl": "https://www.yna.co.kr/view/AKR20230120130100017?input=1195m"
-      },
-      {
-        "title": "넥슨게임즈 ‘블루 아카이브’, 일본 앱스토어 매출 1위 달성",
-        "content": "넥슨게임즈(225570)의 서브컬처 수집형 RPG ‘블루 아카이브’가 일본 서비스 2주년 업데이트를 통해 일본 앱스토어 매출 1위를 달성한 것으로 나타났다. 지난 2년 간 풍성한 업데이트와 IP 확장 시도를 지속하며, 서브컬처...",
-        "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F243%2F2023%2F01%2F25%2F38699.jpg&type=ff264_180&expire=2&refresh=true",
-        "linkUrl": "https://economist.co.kr/article/view/ecn202301250033"
-      },
-      {
-        "title": "넥슨게임즈 `블루 아카이브`, 일본 앱스토어 매출 1위",
-        "content": "넥슨게임즈의 서브컬처 수집형 RPG(역할수행게임) '블루 아카이브'가 일본에서 흥행 돌풍을 일으키고 있다. 서브컬처 본고장인 일본에서 거둔 의미있는 성과라는 평이다. 넥슨게임즈는 '블루 아카이브'가 25일 일본 애플...",
-        "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F029%2F2023%2F01%2F26%2F2780462.jpg&type=ff264_180&expire=2&refresh=true",
-        "linkUrl": "http://www.dt.co.kr/contents.html?article_no=2023012602109931820001&ref=naver"
-      },
-      {
-        "title": "넥슨게임즈 '블루 아카이브', 日 TV 애니로 나온다",
-        "content": "㈜넥슨게임즈(대표 박용현)가 자사 미소녀 등장 게임 '블루 아카이브'를 일본 TV 애니메이션으로 제작한다. 넥슨게임즈는 지난 22일 일본 서비스 2주년 기념 생방송을 통해 이같은 소식을 공식화했다. 공개된 티저...",
-        "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F015%2F2023%2F01%2F24%2F4802572.jpg&type=ff264_180&expire=2&refresh=true",
-        "linkUrl": "https://n.news.naver.com/mnews/article/015/0004802572?sid=105"
-      },
-      {
-        "title": "[여의도 클라쓰] 블루아카이브 日 매출 1위 '넥슨게임즈'ㆍ중국 시장 섭렵 '엠...",
-        "content": "▶▶▶ 클라쓰가 다른 인사이트▶ 아이린 어드바이저인공지능AI : 코난테크놀로지, 셀바스AI, 솔트룩스, 비트나인, 엑셈 등▶ 최원범 어드바이저Game게임 : 넥슨게임즈, 밸로프, 네오위즈, 데브시스터즈▶▶▶ 유망주...",
-        "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5151%2F2023%2F01%2F26%2F495887.jpg&type=ff264_180&expire=2&refresh=true",
-        "linkUrl": "https://news.mtn.co.kr/news-detail/2023012611391257540"
-      },
-      {
-        "title": "넥슨·카카오게임즈, 신작 흥행 성공…게임업계 반등 시발점 되나?",
-        "content": "<넷마블> 국내 게임사, 줄줄이 신작 예고…넥슨·카카오게임즈 성공 이어갈까 올해 나온 신작들이 연타석 홈런을 치며 성공을 거두자 지난해 고전을 면치 못하던 한국 게임업계의 반등이 시작됐는지에 대해 업계의...",
-        "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5517%2F2023%2F01%2F27%2F77169.jpg&type=ofullfill264_180_gray&expire=2&refresh=true",
-        "linkUrl": "http://www.insightkorea.co.kr/news/articleView.html?idxno=104160"
-      },
-      {
-        "title": "[게임소식] 카카오게임즈 '월드 플리퍼', '그랑블루 판타지'와 컬래버 외",
-        "content": "사진=카카오게임즈 제공 카카오게임즈는 모바일 액션 RPG '월드 플리퍼'에 '그랑블루 판타지' 한정... 사진=넥슨 제공 넥슨은 에이스톰이 개발한 신규 액션 MORPG '나이트 워커'를 국내 정식 출시했다고 밝혔다. 나이트...",
-        "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5359%2F2023%2F01%2F26%2F411216.jpg&type=ofullfill264_180_gray&expire=2&refresh=true",
-        "linkUrl": "http://sports.hankooki.com/news/articleView.html?idxno=6819236"
-      }
-    ],
-    "revenue": {
-      "previousFourthQuarter": "16,517",
-      "previousThirdQuarter": "18,223",
-      "previousSecondQuarter": "18,587",
-      "previousQuarter": "19,034"
+  "companyName": "카카오게임즈",
+  "categoryName": "게임엔터테인먼트",
+  "news": [
+    {
+      "title": "[단독] 카카오게임즈, 2월6일 '백 투 더 오피스'… 놀금 제도는 유지",
+      "content": "카카오 공동체 일원인 '카카오게임즈'가 다음달 6일부터 사무실 출근제로 근무방식을 전환한다. 앞서 카카오게임즈는 정부의 실내 마스크 해제 정책에 맞춰 이를 결정하겠다고 밝힌 바 있다. 카카오게임즈는 오는 2월6일...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F417%2F2023%2F01%2F31%2F891047.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "http://moneys.mt.co.kr/news/mwView.php?no=2023013109332337318"
     },
-    "post": {
-      "previousFourthQuarter": "6",
-      "previousThirdQuarter": "11",
-      "previousSecondQuarter": "7",
-      "previousQuarter": "3"
+    {
+      "title": "카카오게임즈 '우마무스메 프리티 더비', 신규 육성 '카와카미 프린세스' 공개",
+      "content": "카카오게임즈는 30일 사이게임즈가 개발한 인기 모바일 게임 '우마무스메 프리티 더비'의 신규 육성 우마무스메 '카와카미 프린세스'를 공개했다. 아울러 카카오게임즈는 서포트 카드 2종 'SSR [대망의 큰 그림] 세이운...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5002%2F2023%2F01%2F30%2F2269482.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "http://www.newspim.com/news/view/20230130000977"
     },
-    "operatingProfit": {
-      "previousFourthQuarter": "1,587",
-      "previousThirdQuarter": "1,710",
-      "previousSecondQuarter": "1,503",
-      "previousQuarter": "1,046"
+    {
+      "title": "카카오게임즈 '프리코네' 새 캐릭터 추가",
+      "content": "카카오게임즈(대표 조계현)는 30일 모바일게임 '프린세스 커넥트! 리:다이브'에 새로운 한정 캐릭터 '미소기&미미&쿄우카'를 선보였다. '미소기&미미&쿄우카'는 중열에서 적 하나에게 필살의 일격을 가하는 단짝 트리오다....",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5462%2F2023%2F01%2F31%2F39259.jpg&type=ofullfill264_180_gray&expire=2&refresh=true",
+      "linkUrl": "http://www.tgdaily.co.kr/news/articleView.html?idxno=322413"
     },
-    "tradingVolume": {
-      "previousFourthQuarter": "12332",
-      "previousThirdQuarter": "11332",
-      "previousSecondQuarter": "15332",
-      "previousQuarter": "9332"
+    {
+      "title": "[브리핑] 넷마블·카카오게임즈",
+      "content": "이미지=카카오게임즈 ◇카카오게임즈 '우마무스메 프리티 더비', 신규 우마 '카와카미 프린세스' 공개 카카오게임즈는 모바일 게임 '우마무스메 프리티 더비'에 신규 육성 우마무스메 '카와카미 프린세스'를 추가했다고...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5665%2F2023%2F01%2F30%2F58250.jpg&type=ofullfill264_180_gray&expire=2&refresh=true",
+      "linkUrl": "http://www.4th.kr/news/articleView.html?idxno=2032918"
     },
-    "growthPoint": 10,
-    "interestPoint": 30
-  }
+    {
+      "title": "카카오게임즈 '에버소울', 신규 정령 '벨라나' 사전 공개…출혈 딜러로 관심 ...",
+      "content": "신규 정령 '벨라나' 카카오게임즈가 서비스하는 모바일 수집형 RPG '에버소울'이 신규 정령 '벨라나'를 사전 공개해 관심을 집중시키고 있다. 지난 번 지호 공개 때 사전 언급된 대로 오는 2월 2일 업데이트에는 신규 정령...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5434%2F2023%2F01%2F31%2F57730.jpg&type=ofullfill264_180_gray&expire=2&refresh=true",
+      "linkUrl": "https://www.gamechosun.co.kr/webzine/article/view.php?no=192581"
+    },
+    {
+      "title": "[Who Is ?] 조계현 카카오게임즈 대표이사",
+      "content": "조계현 카카오게임즈 대표이사. ◆ 생애 조계현은 카카오게임즈 대표이사다. 오딘 등 국내에서 성공한 카카오게임즈의 지식재산(IP) 기반을 글로벌로 확대하고 새롭게 출시될 신작게임들의 흥행에 관심을 쏟고 있다....",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5374%2F2023%2F01%2F30%2F284931.jpg&type=ofullfill264_180_gray&expire=2&refresh=true",
+      "linkUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=304575"
+    },
+    {
+      "title": "카카오게임즈 '월드플리퍼', 그랑블루판타지 콜라보레이션 캐릭터 업데이트",
+      "content": "카카오게임즈(대표 조계현)는 26일 사이게임즈(대표 와타나베 코우이치)와 사이게임즈의 자회사인 시테일이 공동 개발한 모바일 액션 RPG 월드플리퍼에 그랑블루 판타지 한정 콜라보레이션 캐릭터를 추가했다고 밝혔다....",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F092%2F2023%2F01%2F26%2F2280715.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "https://zdnet.co.kr/view/?no=20230126151035"
+    },
+    {
+      "title": "카카오게임즈 블록체인 게임 '버디샷', 글로벌 사전예약 시작",
+      "content": "카카오게임즈의 글로벌 게임 개발 및 퍼블리싱 자회사 '메타보라'가 캐주얼 골프 게임 '버디샷'의 구글 플레이 글로벌 사전 예약을 시작한다고 27일 밝혔다. 이번 사전 예약은 국내 및 중국, 싱가포르 등 일부 국가를...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F215%2F2023%2F01%2F27%2F1079524.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202301270211&t=NN"
+    },
+    {
+      "title": "“카카오게임즈, 4분기 실적은 부진…신작 효과에 기대”",
+      "content": "하나증권은 26일 카카오게임즈에 대해 4분기 실적은 부진하겠지만 신작효과가 나타나고 있다며 투자의견 매수, 목표주가 5만5000원을 유지했다. 하나증권은 4분기 카카오게임즈의 영업이익을 전년동기대비 28.3...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F009%2F2023%2F01%2F26%2F5079172.jpg&type=ff264_180&expire=2&refresh=true",
+      "linkUrl": "https://www.mk.co.kr/article/10618313"
+    },
+    {
+      "title": "카카오게임즈, ‘프린세스 커넥트! Re:Dive’, 신규 한정 캐릭터 ‘미소기&미...",
+      "content": "카카오게임즈(대표 조계현)는 30일, 인기 모바일 애니메이션 RPG ‘프린세스 커넥트! Re:Dive(리:다이브)’에 신규 한정 캐릭터 ‘미소기&미미&쿄우카’를 추가했다. ‘미소기&미미&쿄우카’는 중열에서 적 하나에게 필살의...",
+      "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5434%2F2023%2F01%2F30%2F57699.jpg&type=ofullfill264_180_gray&expire=2&refresh=true",
+      "linkUrl": "https://www.gamechosun.co.kr/webzine/article/view.php?no=192551"
+    }
+  ],
+  "revenue": {
+    "id": 12,
+    "previousFourthQuarter": "2,663",
+    "previousThirdQuarter": "3,388",
+    "previousSecondQuarter": "3,069",
+    "previousQuarter": "2,672"
+  },
+  "netProfit": {
+    "id": 12,
+    "previousFourthQuarter": "283",
+    "previousThirdQuarter": "640",
+    "previousSecondQuarter": "113",
+    "previousQuarter": "172"
+  },
+  "operatingProfit": {
+    "id": 12,
+    "previousFourthQuarter": "421",
+    "previousThirdQuarter": "810",
+    "previousSecondQuarter": "437",
+    "previousQuarter": "271"
+  },
+  "margin": {
+    "id": 12,
+    "previousFourthQuarter": "15.80",
+    "previousThirdQuarter": "23.92",
+    "previousSecondQuarter": "14.25",
+    "previousQuarter": "10.15"
+  },
+  "growthPoint": 23,
+  "interestPoint": 39,
+  "interestRatioDtos": [
+    {
+      "companyDate": "2023.01.30",
+      "postPerDay": 0.17,
+      "volumePerDay": 0.22
+    },
+    {
+      "companyDate": "2023.01.27",
+      "postPerDay": 0.17,
+      "volumePerDay": 0.27
+    },
+    {
+      "companyDate": "2023.01.26",
+      "postPerDay": 0.25,
+      "volumePerDay": 0.29
+    },
+    {
+      "companyDate": "2023.01.25",
+      "postPerDay": 0.17,
+      "volumePerDay": 0.34
+    },
+    {
+      "companyDate": "2023.01.20",
+      "postPerDay": 0.09,
+      "volumePerDay": 0.14
+    },
+    {
+      "companyDate": "2023.01.19",
+      "postPerDay": 0.25,
+      "volumePerDay": 0.19
+    },
+    {
+      "companyDate": "2023.01.18",
+      "postPerDay": 0.38,
+      "volumePerDay": 0.32
+    },
+    {
+      "companyDate": "2023.01.17",
+      "postPerDay": 0.73,
+      "volumePerDay": 0.64
+    },
+    {
+      "companyDate": "2023.01.16",
+      "postPerDay": 1.0,
+      "volumePerDay": 1.0
+    },
+    {
+      "companyDate": "2023.01.13",
+      "postPerDay": 0.28,
+      "volumePerDay": 0.23
+    },
+    {
+      "companyDate": "2023.01.12",
+      "postPerDay": 0.23,
+      "volumePerDay": 0.21
+    },
+    {
+      "companyDate": "2023.01.11",
+      "postPerDay": 0.34,
+      "volumePerDay": 0.24
+    },
+    {
+      "companyDate": "2023.01.10",
+      "postPerDay": 0.56,
+      "volumePerDay": 0.35
+    },
+    {
+      "companyDate": "2023.01.09",
+      "postPerDay": 0.28,
+      "volumePerDay": 0.27
+    },
+    {
+      "companyDate": "2023.01.06",
+      "postPerDay": 0.57,
+      "volumePerDay": 0.42
+    },
+    {
+      "companyDate": "2023.01.05",
+      "postPerDay": 0.41,
+      "volumePerDay": 0.35
+    }
+  ],
+  "simpleInfos": [
+    {
+      "companyName": "밸로프",
+      "growthPoint": 17,
+      "interestPoint": 11
+    },
+    {
+      "companyName": "위메이드플레이",
+      "growthPoint": 17,
+      "interestPoint": 8
+    },
+    {
+      "companyName": "미스터블루",
+      "growthPoint": 17,
+      "interestPoint": 10
+    },
+    {
+      "companyName": "위메이드맥스",
+      "growthPoint": 16,
+      "interestPoint": 31
+    },
+    {
+      "companyName": "크래프톤",
+      "growthPoint": 16,
+      "interestPoint": 116
+    },
+    {
+      "companyName": "미투젠",
+      "growthPoint": 14,
+      "interestPoint": 2
+    },
+    {
+      "companyName": "카카오게임즈",
+      "growthPoint": 23,
+      "interestPoint": 39
+    },
+    {
+      "companyName": "위메이드",
+      "growthPoint": 29,
+      "interestPoint": 200
+    },
+    {
+      "companyName": "액션스퀘어",
+      "growthPoint": 10,
+      "interestPoint": 22
+    },
+    {
+      "companyName": "베스파",
+      "growthPoint": 1,
+      "interestPoint": 5
+    },
+    {
+      "companyName": "썸에이지",
+      "growthPoint": 35,
+      "interestPoint": 8
+    },
+    {
+      "companyName": "펄어비스",
+      "growthPoint": 7,
+      "interestPoint": 61
+    },
+    {
+      "companyName": "더블유게임즈",
+      "growthPoint": 12,
+      "interestPoint": 16
+    },
+    {
+      "companyName": "넷마블",
+      "growthPoint": 12,
+      "interestPoint": 52
+    },
+    {
+      "companyName": "미투온",
+      "growthPoint": 13,
+      "interestPoint": 50
+    },
+    {
+      "companyName": "데브시스터즈",
+      "growthPoint": 51,
+      "interestPoint": 66
+    },
+    {
+      "companyName": "모비릭스",
+      "growthPoint": 12,
+      "interestPoint": 12
+    },
+    {
+      "companyName": "넥슨게임즈",
+      "growthPoint": 10,
+      "interestPoint": 49
+    }
+  ]
 }

@@ -30,16 +30,6 @@ const LineChart = () => {
         pointRadius: 1,
         pointHoverRadius: 1,
       },
-      {
-        label: "성장성",
-        data: [40, 20, 10, 60, 30, 50, 20],
-        backgroundColor: "yellow",
-        borderColor: "yellow",
-        pointBorderColor: "yellow",
-        tension: 0.4,
-        pointRadius: 1,
-        pointHoverRadius: 1,
-      },
     ],
   };
 

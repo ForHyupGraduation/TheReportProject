@@ -2,16 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import NewsItem from "./NewsItem";
 import styled from "styled-components";
-import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
 
 const NewsList = ({ newsList }) => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [companyLogo, setCompanyLogo] = useState(null);
 
   useEffect(() => {
     setArticles(newsList);
-    setCompanyLogo(KakaoCompanyInfos.companyDto.companyLogoUrl);
+
     setLoading(false);
   }, []);
 
@@ -30,7 +28,7 @@ const NewsList = ({ newsList }) => {
   return (
     <NewsListBlock>
       {articles.map((article) => (
-        <NewsItem key={article.title} article={article} logo={companyLogo} />
+        <NewsItem key={article.title} article={article} />
       ))}
     </NewsListBlock>
   );

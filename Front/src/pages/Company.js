@@ -8,19 +8,22 @@ import NewsList from "../components/News/NewsList";
 import SubinfoList from "../components/SubInfo/SubInfoList";
 import { useLocation } from "react-router-dom";
 import KakaoCompanyInfos from "../components/DB/KakaoCompanyInfos.json";
+import SummaryGraph from "../components/SummaryGraph/SummaryGraph";
 
 import Meter from "../components/Meters/Meter";
 
-function Company({ upjongNumber }) {
+function Company() {
   const location = useLocation();
+  const [companyData, setCompanyData] = useState(null);
   const [company, setCompany] = useState(null);
   const [growthPoint, setGrowthPoint] = useState(null);
   const [interestPoint, setinterestPoint] = useState(null);
   const [companyLogo, setCompanyLogo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [newsList, setNewsList] = useState(null);
+  const [upjongNumber, setUpjongNumber] = useState(null);
   const companyName = decodeURI(location.pathname.split("/")[2]);
-  console.log(upjongNumber);
+
   useEffect(() => {
     const fechData = async () => {
       setIsLoading(true);
@@ -28,13 +31,18 @@ function Company({ upjongNumber }) {
         await axios
           .get(`http://localhost:8080/test?companyName=${companyName}`)
           .then((response) => {
-            console.log(response);
+            setCompanyData(response.data);
             setCompany(response.data.companyName);
             setGrowthPoint(response.data.growthPoint);
             setinterestPoint(response.data.interestPoint);
             setCompanyLogo(response.data.companyLogoUrl);
             setNewsList(response.data.news);
             setIsLoading(false);
+          });
+        await axios
+          .get(`http://localhost:5000/company/upjongNumber/${companyName}`)
+          .then((response) => {
+            setUpjongNumber(response.data.upjongNumber);
           });
       } catch (e) {
         console.log(e);
@@ -49,7 +57,7 @@ function Company({ upjongNumber }) {
     // setIsLoading(false);
   }, []);
 
-  if (!isLoading) {
+  if (!isLoading && companyData && upjongNumber) {
     return (
       <div className="container row" style={{ margin: "20px auto" }}>
         <Title>
@@ -61,7 +69,7 @@ function Company({ upjongNumber }) {
             <SubTitle className="lead text-muted">
               관심도와 성장성 종합지표
             </SubTitle>
-            <LineChart />
+            <SummaryGraph companyData={companyData} />
           </MainContent>
           <MainContent>
             <SubTitle className="lead text-muted">
@@ -81,7 +89,7 @@ function Company({ upjongNumber }) {
           </MainContent>
         </MainContents>
         <SubContents className="col-lg-3">
-          <SubinfoList companyName={companyName} />
+          {/* <SubinfoList companyData={companyData} upjongNumber={upjongNumber} /> */}
         </SubContents>
       </div>
     );

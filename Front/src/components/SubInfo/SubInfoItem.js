@@ -16,17 +16,17 @@ const SubInfoItem = ({ revenue, flag }) => {
 
   useEffect(() => {
     if (flag === 0) {
-      setVal(revenue.post);
+      setVal(revenue.companyData.revenue);
     } else if (flag === 1) {
-      setVal(revenue.tradingVolume);
+      setVal(revenue.companyData.netProfit);
     } else if (flag === 2) {
-      setVal(revenue.revenue);
+      setVal(revenue.companyData.margin);
     } else {
-      setVal(revenue.operatingProfit);
+      setVal(revenue.companyData.operatingProfit);
     }
-
     setIsLoading(false);
   }, []);
+
   if (!isLoading) {
     return <LineChart2 revenue={val} />;
   }
