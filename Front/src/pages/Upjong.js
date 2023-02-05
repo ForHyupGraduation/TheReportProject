@@ -17,7 +17,6 @@ const Upjong = () => {
   const location = useLocation();
   const title = location.state?.title; // 추가된 부분
 
-  console.log(title);
   useEffect(() => {
     setIsLoading(false);
     const fechData = async () => {
@@ -26,7 +25,7 @@ const Upjong = () => {
         await axios
           .get(`http://localhost:8080/home?categoryName=${title}`)
           .then((response) => {
-            console.log(response);
+            setCompanies(response.data.simpleInfos);
           });
       } catch (e) {
         console.log(e);
@@ -38,20 +37,14 @@ const Upjong = () => {
 
   useEffect(() => {
     setUpjongNumber(location.pathname.split("/")[2]);
-    const simpleInfos = GetCompaniesFromUpjong(upjongNumber);
     setUpjong(CompaniesDB.categoryName);
-    setCompanies(simpleInfos);
     setIsLoading(false);
   }, []);
 
-  const GetCompaniesFromUpjong = (upjongNumber) => {
-    return CompaniesDB.simpleInfos;
-  };
-
   if (isLoading) {
     return <LoadingPage />;
-  } else {
-    console.log(upjongNumber);
+  } else if (!isLoading && companies) {
+    console.log(companies);
     return (
       <div className="container">
         <section className="py-5 text-center container">

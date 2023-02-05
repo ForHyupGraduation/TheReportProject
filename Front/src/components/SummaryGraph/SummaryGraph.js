@@ -5,15 +5,16 @@ import ScatterChart from "../Graphs/ScatterChart";
 const SummaryGraph = ({ companyData }) => {
   const [isToggle, setIsToggle] = useState(false);
   const [companies, setCompanies] = useState(null);
+  const [recentInterest, SetRecentInterest] = useState(null);
 
   const onChangeToggle = (event) => {
     setIsToggle(!isToggle);
   };
 
   useEffect(() => {
-    setCompanies(companyData.interestRatioDtos);
-    console.log(companyData.interestRatioDtos);
-  }, []);
+    setCompanies(companyData.companySimpleInfos);
+    SetRecentInterest(companyData.interestRatioDtos.slice(0, 7));
+  }, [companyData]);
 
   console.log(isToggle);
   if (isToggle) {
@@ -28,17 +29,19 @@ const SummaryGraph = ({ companyData }) => {
             onChange={onChangeToggle}
           />
         </div>
+        <h1 style={{ textAlign: "center" }}>성장성</h1>
         <ScatterChart
-          labels={companies.map((company) => company.companyDate)}
+          companyName={companyData.companyName}
+          labels={companies.map((company) => company.companyName)}
           data={companies.map((company) => ({
-            x: company.postPerDay,
-            y: company.volumePerDay,
+            x: company.salesGrowthRate,
+            y: company.operatingProfitGrowthRate,
           }))}
-          backgroundColor={`rgba(255, 99, 132, 1)`}
+          backgroundColor={"red"}
         />
       </div>
     );
-  } else {
+  } else if (!isToggle && recentInterest) {
     return (
       <div className="card">
         <div className="form-check form-switch">
@@ -50,7 +53,18 @@ const SummaryGraph = ({ companyData }) => {
             onChange={onChangeToggle}
           />
         </div>
-        <LineChart />
+        <h1 style={{ textAlign: "center" }}>관심도</h1>
+        <LineChart
+          data={{
+            labels: recentInterest.map((interest) => interest.companyDate),
+            datasets: [
+              {
+                data: recentInterest.map((interest) => interest.interestPoint),
+                backgroundColor: "red",
+              },
+            ],
+          }}
+        />
       </div>
     );
   }

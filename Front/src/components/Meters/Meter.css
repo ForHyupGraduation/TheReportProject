@@ -6,6 +6,7 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
+  stroke-width: 3rem;
 }
 
 .circular-progress:before {
@@ -15,6 +16,7 @@
   width: 84%;
   background-color: #ffffff;
   border-radius: 50%;
+  stroke-width: 3rem;
 }
 
 .value-container {

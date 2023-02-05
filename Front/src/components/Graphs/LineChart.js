@@ -16,23 +16,7 @@ ChartJS.register(
   PointElement
 );
 
-const LineChart = () => {
-  const data = {
-    labels: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
-    datasets: [
-      {
-        label: "대중성",
-        data: [60, 30, 60, 40, 30, 40, 30],
-        backgroundColor: "aqua",
-        borderColor: "aqua",
-        pointBorderColor: "aqua",
-        tension: 0.4,
-        pointRadius: 1,
-        pointHoverRadius: 1,
-      },
-    ],
-  };
-
+const LineChart = ({ data }) => {
   const options = {
     scales: {
       y: {
@@ -59,6 +43,7 @@ const LineChart = () => {
       legend: {
         position: "top",
         align: "end",
+        display: false,
       },
     },
   };

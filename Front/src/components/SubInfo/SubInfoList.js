@@ -12,29 +12,16 @@ import CompaniesDB from "../DB/Companies.json";
 
 import KakaoCompanyInfos from "../DB/KakaoCompanyInfos.json";
 
-const SubinfoList = (companyData, upjongNumber) => {
+const SubinfoList = (companyData, page) => {
   const [revenue, setRevenue] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [companyName, setCompanyName] = useState(null);
 
   useEffect(() => {
     setRevenue(companyData);
     setLoading(false);
     const fechData = async () => {
-      setCompanyName(companyData.companyData.companyName);
       setLoading(true);
-      try {
-        await axios
-          .get(
-            `http://localhost:5000/company/yearly/operatingProfits/${companyData.upjongNumber}/${companyData.companyData.companyName}`
-          )
-          .then((response) => {
-            console.log(response);
-            setRevenue(response.data);
-          });
-      } catch (e) {
-        console.log(e);
-      }
+
       setLoading(false);
     };
     fechData();
@@ -55,7 +42,7 @@ const SubinfoList = (companyData, upjongNumber) => {
   }
 
   //revenue 값이 유효 할 때
-  if (!loading && companyData && upjongNumber) {
+  if (!loading && companyData) {
     return (
       <>
         <Block>
@@ -75,7 +62,10 @@ const SubinfoList = (companyData, upjongNumber) => {
           <SubInfoItem revenue={revenue} flag={3} />
         </Block>
         <Block>
-          <CompanyList companies={CompaniesDB.simpleInfos} />
+          <CompanyList
+            companies={companyData.companyData.companySimpleInfos}
+            page={page}
+          />
         </Block>
       </>
     );

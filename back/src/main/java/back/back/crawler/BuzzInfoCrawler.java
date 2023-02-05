@@ -56,7 +56,7 @@ public class BuzzInfoCrawler{
         Map<String, FinancialRatio> ratioMap = new HashMap<>();
         chromeDriver.get("https://finance.naver.com");
         WebElement searchInput = chromeDriver.findElement(By.id("stock_items"));
-        searchInput.sendKeys(buzz);
+        searchInput.sendKeys(buzz+"   ");
         sleep();
 
 //
@@ -126,7 +126,7 @@ public class BuzzInfoCrawler{
 
     private void sleep() {
         try {
-            Thread.sleep(500);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

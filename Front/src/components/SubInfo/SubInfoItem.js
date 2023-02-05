@@ -1,7 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import LineChart2 from "../Graphs/LineChart2";
+import SalesChart from "../Graphs/SalesChart";
+import OperatingProfit from "../Graphs/OperatingProfitChart";
+import PostPerDayChart from "../Graphs/PostPerDayChart";
+import VolumePerDayChart from "../Graphs/VolumePerDayChart";
 
 /*
 flag 0 means revenue
@@ -11,41 +14,47 @@ flag 3 means margin
 */
 
 const SubInfoItem = ({ revenue, flag }) => {
-  const [val, setVal] = useState(null);
+  const [sales, setSales] = useState(null);
+  const [operating, setOperating] = useState(null);
+  const [volumePerDay, setVolumePerDay] = useState(null);
+  const [postPerDay, setPostPerDay] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (flag === 0) {
-      setVal(revenue.companyData.revenue);
-    } else if (flag === 1) {
-      setVal(revenue.companyData.netProfit);
-    } else if (flag === 2) {
-      setVal(revenue.companyData.margin);
-    } else {
-      setVal(revenue.companyData.operatingProfit);
-    }
+    setSales(revenue.companyData.sales);
+    setOperating(revenue.companyData.operatingProfit);
+    setVolumePerDay(revenue.companyData.interestRatioDtos);
+    setPostPerDay(revenue.companyData.interestRatioDtos);
     setIsLoading(false);
   }, []);
 
-  if (!isLoading) {
-    return <LineChart2 revenue={val} />;
+  if (!isLoading && sales && operating && volumePerDay && postPerDay) {
+    if (flag === 0) {
+      return (
+        <>
+          <PostPerDayChart postPerDayData={postPerDay} />
+        </>
+      );
+    } else if (flag === 1) {
+      return (
+        <>
+          <VolumePerDayChart volumePerDay={volumePerDay} />
+        </>
+      );
+    } else if (flag === 2) {
+      return (
+        <>
+          <SalesChart sales={sales} />
+        </>
+      );
+    } else if (flag === 3) {
+      return (
+        <>
+          <OperatingProfit operating={operating} />
+        </>
+      );
+    }
   }
 };
-
-// const SubInfoItemBlock = styled.div`
-//   box-sizing: border-box;
-//   display: flex;
-
-//   background-color: white;
-
-//   margin: 10px;
-//   padding: 40px;
-
-//   .contents {
-//     h2 {
-//       margin: 0;
-//     }
-//   }
-// `;
 
 export default SubInfoItem;

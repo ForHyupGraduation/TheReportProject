@@ -49,9 +49,10 @@ function Company() {
     // setinterestPoint(KakaoCompanyInfos.companyDto.interestPoint);
     // setCompanyLogo(KakaoCompanyInfos.companyDto.companyLogoUrl);
     // setIsLoading(false);
-  }, []);
+  }, [companyName]);
 
   if (!isLoading && companyData) {
+    console.log(companyData);
     return (
       <div className="container row" style={{ margin: "20px auto" }}>
         <Title>
@@ -61,19 +62,18 @@ function Company() {
         <MainContents className="col-lg-9">
           <MainContent>
             <SubTitle className="lead text-muted">
-              관심도와 성장성 종합지표
-            </SubTitle>
-            <SummaryGraph companyData={companyData} />
-          </MainContent>
-          <MainContent>
-            <SubTitle className="lead text-muted">
               관심도와 성장성에 대한 일일 지표
             </SubTitle>
             <Content>
               <Meter progressEndValue={interestPoint} />
               <Meter progressEndValue={growthPoint} />
             </Content>
-            <DeScribe>설명란</DeScribe>
+          </MainContent>
+          <MainContent>
+            <SubTitle className="lead text-muted">
+              관심도와 성장성 종합지표
+            </SubTitle>
+            <SummaryGraph companyData={companyData} />
           </MainContent>
           <MainContent>
             <SubTitle className="lead text-muted" style={{ fontSize: "30px" }}>
@@ -83,7 +83,7 @@ function Company() {
           </MainContent>
         </MainContents>
         <SubContents className="col-lg-3">
-          {/* <SubinfoList companyData={companyData}/> */}
+          <SubinfoList companyData={companyData} page={1} />
         </SubContents>
       </div>
     );

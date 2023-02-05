@@ -11,8 +11,26 @@ const CompanyListElement = ({
   interestPoint,
   eventKey,
   companyName,
-  upjongNumber,
+  page,
 }) => {
+  if (page) {
+    return (
+      <tr>
+        <td>{companyName}</td>
+        <td>{interestPoint}%</td>
+        <td>{growthPoint}%</td>
+        <td>
+          <Link
+            to={{
+              pathname: `/company/${companyName}`,
+            }}
+          >
+            <Badge style={{ fontSize: "0.5rem" }}>GO</Badge>
+          </Link>
+        </td>
+      </tr>
+    );
+  }
   return (
     <tr>
       <th scope="row">{eventKey + 1}</th>
@@ -23,9 +41,6 @@ const CompanyListElement = ({
         <Link
           to={{
             pathname: `/company/${companyName}`,
-            state: {
-              upjongNumber: { upjongNumber },
-            },
           }}
         >
           <Badge>자세히 보기</Badge>
