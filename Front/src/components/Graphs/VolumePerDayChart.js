@@ -1,39 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Line } from "react-chartjs-2";
 
 const VolumePerDayChart = ({ volumePerDay }) => {
-  const [first, setFirst] = useState(0);
-  const [second, setSecond] = useState(0);
-  const [third, setThird] = useState(0);
-  const [fourth, setFourth] = useState(0);
-  const [recent, setRecent] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setRecent(volumePerDay.slice(0, 4));
-    try {
-      if (recent) {
-        setFirst(recent[0].volumePerDay);
-        setSecond(recent[1].volumePerDay);
-        setThird(recent[2].volumePerDay);
-        setFourth(recent[3].volumePerDay);
-      }
-      setIsLoading(false);
-    } catch {}
-  }, [isLoading]);
-
-  const data = {
-    labels: [2019, 2020, 2021, 2022],
+  const [data, setData] = useState({
+    labels: [],
     datasets: [
       {
-        data: [fourth, third, second, first],
+        data: [],
         backgroundColor: "aqua",
         borderColor: "black",
         pointBorderColor: "aqua",
         tension: 0.4,
       },
     ],
-  };
+  });
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const recent = useMemo(() => volumePerDay.slice(0, 4), [volumePerDay]);
+
+  useEffect(() => {
+    const recentVolume = recent.map((dto) => dto.volumePerDay);
+    const dates = recent.map((dto) => dto.companyDate);
+
+    setData({
+      labels: dates,
+      datasets: [
+        {
+          data: recentVolume,
+          backgroundColor: "aqua",
+          borderColor: "black",
+          pointBorderColor: "aqua",
+          tension: 0.4,
+        },
+      ],
+    });
+
+    setIsLoading(false);
+  }, [recent]);
+
+  const minValue = Math.min(...recent.map((dto) => dto.volumePerDay));
+  const maxValue = Math.max(...recent.map((dto) => dto.volumePerDay));
 
   const options = {
     plugins: {
@@ -48,8 +55,8 @@ const VolumePerDayChart = ({ volumePerDay }) => {
     },
     scales: {
       y: {
-        min: Math.min(first, second, third, fourth),
-        max: Math.max(first, second, third, fourth),
+        min: minValue,
+        max: maxValue,
       },
     },
   };

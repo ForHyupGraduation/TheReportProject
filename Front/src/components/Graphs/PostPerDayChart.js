@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 
 const PostPerDayChart = ({ postPerDayData }) => {
@@ -8,8 +8,9 @@ const PostPerDayChart = ({ postPerDayData }) => {
   const [fourth, setFourth] = useState(0);
   const [recent, setRecent] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [date, setDate] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setRecent(postPerDayData.slice(0, 4));
     try {
       if (recent) {
@@ -17,13 +18,14 @@ const PostPerDayChart = ({ postPerDayData }) => {
         setSecond(recent[1].postPerDay);
         setThird(recent[2].postPerDay);
         setFourth(recent[3].postPerDay);
+        setDate(recent.map((dto) => dto.companyDate));
       }
     } catch {}
     setIsLoading(false);
   }, [isLoading]);
 
   const data = {
-    labels: [2019, 2020, 2021, 2022],
+    labels: date,
     datasets: [
       {
         data: [fourth, third, second, first],
@@ -55,7 +57,6 @@ const PostPerDayChart = ({ postPerDayData }) => {
   };
 
   if (!isLoading) {
-    console.log(recent[0].companyDate);
     return (
       <>
         <Line data={data} options={options} />
