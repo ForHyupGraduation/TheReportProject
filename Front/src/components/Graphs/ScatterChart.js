@@ -29,18 +29,24 @@ const options = {
   },
 };
 
-const ScatterChart = ({ labels, data }) => {
+const ScatterChart = ({ labels, data, companyName }) => {
   const [isLoading, setIsLoading] = useState(null);
+  const [color, setColor] = useState("red");
 
   useEffect(() => {
     setIsLoading(false);
+    const intervalId = setInterval(() => {
+      setColor((color) => (color === "red" ? "#33ff33" : "red"));
+    }, 500);
+    return () => clearInterval(intervalId);
   }, []);
+
   if (!isLoading) {
     const pointBackgroundColors = data.map((point, index) => {
-      if (labels[index] === "밸로프") {
-        return "red";
+      if (labels[index] === companyName) {
+        return color;
       } else {
-        return "rgb(192,192,192)";
+        return "rgba(255,0,0,0.1)";
       }
     });
 
@@ -52,6 +58,7 @@ const ScatterChart = ({ labels, data }) => {
           datasets: [
             {
               data,
+              pointRadius: 6,
               pointBackgroundColor: pointBackgroundColors,
             },
           ],
