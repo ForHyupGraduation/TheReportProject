@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Login from "./pages/Login";
 import Regist from "./pages/Regist";
 import Test from "./pages/Test";
+import Investor from "./pages/Investor";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/regist" element={<Regist />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/investor/:nickname" element={<Investor />} />
         </Route>
       </Routes>
     </div>
