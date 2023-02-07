@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="back.back.BackApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-16T14:15:25" hostname="DESKTOP-T9QPKJJ" time="0.153">
+  <properties/>
+  <testcase name="contextLoads()" classname="back.back.BackApplicationTests" time="0.153"/>
+  <system-out><![CDATA[23:15:21.508 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [BackApplicationTests]: using SpringBootContextLoader
+23:15:21.512 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [back.back.BackApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+23:15:21.513 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [back.back.BackApplicationTests]: BackApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:15:21.538 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [BackApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+23:15:21.600 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\cogud\Downloads\TheReportProject\back\build\classes\java\main\back\back\BackApplication.class]
+23:15:21.602 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration back.back.BackApplication for test class back.back.BackApplicationTests
+23:15:21.714 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [BackApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+23:15:21.716 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [BackApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.1)
+
+2023-01-16T23:15:21.964+09:00  INFO 22664 --- [    Test worker] back.back.BackApplicationTests           : Starting BackApplicationTests using Java 17.0.3.1 with PID 22664 (started by cogud in C:\Users\cogud\Downloads\TheReportProject\back)
+2023-01-16T23:15:21.966+09:00  INFO 22664 --- [    Test worker] back.back.BackApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2023-01-16T23:15:22.483+09:00  INFO 22664 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-16T23:15:22.503+09:00  INFO 22664 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2023-01-16T23:15:22.867+09:00  INFO 22664 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-16T23:15:22.931+09:00  INFO 22664 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-16T23:15:23.107+09:00  WARN 22664 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-16T23:15:23.237+09:00  INFO 22664 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-16T23:15:23.488+09:00  INFO 22664 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e7bb00e
+2023-01-16T23:15:23.490+09:00  INFO 22664 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-16T23:15:23.553+09:00  INFO 22664 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+Hibernate: alter table company drop foreign key FK27bdvwadmjtc5l2trpt9pj2mi
+Hibernate: alter table company drop foreign key FKfg7vswq4dbwnc5sk6djsshd2e
+Hibernate: alter table company drop foreign key FK3iloaocasielxtgrwiinmwlpp
+Hibernate: alter table company drop foreign key FKc7fjh84ulwgibldry286yojka
+Hibernate: alter table news drop foreign key FKqj83qt93qlwj8p3tq9hnss1p7
+Hibernate: drop table if exists `jpa_test$member`
+Hibernate: drop table if exists company
+Hibernate: drop table if exists net_profit
+Hibernate: drop table if exists news
+Hibernate: drop table if exists operating_profit
+Hibernate: drop table if exists operating_profit_margin
+Hibernate: drop table if exists revenue
+Hibernate: create table `jpa_test$member` (member_id bigint not null auto_increment, name varchar(255), primary key (member_id)) engine=InnoDB
+Hibernate: create table company (company_id bigint not null auto_increment, company_name varchar(255), growth_point integer, interest_point integer, net_profit_id bigint, operating_profit_id bigint, operating_profit_margin_id bigint, revenue_id bigint, primary key (company_id)) engine=InnoDB
+Hibernate: create table net_profit (net_profit_id bigint not null auto_increment, previous_fourth_quarter varchar(255), previous_quarter varchar(255), previous_second_quarter varchar(255), previous_third_quarter varchar(255), primary key (net_profit_id)) engine=InnoDB
+Hibernate: create table news (news_id bigint not null auto_increment, content varchar(255), image_url varchar(255), link_url varchar(255), title varchar(255), company_id bigint, primary key (news_id)) engine=InnoDB
+Hibernate: create table operating_profit (operating_profit_id bigint not null auto_increment, previous_fourth_quarter varchar(255), previous_quarter varchar(255), previous_second_quarter varchar(255), previous_third_quarter varchar(255), primary key (operating_profit_id)) engine=InnoDB
+Hibernate: create table operating_profit_margin (operating_profit_margin_id bigint not null auto_increment, previous_fourth_quarter varchar(255), previous_quarter varchar(255), previous_second_quarter varchar(255), previous_third_quarter varchar(255), primary key (operating_profit_margin_id)) engine=InnoDB
+Hibernate: create table revenue (revenue_id bigint not null auto_increment, previous_fourth_quarter varchar(255), previous_quarter varchar(255), previous_second_quarter varchar(255), previous_third_quarter varchar(255), primary key (revenue_id)) engine=InnoDB
+Hibernate: alter table company add constraint FK27bdvwadmjtc5l2trpt9pj2mi foreign key (net_profit_id) references net_profit (net_profit_id)
+Hibernate: alter table company add constraint FKfg7vswq4dbwnc5sk6djsshd2e foreign key (operating_profit_id) references operating_profit (operating_profit_id)
+Hibernate: alter table company add constraint FK3iloaocasielxtgrwiinmwlpp foreign key (operating_profit_margin_id) references operating_profit_margin (operating_profit_margin_id)
+Hibernate: alter table company add constraint FKc7fjh84ulwgibldry286yojka foreign key (revenue_id) references revenue (revenue_id)
+Hibernate: alter table news add constraint FKqj83qt93qlwj8p3tq9hnss1p7 foreign key (company_id) references company (company_id)
+2023-01-16T23:15:24.678+09:00  INFO 22664 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-16T23:15:24.688+09:00  INFO 22664 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-16T23:15:24.959+09:00  WARN 22664 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-16T23:15:25.290+09:00  INFO 22664 --- [    Test worker] back.back.BackApplicationTests           : Started BackApplicationTests in 3.53 seconds (process running for 4.61)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
