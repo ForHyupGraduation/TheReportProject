@@ -30,7 +30,7 @@ function Home() {
   } else {
     return (
       <>
-        <div style={{ position: "relative" }}>
+        {/* <div style={{ position: "relative" }}>
           <video muted autoPlay loop style={{ width: "100%" }}>
             <source src={StockVideo} type="video/mp4" />
           </video>
@@ -63,12 +63,10 @@ function Home() {
               fontWeight: "bold",
               color: "white",
             }}
-          >
-            asdf
-          </p>
-        </div>
+          ></p>
+        </div> */}
 
-        <div class="album py-5">
+        <div class="album py-5" style={{ height: "100vh" }}>
           <div class="container">
             <UpjongCards upjongs={upjongsInfo} />
           </div>

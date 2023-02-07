@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import React from "react";
+import React, { useEffect } from "react";
 import Company from "./pages/Company";
 import Upjong from "./pages/Upjong";
 import Header from "./components/Layouts/Header";
@@ -10,10 +10,19 @@ import Login from "./pages/Login";
 import Regist from "./pages/Regist";
 import Test from "./pages/Test";
 import Investor from "./pages/Investor";
-
+import { useState } from "react";
 const App = () => {
+  const [color, setColor] = useState();
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setColor((color) => (color === "red" ? "#33ff33" : "red"));
+    }, 50);
+    return () => clearInterval(intervalId);
+  });
+
   return (
-    <div className="App" style={{ backgroundColor: "whitesmoke" }}>
+    // color : "whiteSmoke"
+    <div className="App" style={{ backgroundColor: color }}>
       <Routes>
         <Route element={<Header />}>
           <Route path="/" element={<Home />} />

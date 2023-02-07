@@ -1,41 +1,46 @@
-import React, { useLayoutEffect, useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Line } from "react-chartjs-2";
 
 const PostPerDayChart = ({ postPerDayData }) => {
-  const [first, setFirst] = useState(0);
-  const [second, setSecond] = useState(0);
-  const [third, setThird] = useState(0);
-  const [fourth, setFourth] = useState(0);
-  const [recent, setRecent] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [date, setDate] = useState(null);
-
-  useLayoutEffect(() => {
-    setRecent(postPerDayData.slice(0, 4));
-    try {
-      if (recent) {
-        setFirst(recent[0].postPerDay);
-        setSecond(recent[1].postPerDay);
-        setThird(recent[2].postPerDay);
-        setFourth(recent[3].postPerDay);
-        setDate(recent.map((dto) => dto.companyDate));
-      }
-    } catch {}
-    setIsLoading(false);
-  }, [isLoading]);
-
-  const data = {
-    labels: date,
+  const [data, setData] = useState({
+    labels: [],
     datasets: [
       {
-        data: [fourth, third, second, first],
+        data: [],
         backgroundColor: "aqua",
         borderColor: "black",
         pointBorderColor: "aqua",
         tension: 0.4,
       },
     ],
-  };
+  });
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const recent = useMemo(() => postPerDayData.slice(0, 4), [postPerDayData]);
+
+  useEffect(() => {
+    const recentPostPerDay = recent.map((dto) => dto.postPerDay);
+    const dates = recent.map((dto) => dto.companyDate);
+
+    setData({
+      labels: dates,
+      datasets: [
+        {
+          data: recentPostPerDay,
+          backgroundColor: "aqua",
+          borderColor: "black",
+          pointBorderColor: "aqua",
+          tension: 0.4,
+        },
+      ],
+    });
+
+    setIsLoading(false);
+  }, [recent]);
+
+  const minValue = Math.min(...recent.map((dto) => dto.postPerDay));
+  const maxValue = Math.max(...recent.map((dto) => dto.postPerDay));
 
   const options = {
     plugins: {
@@ -50,8 +55,8 @@ const PostPerDayChart = ({ postPerDayData }) => {
     },
     scales: {
       y: {
-        min: Math.min(first, second, third, fourth),
-        max: Math.max(first, second, third, fourth),
+        min: minValue,
+        max: maxValue,
       },
     },
   };

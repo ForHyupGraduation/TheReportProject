@@ -7,6 +7,7 @@ const SalesChart = ({ sales }) => {
   const [third, setThird] = useState(null);
   const [fourth, setFourth] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     setFirst(sales.salesOneYearsAgo);
     setSecond(sales.salesTwoYearsAgo);
