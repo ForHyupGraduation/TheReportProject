@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="back.back.JpaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-16T14:15:25" hostname="DESKTOP-T9QPKJJ" time="0.097">
+  <properties/>
+  <testcase name="jpaTest()" classname="back.back.JpaTest" time="0.097"/>
+  <system-out><![CDATA[2023-01-16T23:15:25.470+09:00  INFO 22664 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [back.back.JpaTest]: JpaTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-01-16T23:15:25.471+09:00  INFO 22664 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration back.back.BackApplication for test class back.back.JpaTest
+Hibernate: insert into net_profit (previous_fourth_quarter, previous_quarter, previous_second_quarter, previous_third_quarter) values (?, ?, ?, ?)
+Hibernate: insert into operating_profit (previous_fourth_quarter, previous_quarter, previous_second_quarter, previous_third_quarter) values (?, ?, ?, ?)
+Hibernate: insert into revenue (previous_fourth_quarter, previous_quarter, previous_second_quarter, previous_third_quarter) values (?, ?, ?, ?)
+Hibernate: insert into operating_profit_margin (previous_fourth_quarter, previous_quarter, previous_second_quarter, previous_third_quarter) values (?, ?, ?, ?)
+Hibernate: insert into company (company_name, growth_point, interest_point, net_profit_id, operating_profit_id, operating_profit_margin_id, revenue_id) values (?, ?, ?, ?, ?, ?, ?)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

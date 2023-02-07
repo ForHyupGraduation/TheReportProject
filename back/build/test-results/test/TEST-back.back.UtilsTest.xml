@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="back.back.UtilsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-16T14:15:25" hostname="DESKTOP-T9QPKJJ" time="0.005">
+  <properties/>
+  <testcase name="utilsTest()" classname="back.back.UtilsTest" time="0.005"/>
+  <system-out><![CDATA[key : ????? value : OperatingProfitMargin{id=null, previousFourthQuarter='null', previousThirdQuarter='null', previousSecondQuarter='null', previousQuarter='null'}
+key : ???? value : OperatingProfit{id=null, previousFourthQuarter='null', previousThirdQuarter='null', previousSecondQuarter='null', previousQuarter='null'}
+key : ??? value : Revenue{id=null, previousFourthQuarter='null', previousThirdQuarter='null', previousSecondQuarter='null', previousQuarter='null'}
+key : ????? value : NetProfit{id=null, previousFourthQuarter='null', previousThirdQuarter='null', previousSecondQuarter='null', previousQuarter='null'}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
